@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanCafeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pasword" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Kind" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateCheckIn" Type="datetime" Nullable="false" />
+    <Property Name="IdTable" Type="int" Nullable="false" />
+    <Property Name="DateCheckOut" Type="datetime" Nullable="false" />
+    <Property Name="TotalPrice" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BillInfor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdBill" Type="int" Nullable="false" />
+    <Property Name="IdFood" Type="int" Nullable="false" />
+    <Property Name="FoodCount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="M_POST">
+    <Key>
+      <PropertyRef Name="POST_KANRI" />
+    </Key>
+    <Property Name="POST_KANRI" Type="numeric" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="POST" Type="varchar" MaxLength="8" />
+    <Property Name="ADDRESS1" Type="nvarchar" MaxLength="40" />
+    <Property Name="ADDRESS_KN" Type="nvarchar" MaxLength="50" />
+    <Property Name="UPD_DATE" Type="datetime" />
+    <Property Name="UPD_TIME" Type="varchar" MaxLength="8" />
+    <Property Name="UPD_TANTO" Type="varchar" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TableFood">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <Association Name="FK_Bill_TableFood">
+    <End Role="TableFood" Type="Self.TableFood" Multiplicity="1" />
+    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TableFood">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="IdTable" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BillInfor_Bill">
+    <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
+    <End Role="BillInfor" Type="Self.BillInfor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bill">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BillInfor">
+        <PropertyRef Name="IdBill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BillInfor_Food">
+    <End Role="Food" Type="Self.Food" Multiplicity="1" />
+    <End Role="BillInfor" Type="Self.BillInfor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BillInfor">
+        <PropertyRef Name="IdFood" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Food_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Food" Type="Self.Food" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Food">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanCafeModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BillInfor" EntityType="Self.BillInfor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_POST" EntityType="Self.M_POST" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TableFood" EntityType="Self.TableFood" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Bill_TableFood" Association="Self.FK_Bill_TableFood">
+      <End Role="TableFood" EntitySet="TableFood" />
+      <End Role="Bill" EntitySet="Bill" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BillInfor_Bill" Association="Self.FK_BillInfor_Bill">
+      <End Role="Bill" EntitySet="Bill" />
+      <End Role="BillInfor" EntitySet="BillInfor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BillInfor_Food" Association="Self.FK_BillInfor_Food">
+      <End Role="Food" EntitySet="Food" />
+      <End Role="BillInfor" EntitySet="BillInfor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Food_Category" Association="Self.FK_Food_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Food" EntitySet="Food" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

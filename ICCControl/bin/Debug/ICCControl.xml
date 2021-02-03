@@ -1,0 +1,724 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ICCControl
+</name>
+</assembly>
+<members>
+<member name="T:ICCControl.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:ICCControl.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:ICCControl.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:ICCControl.FControl.ChangeStrWide(System.String)">
+ <summary>
+ 半角文字を全角文字に変換して返す
+ </summary>
+ <param name="prmString">文字列</param>
+ <returns>変換後文字列</returns>
+ <remarks>半角文字を全角文字に変換して返す</remarks>
+</member>
+<member name="M:ICCControl.FControl.ChangeStrNarrow(System.String)">
+ <summary>
+ 全角文字を半角文字に変換して返す
+ </summary>
+ <param name="prmString">文字列</param>
+ <returns>変換後文字列</returns>
+ <remarks>全角文字を半角文字に変換して返す</remarks>
+</member>
+<member name="M:ICCControl.FControl.GetByte(System.Object)">
+ <summary>
+ 対象文字列のバイト数を返す
+ </summary>
+ <param name="prmStrValue">対象文字列 - Object</param>
+ <returns>Long</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ICCControl.FControl.IsFullWidth(System.String)">
+ <summary>
+ CheckFullWidth
+ </summary>
+ <param name="prmStrValue"></param>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.FControl.IsHaftWidthEng(System.String)">
+ <summary>
+ CheckFullWidth
+ </summary>
+ <param name="prmStrValue"></param>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_Button.OnCreateControl">
+ <summary>
+ OnCreateControl Overrides
+ </summary>
+</member>
+<member name="M:ICCControl.CC_Calendar.OnCreateControl">
+ <summary>
+ OnCreateControl Overrides
+ </summary>
+</member>
+<member name="M:ICCControl.CC_Calendar.getValue(System.String)">
+ <summary>
+ getValue
+ </summary>
+ <param name="_fomat">default is yyyyMMdd</param>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_Calendar.setFomat(ICCControl.CC_Calendar.ValueTypeEnum)">
+ <summary>
+ setFomat
+ </summary>
+ <param name="valueType">ValueTypeEnum</param>
+</member>
+<member name="M:ICCControl.CC_Calendar.CheckValueType(System.Nullable{System.Int32})">
+ <summary>
+ CheckValueType
+ </summary>
+ <param name="value"></param>
+ <returns>ValueTypeEnum</returns>
+</member>
+<member name="M:ICCControl.CC_Calendar.setValue(System.Nullable{System.Int32})">
+ <summary>
+ GetDateFromValue
+ </summary>
+ <param name="value">yyyyMMdd or yyMMdd</param>
+</member>
+<member name="M:ICCControl.CC_Calendar.setValue(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+ <summary>
+ setValue
+ </summary>
+ <param name="year"></param>
+ <param name="month"></param>
+ <param name="day"></param>
+</member>
+<member name="M:ICCControl.CC_Calendar.setValue(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+ <summary>
+ setValue
+ </summary>
+ <param name="year"></param>
+ <param name="month"></param>
+ <param name="day"></param>
+ <param name="hour"></param>
+ <param name="minute"></param>
+ <param name="second"></param>
+</member>
+<member name="M:ICCControl.CC_Calendar.getYearValue">
+ <summary>
+ getYearValue yyyy
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_Calendar.getMonthValue">
+ <summary>
+ getMonthValue MM
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_Calendar.getDayValue">
+ <summary>
+ getYearValue dd
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_Calendar.getHourValue">
+ <summary>
+ getHourValue hh
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_Calendar.getMinuteValue">
+ <summary>
+ getMinuteValue mm
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_Calendar.getSecondValue">
+ <summary>
+ getSecondValue ss
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_Calendar.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ OnKeyDown
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_Calendar.OnValueChanged(System.EventArgs)">
+ <summary>
+ OnValueChanged
+ </summary>
+ <param name="eventargs"></param>
+</member>
+<member name="M:ICCControl.CC_CalendarColumn.Clone">
+ <summary>
+ </summary>
+ <returns></returns>
+ <remarks>
+ kevininstructor
+ This is needed to persist our custom property DateFormat
+ </remarks>
+</member>
+<member name="T:ICCControl.CalendarEditingControl">
+ <summary>
+ Provides Calendar popup within the GridView.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:ICCControl.CC_CalendarJP">
+ <summary>
+ JP カレンダー
+ </summary>
+</member>
+<member name="P:ICCControl.CC_CalendarJP.Value">
+ <summary>
+ Full text without  年 月 日
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ICCControl.CC_CalendarJP.Year">
+ <summary>
+ 年
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ICCControl.CC_CalendarJP.Month">
+ <summary>
+ 月
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ICCControl.CC_CalendarJP.Day">
+ <summary>
+ 日
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_CalendarJP.txtValue_KeyPress(System.Object,System.Windows.Forms.KeyPressEventArgs)">
+ <summary>
+ Just input Digit
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_CalendarJP.txtValue_KeyUp(System.Object,System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ Catch press delete
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_CalendarJP.dtpCalendar_ValueChanged(System.Object,System.EventArgs)">
+ <summary>
+ Set Value from DateTimePicker To TextBox
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_Combobox.OnCreateControl">
+ <summary>
+ OnCreateControl Overrides
+ </summary>
+</member>
+<member name="M:ICCControl.CC_Combobox.CC_ComboBox_DrawItem(System.Object,System.Windows.Forms.DrawItemEventArgs)">
+ <summary>
+ This handler is used when ComboBox is OwnerDraw
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_Combobox.getValue">
+ <summary>
+ getValue
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_Combobox.setValue(System.Object)">
+ <summary>
+ getValue
+ </summary>
+</member>
+<member name="M:ICCControl.CC_Combobox.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+ <summary>
+ Make Enter work like Tab
+ </summary>
+ <param name="msg">Message</param>
+ <param name="keyData">Keys</param>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_Combobox.OnLeave(System.EventArgs)">
+ <summary>
+ Automatic text complex by input value
+ </summary>
+ <param name="e">EventArgs</param>
+</member>
+<member name="M:ICCControl.CC_Combobox.GetDisplayText(System.Nullable{System.Int64})">
+ <summary>
+ GetDisplayText
+ </summary>
+ <param name="SelectedValue"></param>
+ <returns></returns>
+</member>
+<member name="F:ICCControl.CC_DataGridView._listColMapping">
+ <summary>
+ List(Of KeyValuePair(Of String, Object)) for Col Mapping
+ </summary>
+</member>
+<member name="P:ICCControl.CC_DataGridView.ListColMapping">
+ <summary>
+ List(Of KeyValuePair(Of String, Object))
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_DataGridView.BindDataToGrid(System.Data.DataTable,System.Boolean)">
+ <summary>
+ Bind a DataTable to Gridview
+ </summary>
+ <param name="dtData">DataTable</param>
+</member>
+<member name="M:ICCControl.CC_DataGridView.SetCellValue(System.Int32,System.Int32,System.Object)">
+ <summary>
+ setCellValue
+ </summary>
+ <param name="rowIndex">rowIndex</param>
+ <param name="colIndex">colIndex</param>
+ <param name="value">Object</param>
+</member>
+<member name="M:ICCControl.CC_DataGridView.GetCellValue(System.Int32,System.Int32)">
+ <summary>
+ getCellValue
+ </summary>
+ <param name="rowIndex"></param>
+ <param name="colIndex"></param>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_DataGridView.SetCellReadonly(System.Int32,System.Int32,System.Boolean)">
+ <summary>
+ setCellValue
+ </summary>
+ <param name="rowIndex">rowIndex</param>
+ <param name="colIndex">colIndex</param>
+ <param name="bReadOnnly">Boolean</param>
+</member>
+<member name="M:ICCControl.CC_DataGridView.OnCellEnter(System.Windows.Forms.DataGridViewCellEventArgs)">
+ <summary>
+ OnCellEnter
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_DataGridView.ProcessDataGridViewKey(System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ ProcessDataGridViewKey
+ </summary>
+ <param name="e"></param>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_DataGridView.ProcessDialogKey(System.Windows.Forms.Keys)">
+ <summary>
+ ProcessDialogKey
+ </summary>
+ <param name="keyData"></param>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_DataGridView.SetValueFormToGrid(System.Windows.Forms.Form@)">
+ <summary>
+ SetValueFormToGrid
+ </summary>
+ <param name="frm"></param>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_DataGridView.OnUserAddedRow(System.Windows.Forms.DataGridViewRowEventArgs)">
+ <summary>
+ Check maxrow when user add
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="F:ICCControl.CC_DataGridView.rowSelectIndex">
+ <summary>
+ last rowSelectIndex
+ </summary>
+</member>
+<member name="M:ICCControl.CC_DataGridView.OnCellLeave(System.Windows.Forms.DataGridViewCellEventArgs)">
+ <summary>
+ rowSelectIndex = e.RowIndex
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_DataGridView.OnCellEndEdit(System.Windows.Forms.DataGridViewCellEventArgs)">
+ <summary>
+ OnCellEndEdit
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_DataGridView.AddColumnInfo(System.Int32,System.Boolean,System.Int32,System.Boolean,System.Windows.Forms.ImeMode,System.Boolean,Microsoft.VisualBasic.VbStrConv,System.Boolean,ICCControl.CM_Enum.CC_EVENT)">
+ <summary>
+ AddColumnInfo
+ </summary>
+ <param name="ColumnIndex"></param>
+ <param name="IsColKey"></param>
+ <param name="DataMaxlength"></param>
+</member>
+<member name="M:ICCControl.CC_DataGridView.AddColumnComboboxInfo(System.Int32,System.Int32)">
+ <summary>
+ AddColumnComboboxInfo
+ </summary>
+</member>
+<member name="M:ICCControl.CC_DataGridView.OnCurrentCellDirtyStateChanged(System.EventArgs)">
+ <summary>
+ OnCellValueChanged
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_DataGridView.OnCellValueChanged(System.Windows.Forms.DataGridViewCellEventArgs)">
+ <summary>
+ OnCellValueChanged
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_DataGridView.JapaneseEra(System.Int32)">
+ <summary>
+ JapaneseEraName
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_DataGridView.ConvertJapaneseEra(System.String)">
+ <summary>
+ JapaneseEraName
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_DataGridView.IsNumberToYearMonth(System.String)">
+ <summary>
+ IsNumberToYearMonth
+ </summary>
+</member>
+<member name="M:ICCControl.CC_DataGridView.IsYearMonthToInteger(System.String)">
+ <summary>
+ IsYearMonthToInteger
+ </summary>
+</member>
+<member name="M:ICCControl.CC_DataGridView.ColorCellError(System.Int32,System.Int32)">
+ <summary>
+ ColorCellError
+ </summary>
+</member>
+<member name="M:ICCControl.CC_DataGridView.ColorCellDefault(System.Int32,System.Int32)">
+ <summary>
+ ColorCell
+ </summary>
+</member>
+<member name="M:ICCControl.CC_DataGridView.SetColorGridDefault">
+ <summary>
+ ColorCell
+ </summary>
+</member>
+<member name="M:ICCControl.CC_DataGridView.IsNotColorError(System.Boolean)">
+ <summary>
+ ColorCell
+ </summary>
+</member>
+<member name="M:ICCControl.CC_DataGridView.ClearRow">
+ <summary>
+ ClearRow
+ </summary>
+</member>
+<member name="M:ICCControl.CC_DataGridView.SetReadOnlyGrv(System.Boolean)">
+ <summary>
+ SetReadOnlyGrv
+ </summary>
+</member>
+<member name="M:ICCControl.CC_DataGridView.SaveColumnRead">
+ <summary>
+ SaveColumnRead
+ </summary>
+</member>
+<member name="T:ICCControl.CC_DataGridViewMergeHeader.CC_MergeColumnInfo">
+ <summary>
+ Structure to define Merge Column Info
+ </summary>
+</member>
+<member name="M:ICCControl.CC_DataGridViewMergeHeader.CC_MergeColumnInfo.#ctor(System.Byte,System.Byte,System.String)">
+ <summary>
+ New Structure to define Merge Column Info
+ </summary>
+ <param name="columnFrom">columnFrom</param>
+ <param name="columnCount">columnCount</param>
+ <param name="columnText">columnText</param>
+</member>
+<member name="F:ICCControl.CC_DataGridViewMergeHeader.MergeColumnInfo">
+ <summary>
+ MergeColumnInfo
+ </summary>
+</member>
+<member name="M:ICCControl.CC_DataGridViewMergeHeader.getColumnWidth(System.Byte,System.Byte)">
+ <summary>
+ getColumnWidth
+ </summary>
+ <param name="columnFrom"></param>
+ <param name="columnCount"></param>
+ <returns></returns>
+</member>
+<member name="T:ICCControl.CC_DataGridViewMergeHeader.CC_MergeRowInfo">
+ <summary>
+ Structure to define Merge Row Info
+ </summary>
+</member>
+<member name="M:ICCControl.CC_DataGridViewMergeHeader.CC_MergeRowInfo.#ctor(System.Byte,System.Byte,System.Int32)">
+ <summary>
+ New Structure to define Merge Row Info
+ </summary>
+ <param name="rowFrom">rowFrom</param>
+ <param name="rowTo">rowTo</param>
+ <param name="columnIndex">columnIndex</param>
+</member>
+<member name="F:ICCControl.CC_DataGridViewMergeHeader.MergeRowInfo">
+ <summary>
+ MergeRowInfo
+ </summary>
+</member>
+<member name="M:ICCControl.CC_DataGridViewMergeHeader.getRowHeight(System.Byte,System.Byte)">
+ <summary>
+ getRowHeight
+ </summary>
+ <param name="rowFrom"></param>
+ <param name="rowTo"></param>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_DataGridViewMergeHeader.getRowText(System.Byte,System.Byte,System.Byte)">
+ <summary>
+ getRowText
+ </summary>
+ <param name="rowFrom"></param>
+ <param name="rowTo"></param>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_DataGridViewMergeHeader.OnCreateControl">
+ <summary>
+ OnCreateControl
+ </summary>
+</member>
+<member name="M:ICCControl.CC_DataGridViewMergeHeader.DataGridView1_ColumnWidthChanged(System.Object,System.Windows.Forms.DataGridViewColumnEventArgs)">
+ <summary>
+ DataGridView1_ColumnWidthChanged
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_DataGridViewMergeHeader.DataGridView1_Scroll(System.Object,System.Windows.Forms.ScrollEventArgs)">
+ <summary>
+ DataGridView1_Scroll
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_Label.OnCreateControl">
+ <summary>
+ OnCreateControl Overrides
+ </summary>
+</member>
+<member name="M:ICCControl.CC_Label.OnPaint(System.Windows.Forms.PaintEventArgs)">
+ <summary>
+ Set Disabled colors
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="T:ICCControl.CC_Number">
+ <summary>
+ CC_Number
+ </summary>
+</member>
+<member name="M:ICCControl.CC_Number.OnCreateControl">
+ <summary>
+ OnCreateControl Overrides
+ </summary>
+</member>
+<member name="M:ICCControl.CC_Number.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+ <summary>
+ Just input Digit
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_Number.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ Valid when paste value
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_Number.OnEnter(System.EventArgs)">
+ <summary>
+ OnGotFocus
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_Number.OnLeave(System.EventArgs)">
+ <summary>
+ OnLostFocus
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_Number.JapaneseEra(System.Int32)">
+ <summary>
+ JapaneseEraName
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_Number.ConvertJapaneseEra">
+ <summary>
+ JapaneseEraName
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_PostalCode.OnCreateControl">
+ <summary>
+ OnCreateControl Overrides
+ </summary>
+</member>
+<member name="P:ICCControl.CC_PostalCode.FomatType">
+ <summary>
+ FomatType
+ 0: get MaskFomat value
+ 1: PostalCode Fomat
+ 2: PhoneNo Fomat
+ #: same as 0 value
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:ICCControl.CC_TextBox_Base">
+ <summary>
+ CC_TextBox_Base
+ </summary>
+</member>
+<member name="M:ICCControl.CC_TextBox_Base.OnCreateControl">
+ <summary>
+ OnCreateControl Overrides
+ </summary>
+</member>
+<member name="M:ICCControl.CC_TextBox_Base.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+ <summary>
+ Make Enter work like Tab
+ </summary>
+ <param name="msg">Message</param>
+ <param name="keyData">Keys</param>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CC_TextBox_Base.OnLeave(System.EventArgs)">
+ <summary>
+ OnLeave
+ </summary>
+ <param name="e">EventArgs</param>
+</member>
+<member name="M:ICCControl.CC_TextBox_Base.OnGotFocus(System.EventArgs)">
+ <summary>
+ Select all when Got Focus
+ </summary>
+ <param name="e">EventArgs</param>
+</member>
+<member name="M:ICCControl.CC_TextBox_Base.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+ <summary>
+ OnMouseUp
+ </summary>
+ <param name="mevent">MouseEventArgs</param>
+</member>
+<member name="M:ICCControl.CC_TextBox_Base.OnBackColorChanged(System.EventArgs)">
+ <summary>
+ OnBackColorChanged
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_TextBox_Base.OnReadOnlyChanged(System.EventArgs)">
+ <summary>
+ OnEnabledChanged
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_TextBox_Base.OnEnabledChanged(System.EventArgs)">
+ <summary>
+ OnEnabledChanged
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_TextBox.OnCreateControl">
+ <summary>
+ OnCreateControl Overrides
+ </summary>
+</member>
+<member name="M:ICCControl.CC_TextBox.OnLeave(System.EventArgs)">
+ <summary>
+ 
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="T:ICCControl.CC_Time">
+ <summary>
+ CC_Number
+ </summary>
+</member>
+<member name="M:ICCControl.CC_Time.OnCreateControl">
+ <summary>
+ OnCreateControl Overrides
+ </summary>
+</member>
+<member name="M:ICCControl.CC_Time.SetTime(System.String,System.String,System.String)">
+ <summary>
+ SetTime
+ </summary>
+ <param name="phour"></param>
+ <param name="pMinute"></param>
+ <param name="pSecond"></param>
+</member>
+<member name="M:ICCControl.CC_Time.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+ <summary>
+ Just input Digit
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="M:ICCControl.CC_Time.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ Valid when paste value
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="T:ICCControl.CM_Enum">
+ <summary>
+ CM_Enum
+ </summary>
+</member>
+<member name="T:ICCControl.CM_Enum.CC_DATA_TYPE">
+ <summary>
+ CC_DATA_TYPE
+ </summary>
+</member>
+<member name="F:ICCControl.CM_Message.MESS_ERROR_INPUT_CHECK">
+ <summary>
+ 画面初期表示失敗
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:ICCControl.ValidateCellInfo">
+ <summary>
+ ValidateCellInfo: using for setting GridView Validate
+ </summary>
+</member>
+<member name="M:ICCControl.ValidateCellInfo.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+ <summary>
+ New ValidateCellInfo 
+ </summary>
+ <param name="columnIndex">specify column index, must be >0</param>
+ <param name="rowIndex">specify row index, set -1 if valid for all rows</param>
+ <param name="dataMaxLength">must be set</param>
+ <param name="decimalLength">just setting if decimal value</param>
+ <param name="dataNotNull">default is false</param>
+</member>
+</members>
+</doc>

@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanCafeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Pasword" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Kind" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateCheckIn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IdTable" Type="Int32" Nullable="false" />
+    <Property Name="DateCheckOut" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TotalPrice" Type="Double" Nullable="false" />
+    <NavigationProperty Name="TableFood" Relationship="Self.FK_Bill_TableFood" FromRole="Bill" ToRole="TableFood" />
+    <NavigationProperty Name="BillInfors" Relationship="Self.FK_BillInfor_Bill" FromRole="Bill" ToRole="BillInfor" />
+  </EntityType>
+  <EntityType Name="BillInfor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdBill" Type="Int32" Nullable="false" />
+    <Property Name="IdFood" Type="Int32" Nullable="false" />
+    <Property Name="FoodCount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Bill" Relationship="Self.FK_BillInfor_Bill" FromRole="BillInfor" ToRole="Bill" />
+    <NavigationProperty Name="Food" Relationship="Self.FK_BillInfor_Food" FromRole="BillInfor" ToRole="Food" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Foods" Relationship="Self.FK_Food_Category" FromRole="Category" ToRole="Food" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BillInfors" Relationship="Self.FK_BillInfor_Food" FromRole="Food" ToRole="BillInfor" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Food_Category" FromRole="Food" ToRole="Category" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TableFood">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Bills" Relationship="Self.FK_Bill_TableFood" FromRole="TableFood" ToRole="Bill" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK_Bill_TableFood">
+    <End Role="TableFood" Type="Self.TableFood" Multiplicity="1" />
+    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TableFood">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="IdTable" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BillInfor_Bill">
+    <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
+    <End Role="BillInfor" Type="Self.BillInfor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bill">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BillInfor">
+        <PropertyRef Name="IdBill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BillInfor_Food">
+    <End Role="Food" Type="Self.Food" Multiplicity="1" />
+    <End Role="BillInfor" Type="Self.BillInfor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BillInfor">
+        <PropertyRef Name="IdFood" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Food_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Food" Type="Self.Food" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Food">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanCafeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="Bills" EntityType="Self.Bill" />
+    <EntitySet Name="BillInfors" EntityType="Self.BillInfor" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Foods" EntityType="Self.Food" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TableFoods" EntityType="Self.TableFood" />
+    <AssociationSet Name="FK_Bill_TableFood" Association="Self.FK_Bill_TableFood">
+      <End Role="TableFood" EntitySet="TableFoods" />
+      <End Role="Bill" EntitySet="Bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BillInfor_Bill" Association="Self.FK_BillInfor_Bill">
+      <End Role="Bill" EntitySet="Bills" />
+      <End Role="BillInfor" EntitySet="BillInfors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BillInfor_Food" Association="Self.FK_BillInfor_Food">
+      <End Role="Food" EntitySet="Foods" />
+      <End Role="BillInfor" EntitySet="BillInfors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Food_Category" Association="Self.FK_Food_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Food" EntitySet="Foods" />
+    </AssociationSet>
+    <EntitySet Name="M_POST" EntityType="QuanCafeModel.M_POST" />
+  </EntityContainer>
+  <EntityType Name="M_POST">
+    <Key>
+      <PropertyRef Name="POST_KANRI" />
+    </Key>
+    <Property Name="POST_KANRI" Type="Decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="POST" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="ADDRESS1" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="ADDRESS_KN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UPD_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPD_TIME" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="UPD_TANTO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

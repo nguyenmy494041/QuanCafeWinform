@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuanCafeModelStoreContainer" CdmEntityContainer="QuanCafeEntities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="QuanCafeModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Pasword" ColumnName="Pasword" />
+          <ScalarProperty Name="Kind" ColumnName="Kind" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bills">
+      <EntityTypeMapping TypeName="QuanCafeModel.Bill">
+        <MappingFragment StoreEntitySet="Bill">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateCheckIn" ColumnName="DateCheckIn" />
+          <ScalarProperty Name="IdTable" ColumnName="IdTable" />
+          <ScalarProperty Name="DateCheckOut" ColumnName="DateCheckOut" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillInfors">
+      <EntityTypeMapping TypeName="QuanCafeModel.BillInfor">
+        <MappingFragment StoreEntitySet="BillInfor">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdBill" ColumnName="IdBill" />
+          <ScalarProperty Name="IdFood" ColumnName="IdFood" />
+          <ScalarProperty Name="FoodCount" ColumnName="FoodCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="QuanCafeModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Foods">
+      <EntityTypeMapping TypeName="QuanCafeModel.Food">
+        <MappingFragment StoreEntitySet="Food">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="QuanCafeModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TableFoods">
+      <EntityTypeMapping TypeName="QuanCafeModel.TableFood">
+        <MappingFragment StoreEntitySet="TableFood">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_POST">
+      <EntityTypeMapping TypeName="QuanCafeModel.M_POST">
+        <MappingFragment StoreEntitySet="M_POST">
+          <ScalarProperty Name="UPD_TANTO" ColumnName="UPD_TANTO" />
+          <ScalarProperty Name="UPD_TIME" ColumnName="UPD_TIME" />
+          <ScalarProperty Name="UPD_DATE" ColumnName="UPD_DATE" />
+          <ScalarProperty Name="ADDRESS_KN" ColumnName="ADDRESS_KN" />
+          <ScalarProperty Name="ADDRESS1" ColumnName="ADDRESS1" />
+          <ScalarProperty Name="POST" ColumnName="POST" />
+          <ScalarProperty Name="POST_KANRI" ColumnName="POST_KANRI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
