@@ -38,17 +38,20 @@ Partial Class frmManagement
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.lvbill = New System.Windows.Forms.ListView()
         Me.Foodname = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.txbtotalprice = New System.Windows.Forms.TextBox()
-        Me.cbsale = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnthanhtoan = New System.Windows.Forms.Button()
-        Me.cbswitchtable = New System.Windows.Forms.ComboBox()
-        Me.btnswitchtable = New System.Windows.Forms.Button()
         Me.Price = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txbbanhientai = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cbsale = New System.Windows.Forms.ComboBox()
+        Me.txbtotalprice = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnthanhtoan = New System.Windows.Forms.Button()
+        Me.cbswitchtable = New System.Windows.Forms.ComboBox()
+        Me.btnswitchtable = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -177,24 +180,42 @@ Partial Class frmManagement
         '
         Me.lvbill.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Foodname, Me.Price, Me.ColumnHeader1, Me.ColumnHeader2})
         Me.lvbill.HideSelection = False
-        Me.lvbill.Location = New System.Drawing.Point(6, 13)
+        Me.lvbill.Location = New System.Drawing.Point(1, 4)
         Me.lvbill.Name = "lvbill"
-        Me.lvbill.Size = New System.Drawing.Size(344, 272)
+        Me.lvbill.Size = New System.Drawing.Size(352, 272)
         Me.lvbill.TabIndex = 0
         Me.lvbill.UseCompatibleStateImageBehavior = False
         Me.lvbill.View = System.Windows.Forms.View.Details
         '
         'Foodname
         '
-        Me.Foodname.Text = "FoodName"
+        Me.Foodname.Text = "Tên món"
         Me.Foodname.Width = 160
+        '
+        'Price
+        '
+        Me.Price.Text = "Giá"
+        Me.Price.Width = 55
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "Số lượng"
+        Me.ColumnHeader1.Width = 64
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "Thành tiền"
+        Me.ColumnHeader2.Width = 74
         '
         'Panel4
         '
-        Me.Panel4.Controls.Add(Me.txbtotalprice)
+        Me.Panel4.Controls.Add(Me.Label4)
+        Me.Panel4.Controls.Add(Me.txbbanhientai)
+        Me.Panel4.Controls.Add(Me.Label3)
         Me.Panel4.Controls.Add(Me.cbsale)
-        Me.Panel4.Controls.Add(Me.Label2)
+        Me.Panel4.Controls.Add(Me.txbtotalprice)
         Me.Panel4.Controls.Add(Me.Label1)
+        Me.Panel4.Controls.Add(Me.Label2)
         Me.Panel4.Controls.Add(Me.btnthanhtoan)
         Me.Panel4.Controls.Add(Me.cbswitchtable)
         Me.Panel4.Controls.Add(Me.btnswitchtable)
@@ -204,44 +225,73 @@ Partial Class frmManagement
         Me.Panel4.Size = New System.Drawing.Size(141, 359)
         Me.Panel4.TabIndex = 3
         '
-        'txbtotalprice
+        'Label4
         '
-        Me.txbtotalprice.Location = New System.Drawing.Point(23, 302)
-        Me.txbtotalprice.Name = "txbtotalprice"
-        Me.txbtotalprice.Size = New System.Drawing.Size(100, 24)
-        Me.txbtotalprice.TabIndex = 10
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(80, 194)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(21, 17)
+        Me.Label4.TabIndex = 13
+        Me.Label4.Text = "%"
+        '
+        'txbbanhientai
+        '
+        Me.txbbanhientai.Location = New System.Drawing.Point(22, 32)
+        Me.txbbanhientai.Name = "txbbanhientai"
+        Me.txbbanhientai.ReadOnly = True
+        Me.txbbanhientai.Size = New System.Drawing.Size(100, 24)
+        Me.txbbanhientai.TabIndex = 12
+        Me.txbbanhientai.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(33, 12)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(78, 17)
+        Me.Label3.TabIndex = 11
+        Me.Label3.Text = "Bàn hiện tại"
         '
         'cbsale
         '
         Me.cbsale.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbsale.FormattingEnabled = True
-        Me.cbsale.Items.AddRange(New Object() {"0 %", "5 %", "10 %", "15 %", "20 %", "30 %"})
-        Me.cbsale.Location = New System.Drawing.Point(14, 229)
+        Me.cbsale.Items.AddRange(New Object() {"0", "5", "10", "15", "20", "30"})
+        Me.cbsale.Location = New System.Drawing.Point(40, 190)
         Me.cbsale.Name = "cbsale"
-        Me.cbsale.Size = New System.Drawing.Size(109, 25)
+        Me.cbsale.Size = New System.Drawing.Size(40, 25)
         Me.cbsale.TabIndex = 9
         '
-        'Label2
+        'txbtotalprice
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(38, 282)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(63, 17)
-        Me.Label2.TabIndex = 8
-        Me.Label2.Text = "Tổng tiền"
+        Me.txbtotalprice.Location = New System.Drawing.Point(22, 258)
+        Me.txbtotalprice.Name = "txbtotalprice"
+        Me.txbtotalprice.ReadOnly = True
+        Me.txbtotalprice.Size = New System.Drawing.Size(100, 24)
+        Me.txbtotalprice.TabIndex = 10
+        Me.txbtotalprice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(38, 209)
+        Me.Label1.Location = New System.Drawing.Point(37, 170)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(60, 17)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "Giảm giá"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(37, 238)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(63, 17)
+        Me.Label2.TabIndex = 8
+        Me.Label2.Text = "Tổng tiền"
+        '
         'btnthanhtoan
         '
-        Me.btnthanhtoan.Location = New System.Drawing.Point(24, 129)
+        Me.btnthanhtoan.Location = New System.Drawing.Point(27, 299)
         Me.btnthanhtoan.Name = "btnthanhtoan"
         Me.btnthanhtoan.Size = New System.Drawing.Size(90, 42)
         Me.btnthanhtoan.TabIndex = 6
@@ -252,33 +302,19 @@ Partial Class frmManagement
         '
         Me.cbswitchtable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbswitchtable.FormattingEnabled = True
-        Me.cbswitchtable.Location = New System.Drawing.Point(14, 64)
+        Me.cbswitchtable.Location = New System.Drawing.Point(13, 125)
         Me.cbswitchtable.Name = "cbswitchtable"
         Me.cbswitchtable.Size = New System.Drawing.Size(109, 25)
         Me.cbswitchtable.TabIndex = 5
         '
         'btnswitchtable
         '
-        Me.btnswitchtable.Location = New System.Drawing.Point(24, 13)
+        Me.btnswitchtable.Location = New System.Drawing.Point(22, 84)
         Me.btnswitchtable.Name = "btnswitchtable"
         Me.btnswitchtable.Size = New System.Drawing.Size(90, 40)
         Me.btnswitchtable.TabIndex = 4
         Me.btnswitchtable.Text = "Chuyển bàn"
         Me.btnswitchtable.UseVisualStyleBackColor = True
-        '
-        'Price
-        '
-        Me.Price.Text = "Price"
-        Me.Price.Width = 58
-        '
-        'ColumnHeader1
-        '
-        Me.ColumnHeader1.Text = "quantity"
-        Me.ColumnHeader1.Width = 57
-        '
-        'ColumnHeader2
-        '
-        Me.ColumnHeader2.Text = "toal"
         '
         'frmManagement
         '
@@ -334,4 +370,7 @@ Partial Class frmManagement
     Friend WithEvents Price As ColumnHeader
     Friend WithEvents ColumnHeader1 As ColumnHeader
     Friend WithEvents ColumnHeader2 As ColumnHeader
+    Friend WithEvents Label4 As Label
+    Friend WithEvents txbbanhientai As TextBox
+    Friend WithEvents Label3 As Label
 End Class

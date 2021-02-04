@@ -22,5 +22,8 @@ QuanCafe
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="M:QuanCafe.FunctionFrmAdmin.getdatabill">
+thống kê doanh thu
+</member>
 </members>
 </doc>

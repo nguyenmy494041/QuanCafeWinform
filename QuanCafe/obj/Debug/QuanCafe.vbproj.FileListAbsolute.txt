@@ -21,3 +21,4 @@ C:\Users\nguye\Desktop\QuanCafe\QuanCafe\obj\Debug\QuanCafe.Form1.resources
 C:\Users\nguye\Desktop\QuanCafe\QuanCafe\bin\Debug\ICCControl.dll
 C:\Users\nguye\Desktop\QuanCafe\QuanCafe\bin\Debug\ICCControl.pdb
 C:\Users\nguye\Desktop\QuanCafe\QuanCafe\bin\Debug\ICCControl.xml
+C:\Users\nguye\Desktop\QuanCafe\QuanCafe\obj\Debug\QuanCafe.frmAdmin.resources
