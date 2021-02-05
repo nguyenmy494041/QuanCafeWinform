@@ -44,7 +44,8 @@
         Else
             MsgBox("Chưa chọn món và số lượng")
         End If
-
+        cbswitchtable.Items.Clear()
+        fun.fillDataInComboboxSwitchTable(cbswitchtable)
     End Sub
 
     Private Sub btnswitchtable_Click(sender As Object, e As EventArgs) Handles btnswitchtable.Click
@@ -59,11 +60,31 @@
     End Sub
 
     Private Sub btnthanhtoan_Click(sender As Object, e As EventArgs) Handles btnthanhtoan.Click
-        Dim fun = New MyFunction()
-        If cbsale.Text = "" Then
-            cbsale.Text = "0"
+        If MsgBox("Bạn muốn thanh toán cho " & txbbanhientai.Text, vbYesNo + vbQuestion, "Thnah toán") = vbYes Then
+            Dim fun = New MyFunction()
+            If cbsale.Text = "" Then
+                cbsale.Text = "0"
+            End If
+            fun.paybill(txbbanhientai.Text, Val(cbsale.Text), txbtotalprice)
+            frmManagement_Load(Nothing, Nothing)
+            fun.fillDataListView(fun.getIdTable(txbbanhientai.Text), lvbill, txbtotalprice)
+            cbswitchtable.Items.Clear()
+            fun.fillDataInComboboxSwitchTable(cbswitchtable)
         End If
-        fun.paybill(txbbanhientai.Text, Val(cbsale.Text), txbtotalprice)
-        frmManagement_Load(Nothing, Nothing)
+
+    End Sub
+
+    Private Sub AdminToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AdminToolStripMenuItem.Click
+        Dim frmadmin = New frmAdmin()
+        Me.Hide()
+        frmadmin.ShowDialog()
+        Me.Show()
+    End Sub
+
+    Private Sub TàiKhoảnToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TàiKhoảnToolStripMenuItem.Click
+        Dim frmchangepass = New frmChangePassword()
+        Me.Hide()
+        frmchangepass.ShowDialog()
+        Me.Show()
     End Sub
 End Class

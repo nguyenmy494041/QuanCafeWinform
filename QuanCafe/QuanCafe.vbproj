@@ -134,6 +134,12 @@
     <Compile Include="frmAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmChangePassword.Designer.vb">
+      <DependentUpon>frmChangePassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangePassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmDangnhap.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,12 @@
       <DependentUpon>frmPOST_KANRI.vb</DependentUpon>
     </Compile>
     <Compile Include="frmPOST_KANRI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmvalidate.Designer.vb">
+      <DependentUpon>frmvalidate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmvalidate.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -178,6 +190,9 @@
     <EmbeddedResource Include="frmAdmin.resx">
       <DependentUpon>frmAdmin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDangnhap.resx">
       <DependentUpon>frmDangnhap.vb</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPOST_KANRI.resx">
       <DependentUpon>frmPOST_KANRI.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmvalidate.resx">
+      <DependentUpon>frmvalidate.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

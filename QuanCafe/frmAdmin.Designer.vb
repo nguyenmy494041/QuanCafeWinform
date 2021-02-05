@@ -83,8 +83,6 @@ Partial Class frmAdmin
         Me.Nametablee = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tabcategory = New System.Windows.Forms.TabPage()
         Me.Panel11 = New System.Windows.Forms.Panel()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.btnsearchcategory = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel12 = New System.Windows.Forms.Panel()
         Me.txbnamecategory = New System.Windows.Forms.TextBox()
@@ -102,13 +100,18 @@ Partial Class frmAdmin
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tabaccount = New System.Windows.Forms.TabPage()
         Me.Panel15 = New System.Windows.Forms.Panel()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.txbsearchaccount = New System.Windows.Forms.TextBox()
+        Me.btnsearchaccount = New System.Windows.Forms.Button()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Panel16 = New System.Windows.Forms.Panel()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Panel19 = New System.Windows.Forms.Panel()
+        Me.radiouser = New System.Windows.Forms.RadioButton()
+        Me.radioadmin = New System.Windows.Forms.RadioButton()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.txbpass = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.txbnameaccount = New System.Windows.Forms.TextBox()
         Me.txbsttaccount = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -149,6 +152,7 @@ Partial Class frmAdmin
         Me.tabaccount.SuspendLayout()
         Me.Panel15.SuspendLayout()
         Me.Panel16.SuspendLayout()
+        Me.Panel19.SuspendLayout()
         Me.Panel17.SuspendLayout()
         Me.Panel18.SuspendLayout()
         CType(Me.dtgvaccount, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -670,7 +674,7 @@ Partial Class frmAdmin
         '
         Me.dtgvtable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgvtable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Idtablee, Me.Nametablee})
-        Me.dtgvtable.Location = New System.Drawing.Point(4, 4)
+        Me.dtgvtable.Location = New System.Drawing.Point(3, 3)
         Me.dtgvtable.Name = "dtgvtable"
         Me.dtgvtable.Size = New System.Drawing.Size(489, 275)
         Me.dtgvtable.TabIndex = 0
@@ -684,7 +688,7 @@ Partial Class frmAdmin
         '
         Me.Nametablee.HeaderText = "Tên bàn"
         Me.Nametablee.Name = "Nametablee"
-        Me.Nametablee.Width = 250
+        Me.Nametablee.Width = 345
         '
         'tabcategory
         '
@@ -702,30 +706,12 @@ Partial Class frmAdmin
         '
         'Panel11
         '
-        Me.Panel11.Controls.Add(Me.TextBox4)
-        Me.Panel11.Controls.Add(Me.btnsearchcategory)
         Me.Panel11.Controls.Add(Me.Label9)
         Me.Panel11.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel11.Location = New System.Drawing.Point(8, 9)
         Me.Panel11.Name = "Panel11"
         Me.Panel11.Size = New System.Drawing.Size(773, 43)
         Me.Panel11.TabIndex = 11
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(445, 12)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(231, 24)
-        Me.TextBox4.TabIndex = 5
-        '
-        'btnsearchcategory
-        '
-        Me.btnsearchcategory.Location = New System.Drawing.Point(682, 12)
-        Me.btnsearchcategory.Name = "btnsearchcategory"
-        Me.btnsearchcategory.Size = New System.Drawing.Size(75, 23)
-        Me.btnsearchcategory.TabIndex = 4
-        Me.btnsearchcategory.Text = "Tìm kiếm"
-        Me.btnsearchcategory.UseVisualStyleBackColor = True
         '
         'Label9
         '
@@ -857,7 +843,7 @@ Partial Class frmAdmin
         '
         Me.Column2.HeaderText = "Tên danh mục"
         Me.Column2.Name = "Column2"
-        Me.Column2.Width = 300
+        Me.Column2.Width = 349
         '
         'tabaccount
         '
@@ -874,8 +860,8 @@ Partial Class frmAdmin
         '
         'Panel15
         '
-        Me.Panel15.Controls.Add(Me.TextBox5)
-        Me.Panel15.Controls.Add(Me.Button1)
+        Me.Panel15.Controls.Add(Me.txbsearchaccount)
+        Me.Panel15.Controls.Add(Me.btnsearchaccount)
         Me.Panel15.Controls.Add(Me.Label14)
         Me.Panel15.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel15.Location = New System.Drawing.Point(8, 9)
@@ -883,21 +869,21 @@ Partial Class frmAdmin
         Me.Panel15.Size = New System.Drawing.Size(773, 43)
         Me.Panel15.TabIndex = 15
         '
-        'TextBox5
+        'txbsearchaccount
         '
-        Me.TextBox5.Location = New System.Drawing.Point(445, 12)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(231, 24)
-        Me.TextBox5.TabIndex = 5
+        Me.txbsearchaccount.Location = New System.Drawing.Point(445, 12)
+        Me.txbsearchaccount.Name = "txbsearchaccount"
+        Me.txbsearchaccount.Size = New System.Drawing.Size(231, 24)
+        Me.txbsearchaccount.TabIndex = 5
         '
-        'Button1
+        'btnsearchaccount
         '
-        Me.Button1.Location = New System.Drawing.Point(682, 12)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Tìm kiếm"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnsearchaccount.Location = New System.Drawing.Point(682, 12)
+        Me.btnsearchaccount.Name = "btnsearchaccount"
+        Me.btnsearchaccount.Size = New System.Drawing.Size(75, 23)
+        Me.btnsearchaccount.TabIndex = 4
+        Me.btnsearchaccount.Text = "Tìm kiếm"
+        Me.btnsearchaccount.UseVisualStyleBackColor = True
         '
         'Label14
         '
@@ -911,9 +897,11 @@ Partial Class frmAdmin
         '
         'Panel16
         '
-        Me.Panel16.Controls.Add(Me.TextBox8)
+        Me.Panel16.Controls.Add(Me.CheckBox1)
+        Me.Panel16.Controls.Add(Me.Panel19)
+        Me.Panel16.Controls.Add(Me.txbpass)
         Me.Panel16.Controls.Add(Me.Label17)
-        Me.Panel16.Controls.Add(Me.TextBox6)
+        Me.Panel16.Controls.Add(Me.txbnameaccount)
         Me.Panel16.Controls.Add(Me.txbsttaccount)
         Me.Panel16.Controls.Add(Me.Label15)
         Me.Panel16.Controls.Add(Me.Label16)
@@ -923,12 +911,65 @@ Partial Class frmAdmin
         Me.Panel16.Size = New System.Drawing.Size(290, 282)
         Me.Panel16.TabIndex = 14
         '
-        'TextBox8
+        'CheckBox1
         '
-        Me.TextBox8.Location = New System.Drawing.Point(100, 116)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(187, 24)
-        Me.TextBox8.TabIndex = 9
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox1.Location = New System.Drawing.Point(100, 147)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(96, 19)
+        Me.CheckBox1.TabIndex = 11
+        Me.CheckBox1.Text = "Hiện mật khẩu"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'Panel19
+        '
+        Me.Panel19.Controls.Add(Me.radiouser)
+        Me.Panel19.Controls.Add(Me.radioadmin)
+        Me.Panel19.Controls.Add(Me.Label18)
+        Me.Panel19.Location = New System.Drawing.Point(6, 170)
+        Me.Panel19.Name = "Panel19"
+        Me.Panel19.Size = New System.Drawing.Size(281, 89)
+        Me.Panel19.TabIndex = 10
+        '
+        'radiouser
+        '
+        Me.radiouser.AutoSize = True
+        Me.radiouser.Location = New System.Drawing.Point(180, 4)
+        Me.radiouser.Name = "radiouser"
+        Me.radiouser.Size = New System.Drawing.Size(86, 21)
+        Me.radiouser.TabIndex = 13
+        Me.radiouser.TabStop = True
+        Me.radiouser.Text = "Nhân viên"
+        Me.radiouser.UseVisualStyleBackColor = True
+        '
+        'radioadmin
+        '
+        Me.radioadmin.AutoSize = True
+        Me.radioadmin.Location = New System.Drawing.Point(94, 4)
+        Me.radioadmin.Name = "radioadmin"
+        Me.radioadmin.Size = New System.Drawing.Size(72, 21)
+        Me.radioadmin.TabIndex = 12
+        Me.radioadmin.TabStop = True
+        Me.radioadmin.Text = "Quản lý"
+        Me.radioadmin.UseVisualStyleBackColor = True
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(-3, 4)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(47, 17)
+        Me.Label18.TabIndex = 11
+        Me.Label18.Text = "Quyền"
+        '
+        'txbpass
+        '
+        Me.txbpass.Location = New System.Drawing.Point(100, 116)
+        Me.txbpass.Name = "txbpass"
+        Me.txbpass.Size = New System.Drawing.Size(187, 24)
+        Me.txbpass.TabIndex = 9
+        Me.txbpass.UseSystemPasswordChar = True
         '
         'Label17
         '
@@ -939,12 +980,12 @@ Partial Class frmAdmin
         Me.Label17.TabIndex = 8
         Me.Label17.Text = "Mật khẩu"
         '
-        'TextBox6
+        'txbnameaccount
         '
-        Me.TextBox6.Location = New System.Drawing.Point(100, 73)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(187, 24)
-        Me.TextBox6.TabIndex = 6
+        Me.txbnameaccount.Location = New System.Drawing.Point(100, 73)
+        Me.txbnameaccount.Name = "txbnameaccount"
+        Me.txbnameaccount.Size = New System.Drawing.Size(187, 24)
+        Me.txbnameaccount.TabIndex = 6
         '
         'txbsttaccount
         '
@@ -1025,6 +1066,7 @@ Partial Class frmAdmin
         Me.dtgvaccount.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column3, Me.Column4, Me.Column5, Me.Column6})
         Me.dtgvaccount.Location = New System.Drawing.Point(4, 4)
         Me.dtgvaccount.Name = "dtgvaccount"
+        Me.dtgvaccount.ReadOnly = True
         Me.dtgvaccount.Size = New System.Drawing.Size(464, 275)
         Me.dtgvaccount.TabIndex = 0
         '
@@ -1032,25 +1074,29 @@ Partial Class frmAdmin
         '
         Me.Column3.HeaderText = "Số TT"
         Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
         Me.Column3.Width = 70
         '
         'Column4
         '
         Me.Column4.HeaderText = "Tên đăng nhập"
         Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
         Me.Column4.Width = 180
         '
         'Column5
         '
         Me.Column5.HeaderText = "Mật khẩu"
         Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
         Me.Column5.Width = 90
         '
         'Column6
         '
         Me.Column6.HeaderText = "Quyền"
         Me.Column6.Name = "Column6"
-        Me.Column6.Width = 80
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 81
         '
         'frmAdmin
         '
@@ -1096,6 +1142,8 @@ Partial Class frmAdmin
         Me.Panel15.PerformLayout()
         Me.Panel16.ResumeLayout(False)
         Me.Panel16.PerformLayout()
+        Me.Panel19.ResumeLayout(False)
+        Me.Panel19.PerformLayout()
         Me.Panel17.ResumeLayout(False)
         Me.Panel18.ResumeLayout(False)
         CType(Me.dtgvaccount, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1152,8 +1200,6 @@ Partial Class frmAdmin
     Friend WithEvents Panel10 As Panel
     Friend WithEvents tabaccount As TabPage
     Friend WithEvents Panel11 As Panel
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents btnsearchcategory As Button
     Friend WithEvents Label9 As Label
     Friend WithEvents Panel12 As Panel
     Friend WithEvents txbnamecategory As TextBox
@@ -1167,13 +1213,13 @@ Partial Class frmAdmin
     Friend WithEvents btnviewcategory As Button
     Friend WithEvents Panel14 As Panel
     Friend WithEvents Panel15 As Panel
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents txbsearchaccount As TextBox
+    Friend WithEvents btnsearchaccount As Button
     Friend WithEvents Label14 As Label
     Friend WithEvents Panel16 As Panel
-    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents txbpass As TextBox
     Friend WithEvents Label17 As Label
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents txbnameaccount As TextBox
     Friend WithEvents txbsttaccount As TextBox
     Friend WithEvents Label15 As Label
     Friend WithEvents Label16 As Label
@@ -1193,14 +1239,19 @@ Partial Class frmAdmin
     Friend WithEvents Pricefood As DataGridViewTextBoxColumn
     Friend WithEvents namecate As DataGridViewTextBoxColumn
     Friend WithEvents dtgvtable As DataGridView
+    Friend WithEvents dtgvcategory As DataGridView
+    Friend WithEvents dtgvaccount As DataGridView
     Friend WithEvents Idtablee As DataGridViewTextBoxColumn
     Friend WithEvents Nametablee As DataGridViewTextBoxColumn
-    Friend WithEvents dtgvcategory As DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents dtgvaccount As DataGridView
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Panel19 As Panel
+    Friend WithEvents Label18 As Label
+    Friend WithEvents radiouser As RadioButton
+    Friend WithEvents radioadmin As RadioButton
+    Friend WithEvents CheckBox1 As CheckBox
 End Class
