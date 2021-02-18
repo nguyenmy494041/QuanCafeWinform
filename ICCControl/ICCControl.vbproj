@@ -148,6 +148,12 @@
     <Compile Include="Com.Controls\CC_Time.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Com.Controls\DataGridViewCalendarColumnStyle.vb" />
+    <Compile Include="Com.Controls\RadioButtonCell.vb" />
+    <Compile Include="Com.Controls\RadioButtonColumn.vb" />
+    <Compile Include="Com.Controls\RadioButtonEditingControl.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Com.Model\CM_Enum.vb" />
     <Compile Include="Com.Model\CM_Message.vb" />
     <Compile Include="Com.Model\CM_Structure.vb" />

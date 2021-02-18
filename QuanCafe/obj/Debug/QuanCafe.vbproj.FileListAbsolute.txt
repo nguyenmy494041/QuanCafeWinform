@@ -17,10 +17,11 @@ C:\Users\nguye\Desktop\QuanCafe\QuanCafe\bin\Debug\EntityFramework.xml
 C:\Users\nguye\Desktop\QuanCafe\QuanCafe\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\nguye\Desktop\QuanCafe\QuanCafe\obj\Debug\QuanCafe.vbproj.CopyComplete
 C:\Users\nguye\Desktop\QuanCafe\QuanCafe\obj\Debug\QuanCafe.frmPOST_KANRI.resources
-C:\Users\nguye\Desktop\QuanCafe\QuanCafe\obj\Debug\QuanCafe.Form1.resources
 C:\Users\nguye\Desktop\QuanCafe\QuanCafe\bin\Debug\ICCControl.dll
 C:\Users\nguye\Desktop\QuanCafe\QuanCafe\bin\Debug\ICCControl.pdb
 C:\Users\nguye\Desktop\QuanCafe\QuanCafe\bin\Debug\ICCControl.xml
 C:\Users\nguye\Desktop\QuanCafe\QuanCafe\obj\Debug\QuanCafe.frmAdmin.resources
 C:\Users\nguye\Desktop\QuanCafe\QuanCafe\obj\Debug\QuanCafe.frmChangePassword.resources
 C:\Users\nguye\Desktop\QuanCafe\QuanCafe\obj\Debug\QuanCafe.frmvalidate.resources
+C:\Users\nguye\Desktop\QuanCafe\QuanCafe\obj\Debug\QuanCafe.frmlamnhap.resources
+C:\Users\nguye\Desktop\QuanCafe\QuanCafe\obj\Debug\QuanCafe.frmSCH_KAIHI_KBN.resources

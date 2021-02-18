@@ -22,6 +22,7 @@ Partial Class frmManagement
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.DanhMụcToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TàiKhoảnToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -52,12 +53,14 @@ Partial Class frmManagement
         Me.btnthanhtoan = New System.Windows.Forms.Button()
         Me.cbswitchtable = New System.Windows.Forms.ComboBox()
         Me.btnswitchtable = New System.Windows.Forms.Button()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.nupcount, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -316,6 +319,10 @@ Partial Class frmManagement
         Me.btnswitchtable.Text = "Chuyển bàn"
         Me.btnswitchtable.UseVisualStyleBackColor = True
         '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
+        '
         'frmManagement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -338,6 +345,7 @@ Partial Class frmManagement
         Me.Panel3.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -373,4 +381,5 @@ Partial Class frmManagement
     Friend WithEvents Label4 As Label
     Friend WithEvents txbbanhientai As TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents ErrorProvider1 As ErrorProvider
 End Class

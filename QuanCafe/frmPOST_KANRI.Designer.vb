@@ -44,13 +44,6 @@ Partial Class frmPOST_KANRI
         Me.dtpkDATE = New System.Windows.Forms.DateTimePicker()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.dtgvPOST_KANRI = New System.Windows.Forms.DataGridView()
-        Me.POST_KANRI = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.POST = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ADDRESS1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ADDRESS_KN = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UPD_DATE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UPD_TIME = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UPD_TANTO = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.btndelete = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
@@ -60,7 +53,14 @@ Partial Class frmPOST_KANRI
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txbaddress1 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Chon = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.POST_KANRI = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.POST = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ADDRESS1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ADDRESS_KN = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UPD_DATE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UPD_TIME = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UPD_TANTO = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -275,59 +275,13 @@ Partial Class frmPOST_KANRI
         'dtgvPOST_KANRI
         '
         Me.dtgvPOST_KANRI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgvPOST_KANRI.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.POST_KANRI, Me.POST, Me.ADDRESS1, Me.ADDRESS_KN, Me.UPD_DATE, Me.UPD_TIME, Me.UPD_TANTO, Me.Column1})
-        Me.dtgvPOST_KANRI.Location = New System.Drawing.Point(6, 174)
+        Me.dtgvPOST_KANRI.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Chon, Me.POST_KANRI, Me.POST, Me.ADDRESS1, Me.ADDRESS_KN, Me.UPD_DATE, Me.UPD_TIME, Me.UPD_TANTO})
+        Me.dtgvPOST_KANRI.Location = New System.Drawing.Point(8, 172)
         Me.dtgvPOST_KANRI.Name = "dtgvPOST_KANRI"
         Me.dtgvPOST_KANRI.ReadOnly = True
         Me.dtgvPOST_KANRI.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dtgvPOST_KANRI.Size = New System.Drawing.Size(839, 224)
         Me.dtgvPOST_KANRI.TabIndex = 6
-        '
-        'POST_KANRI
-        '
-        Me.POST_KANRI.HeaderText = "POST_KANRI"
-        Me.POST_KANRI.Name = "POST_KANRI"
-        Me.POST_KANRI.ReadOnly = True
-        '
-        'POST
-        '
-        Me.POST.HeaderText = "POST"
-        Me.POST.Name = "POST"
-        Me.POST.ReadOnly = True
-        '
-        'ADDRESS1
-        '
-        Me.ADDRESS1.HeaderText = "ADDRESS1"
-        Me.ADDRESS1.Name = "ADDRESS1"
-        Me.ADDRESS1.ReadOnly = True
-        Me.ADDRESS1.Width = 160
-        '
-        'ADDRESS_KN
-        '
-        Me.ADDRESS_KN.HeaderText = "ADDRESS_KN"
-        Me.ADDRESS_KN.Name = "ADDRESS_KN"
-        Me.ADDRESS_KN.ReadOnly = True
-        Me.ADDRESS_KN.Width = 160
-        '
-        'UPD_DATE
-        '
-        Me.UPD_DATE.HeaderText = "UPD_DATE"
-        Me.UPD_DATE.Name = "UPD_DATE"
-        Me.UPD_DATE.ReadOnly = True
-        Me.UPD_DATE.Width = 80
-        '
-        'UPD_TIME
-        '
-        Me.UPD_TIME.HeaderText = "UPD_TIME"
-        Me.UPD_TIME.Name = "UPD_TIME"
-        Me.UPD_TIME.ReadOnly = True
-        Me.UPD_TIME.Width = 80
-        '
-        'UPD_TANTO
-        '
-        Me.UPD_TANTO.HeaderText = "UPD_TANTO"
-        Me.UPD_TANTO.Name = "UPD_TANTO"
-        Me.UPD_TANTO.ReadOnly = True
         '
         'Panel7
         '
@@ -413,11 +367,58 @@ Partial Class frmPOST_KANRI
         Me.Label9.TabIndex = 0
         Me.Label9.Text = "ADDRESS1"
         '
-        'Column1
+        'Chon
         '
-        Me.Column1.HeaderText = "Column1"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
+        Me.Chon.HeaderText = "Chọn"
+        Me.Chon.Name = "Chon"
+        Me.Chon.ReadOnly = True
+        Me.Chon.Width = 50
+        '
+        'POST_KANRI
+        '
+        Me.POST_KANRI.HeaderText = "POST_KANRI"
+        Me.POST_KANRI.Name = "POST_KANRI"
+        Me.POST_KANRI.ReadOnly = True
+        '
+        'POST
+        '
+        Me.POST.HeaderText = "POST"
+        Me.POST.Name = "POST"
+        Me.POST.ReadOnly = True
+        '
+        'ADDRESS1
+        '
+        Me.ADDRESS1.HeaderText = "ADDRESS1"
+        Me.ADDRESS1.Name = "ADDRESS1"
+        Me.ADDRESS1.ReadOnly = True
+        Me.ADDRESS1.Width = 160
+        '
+        'ADDRESS_KN
+        '
+        Me.ADDRESS_KN.HeaderText = "ADDRESS_KN"
+        Me.ADDRESS_KN.Name = "ADDRESS_KN"
+        Me.ADDRESS_KN.ReadOnly = True
+        Me.ADDRESS_KN.Width = 160
+        '
+        'UPD_DATE
+        '
+        Me.UPD_DATE.HeaderText = "UPD_DATE"
+        Me.UPD_DATE.Name = "UPD_DATE"
+        Me.UPD_DATE.ReadOnly = True
+        Me.UPD_DATE.Width = 80
+        '
+        'UPD_TIME
+        '
+        Me.UPD_TIME.HeaderText = "UPD_TIME"
+        Me.UPD_TIME.Name = "UPD_TIME"
+        Me.UPD_TIME.ReadOnly = True
+        Me.UPD_TIME.Width = 80
+        '
+        'UPD_TANTO
+        '
+        Me.UPD_TANTO.HeaderText = "UPD_TANTO"
+        Me.UPD_TANTO.Name = "UPD_TANTO"
+        Me.UPD_TANTO.ReadOnly = True
         '
         'frmPOST_KANRI
         '
@@ -490,6 +491,7 @@ Partial Class frmPOST_KANRI
     Friend WithEvents Label8 As Label
     Friend WithEvents txbaddress1 As TextBox
     Friend WithEvents Label9 As Label
+    Friend WithEvents Chon As DataGridViewTextBoxColumn
     Friend WithEvents POST_KANRI As DataGridViewTextBoxColumn
     Friend WithEvents POST As DataGridViewTextBoxColumn
     Friend WithEvents ADDRESS1 As DataGridViewTextBoxColumn
@@ -497,5 +499,4 @@ Partial Class frmPOST_KANRI
     Friend WithEvents UPD_DATE As DataGridViewTextBoxColumn
     Friend WithEvents UPD_TIME As DataGridViewTextBoxColumn
     Friend WithEvents UPD_TANTO As DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
 End Class

@@ -1,5 +1,11 @@
 ﻿Public Class frmChangePassword
-
+    Sub Isnotnulldata(ByVal txb As TextBox)
+        If String.IsNullOrEmpty(txb.Text.Trim()) Then
+            ErrorProvider1.SetError(txb, "không được để trống")
+        Else
+            ErrorProvider1.SetError(txb, String.Empty)
+        End If
+    End Sub
     Private Sub txbusernamechange_KeyUp(sender As Object, e As KeyEventArgs) Handles txbusernamechange.KeyUp
         Dim c = txbusernamechange.Text
         Dim b = e.KeyValue
@@ -7,6 +13,7 @@
             txbusernamechange.Text = Trim(c)
             txbusernamechange.SelectionStart = txbusernamechange.Text.Length
         End If
+        Isnotnulldata(txbusernamechange)
     End Sub
 
     Private Sub txboldpass_KeyUp(sender As Object, e As KeyEventArgs) Handles txboldpass.KeyUp
@@ -16,6 +23,7 @@
             txboldpass.Text = Trim(c)
             txboldpass.SelectionStart = txboldpass.Text.Length
         End If
+        Isnotnulldata(txboldpass)
     End Sub
 
     Private Sub txbpassconform_KeyUp(sender As Object, e As KeyEventArgs) Handles txbpassconform.KeyUp
@@ -25,6 +33,7 @@
             txbpassconform.Text = Trim(c)
             txbpassconform.SelectionStart = txbpassconform.Text.Length
         End If
+        Isnotnulldata(txbpassconform)
     End Sub
 
     Private Sub txbnewpass_KeyUp(sender As Object, e As KeyEventArgs) Handles txbnewpass.KeyUp
@@ -34,9 +43,14 @@
             txbnewpass.Text = Trim(c)
             txbnewpass.SelectionStart = txbnewpass.Text.Length
         End If
+        Isnotnulldata(txbnewpass)
     End Sub
 
     Private Sub btnchangepass_Click(sender As Object, e As EventArgs) Handles btnchangepass.Click
+        Isnotnulldata(txbusernamechange)
+        Isnotnulldata(txboldpass)
+        Isnotnulldata(txbnewpass)
+        Isnotnulldata(txbpassconform)
         If txbusernamechange.Text <> "" AndAlso txboldpass.Text <> "" AndAlso txbnewpass.Text <> "" AndAlso txbpassconform.Text <> "" Then
             If txbnewpass.Text = txbpassconform.Text Then
                 Dim context = New QuanCafeEntities()

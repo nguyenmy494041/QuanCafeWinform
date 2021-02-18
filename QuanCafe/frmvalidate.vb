@@ -2,15 +2,14 @@
 
 Public Class frmvalidate
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-        validate(TextBox1)
+        Isnotnulldata(TextBox1)
     End Sub
-    Sub validate(ByVal txb As TextBox)
+    Sub Isnotnulldata(ByVal txb As TextBox)
         If String.IsNullOrEmpty(txb.Text.Trim()) Then
             ErrorProvider1.SetError(txb, "không được để trống")
         Else
-            ErrorProvider1.SetError(TextBox1, String.Empty)
+            ErrorProvider1.SetError(txb, String.Empty)
         End If
-
     End Sub
 
 

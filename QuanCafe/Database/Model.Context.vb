@@ -30,5 +30,7 @@ Partial Public Class QuanCafeEntities
     Public Overridable Property sysdiagrams() As DbSet(Of sysdiagram)
     Public Overridable Property TableFoods() As DbSet(Of TableFood)
     Public Overridable Property M_POST() As DbSet(Of M_POST)
+    Public Overridable Property M_SCH_KAIHI() As DbSet(Of M_SCH_KAIHI)
+    Public Overridable Property M_CODE() As DbSet(Of M_CODE)
 
 End Class

@@ -115,7 +115,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\M_CODE.vb">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\M_POST.vb">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\M_SCH_KAIHI.vb">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\sysdiagram.vb">
@@ -124,10 +130,6 @@
     <Compile Include="Database\TableFood.vb">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.vb" />
     <Compile Include="frmAdmin.Designer.vb">
       <DependentUpon>frmAdmin.vb</DependentUpon>
     </Compile>
@@ -147,6 +149,10 @@
       <DependentUpon>frmDangnhap.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmlamnhap.Designer.vb">
+      <DependentUpon>frmlamnhap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmlamnhap.vb" />
     <Compile Include="frmManagement.Designer.vb">
       <DependentUpon>frmManagement.vb</DependentUpon>
     </Compile>
@@ -157,6 +163,12 @@
       <DependentUpon>frmPOST_KANRI.vb</DependentUpon>
     </Compile>
     <Compile Include="frmPOST_KANRI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSCH_KAIHI_KBN.Designer.vb">
+      <DependentUpon>frmSCH_KAIHI_KBN.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSCH_KAIHI_KBN.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmvalidate.Designer.vb">
@@ -181,12 +193,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="radiobuttoncell.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmAdmin.resx">
       <DependentUpon>frmAdmin.vb</DependentUpon>
     </EmbeddedResource>
@@ -196,11 +204,17 @@
     <EmbeddedResource Include="frmDangnhap.resx">
       <DependentUpon>frmDangnhap.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmlamnhap.resx">
+      <DependentUpon>frmlamnhap.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmManagement.resx">
       <DependentUpon>frmManagement.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPOST_KANRI.resx">
       <DependentUpon>frmPOST_KANRI.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSCH_KAIHI_KBN.resx">
+      <DependentUpon>frmSCH_KAIHI_KBN.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmvalidate.resx">
       <DependentUpon>frmvalidate.vb</DependentUpon>

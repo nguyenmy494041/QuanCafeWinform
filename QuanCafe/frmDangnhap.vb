@@ -3,6 +3,13 @@ Imports System.Text.RegularExpressions
 
 Public Class frmDangnhap
 
+    Sub Isnotnulldata(ByVal txb As TextBox)
+        If String.IsNullOrEmpty(txb.Text.Trim()) Then
+            ErrorProvider1.SetError(txb, "không được để trống")
+        Else
+            ErrorProvider1.SetError(txb, String.Empty)
+        End If
+    End Sub
     Function validateEmail(emailAddress) As Boolean
         ' Dim email As New Regex("^(?[^@]+)@(?.+)$")
         Dim email As New Regex("^[_a-z0-9-]+(.[a-z0-9-]+)@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$")
@@ -52,6 +59,7 @@ Public Class frmDangnhap
             txbusername.Text = Trim(c)
             txbusername.SelectionStart = txbusername.Text.Length
         End If
+        Isnotnulldata(txbusername)
     End Sub
 
     Private Sub txbpassword_KeyUp(sender As Object, e As KeyEventArgs) Handles txbpassword.KeyUp
@@ -61,5 +69,10 @@ Public Class frmDangnhap
             txbpassword.Text = Trim(c)
             txbpassword.SelectionStart = txbpassword.Text.Length
         End If
+        Isnotnulldata(txbpassword)
+    End Sub
+
+    Private Sub txbusername_TextChanged(sender As Object, e As EventArgs) Handles txbusername.TextChanged
+
     End Sub
 End Class

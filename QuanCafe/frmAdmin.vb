@@ -12,6 +12,11 @@
         filldataOndtgvaccount(dataaccount)
         Dim datacategory = fun.getdatacategory()
         filldataOndtgvcategory(datacategory)
+        btneditfood.Enabled = False
+        btndeletefood.Enabled = False
+        btneditcategory.Enabled = False
+        btndeletecategory.Enabled = False
+        btndeleteaccount.Enabled = False
     End Sub
 
 
@@ -88,17 +93,28 @@
 
     Private Sub dtgvfood_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvfood.CellClick
         Dim i = e.RowIndex()
-        If i > -1 Then
-            Dim a = dtgvfood.Rows.Count()
-            dtgvfood.Rows(i).Selected = True
+        dtgvfood.Rows(i).Selected = True
+        If i > -1 AndAlso i < dtgvfood.Rows.Count - 1 Then
             txbsothutu.Text = dtgvfood.Rows(i).Cells(0).Value
             txbnamefood.Text = dtgvfood.Rows(i).Cells(1).Value
             cbcategoryfood.Text = dtgvfood.Rows(i).Cells(3).Value
             nbrpricefood.Value = dtgvfood.Rows(i).Cells(2).Value
+            btnaddfood.Enabled = False
+            btneditfood.Enabled = True
+            btndeletefood.Enabled = True
+        Else
+            cleartxbfood()
+            btnaddfood.Enabled = True
+            btneditfood.Enabled = False
+            btndeletefood.Enabled = False
         End If
+
     End Sub
 
     Private Sub btnaddfood_Click(sender As Object, e As EventArgs) Handles btnaddfood.Click
+        Isnotnullvalue(nbrpricefood)
+        Isnotnulltext(txbnamefood)
+        Isnotnullcombo(cbcategoryfood)
         Dim fun = New FunctionFrmAdmin()
         If txbnamefood.Text <> "" AndAlso cbcategoryfood.Text <> "" AndAlso nbrpricefood.Value > 0 Then
             fun.addFood(txbnamefood.Text, nbrpricefood.Value, cbcategoryfood.Text)
@@ -184,6 +200,8 @@
 
     Private Sub btnaddaccount_Click(sender As Object, e As EventArgs) Handles btnaddaccount.Click
         Dim adimuser As String = ""
+        Isnotnulltext(txbnameaccount)
+        Isnotnulltext(txbpass)
         Dim fun = New FunctionFrmAdmin()
         If radioadmin.Checked = True Then
             adimuser = "Quản lý"
@@ -246,6 +264,7 @@
             txbnameaccount.Text = Trim(c)
             txbnameaccount.SelectionStart = txbnameaccount.Text.Length
         End If
+        Isnotnulltext(txbnameaccount)
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
@@ -263,6 +282,7 @@
             txbpass.Text = Trim(c)
             txbpass.SelectionStart = txbpass.Text.Length
         End If
+        Isnotnulltext(txbpass)
     End Sub
 
     Private Sub btnviewcategory_Click(sender As Object, e As EventArgs) Handles btnviewcategory.Click
@@ -282,6 +302,7 @@
 
     Private Sub btnaddcategory_Click(sender As Object, e As EventArgs) Handles btnaddcategory.Click
         Dim fun = New FunctionFrmAdmin()
+        Isnotnulltext(txbnamecategory)
         If txbnamecategory.Text <> "" Then
             fun.addcategory(txbnamecategory.Text)
             Dim datacategory = fun.getdatacategory()
@@ -324,11 +345,68 @@
 
     Private Sub dtgvcategory_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvcategory.CellClick
         Dim i = e.RowIndex()
-        If i > -1 Then
-            Dim a = dtgvcategory.Rows.Count()
-            dtgvcategory.Rows(i).Selected = True
+        Dim a = dtgvcategory.Rows.Count()
+        dtgvcategory.Rows(i).Selected = True
+        If i > -1 AndAlso i < a - 1 Then
             txbidcategory.Text = dtgvcategory.Rows(i).Cells(0).Value
             txbnamecategory.Text = dtgvcategory.Rows(i).Cells(1).Value
+            btnaddcategory.Enabled = False
+            btneditcategory.Enabled = True
+            btndeletecategory.Enabled = True
+        Else
+            btnaddcategory.Enabled = True
+            btneditcategory.Enabled = False
+            btndeletecategory.Enabled = False
+            txbidcategory.Clear()
+            txbnamecategory.Clear()
         End If
+    End Sub
+    Sub Isnotnulltext(ByVal txb As TextBox)
+        If String.IsNullOrEmpty(txb.Text.Trim()) Then
+            ErrorProvider1.SetError(txb, "không được để trống")
+        Else
+            ErrorProvider1.SetError(txb, String.Empty)
+        End If
+    End Sub
+    Sub Isnotnullvalue(ByVal nbr As NumericUpDown)
+        If nbr.Value = 0.0 OrElse String.IsNullOrEmpty(nbr.Text.Trim()) Then
+            ErrorProvider1.SetError(nbr, "không được để trống")
+        Else
+            ErrorProvider1.SetError(nbr, String.Empty)
+        End If
+    End Sub
+    Sub Isnotnullcombo(ByVal combo As ComboBox)
+        If String.IsNullOrEmpty(combo.Text.Trim()) Then
+            ErrorProvider1.SetError(combo, "Chưa được chọn")
+        Else
+            ErrorProvider1.SetError(combo, String.Empty)
+        End If
+    End Sub
+    Private Sub txbnamefood_TextChanged(sender As Object, e As EventArgs) Handles txbnamefood.TextChanged
+        Isnotnulltext(txbnamefood)
+    End Sub
+
+    Private Sub nbrpricefood_ValueChanged(sender As Object, e As EventArgs) Handles nbrpricefood.ValueChanged
+        Isnotnullvalue(nbrpricefood)
+    End Sub
+
+    Private Sub nbrpricefood_KeyUp(sender As Object, e As KeyEventArgs) Handles nbrpricefood.KeyUp
+        Isnotnullvalue(nbrpricefood)
+    End Sub
+
+    Private Sub cbcategoryfood_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbcategoryfood.SelectedIndexChanged
+        Isnotnullcombo(cbcategoryfood)
+    End Sub
+
+    Private Sub txbnamecategory_TextChanged(sender As Object, e As EventArgs) Handles txbnamecategory.TextChanged
+        Isnotnulltext(txbnamecategory)
+    End Sub
+
+    Private Sub txbnameaccount_TextChanged(sender As Object, e As EventArgs) Handles txbnameaccount.TextChanged
+        Isnotnulltext(txbnameaccount)
+    End Sub
+
+    Private Sub txbpass_TextChanged(sender As Object, e As EventArgs) Handles txbpass.TextChanged
+        Isnotnulltext(txbpass)
     End Sub
 End Class

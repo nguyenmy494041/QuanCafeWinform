@@ -1,4 +1,6 @@
-﻿Public Class frmPOST_KANRI
+﻿Imports ICCControl
+
+Public Class frmPOST_KANRI
     Sub cleartextbox()
         txbPOST_KANRI.Text = ""
         txbPOST.Text = ""
@@ -16,14 +18,18 @@
         Dim data = context.M_POST.ToList()
         For Each row In data
             Dim index = dtgvPOST_KANRI.Rows.Add()
-            dtgvPOST_KANRI.Rows(index).Cells(0).Value = row.POST_KANRI
-            dtgvPOST_KANRI.Rows(index).Cells(1).Value = row.POST
-            dtgvPOST_KANRI.Rows(index).Cells(2).Value = row.ADDRESS1
-            dtgvPOST_KANRI.Rows(index).Cells(3).Value = row.ADDRESS_KN
-            dtgvPOST_KANRI.Rows(index).Cells(4).Value = row.UPD_DATE
+            Dim radio = New RadioButtonCell()
+            radio.Value = True
 
-            dtgvPOST_KANRI.Rows(index).Cells(5).Value = row.UPD_TIME
-            dtgvPOST_KANRI.Rows(index).Cells(6).Value = row.UPD_TANTO
+            dtgvPOST_KANRI.Rows(index).Cells(0).Value = radio
+            dtgvPOST_KANRI.Rows(index).Cells(1).Value = row.POST_KANRI
+            dtgvPOST_KANRI.Rows(index).Cells(2).Value = row.POST
+            dtgvPOST_KANRI.Rows(index).Cells(3).Value = row.ADDRESS1
+            dtgvPOST_KANRI.Rows(index).Cells(4).Value = row.ADDRESS_KN
+            dtgvPOST_KANRI.Rows(index).Cells(5).Value = row.UPD_DATE
+
+            dtgvPOST_KANRI.Rows(index).Cells(6).Value = row.UPD_TIME
+            dtgvPOST_KANRI.Rows(index).Cells(7).Value = row.UPD_TANTO
         Next
         dtgvPOST_KANRI.Rows(0).Selected = False
     End Sub
@@ -38,20 +44,20 @@
         Dim row = dtgvPOST_KANRI.Rows(index)
 
         If Not IsNothing(row.Cells(1).Value) Then
-            txbPOST_KANRI.Text = row.Cells(0).Value.ToString()
-            txbPOST.Text = row.Cells(1).Value.ToString()
-            txbaddress1.Text = row.Cells(2).Value.ToString()
-            txbADDRESS.Text = row.Cells(3).Value.ToString()
-            dtpkDATE.Value = row.Cells(4).Value
-            dtpkTIME.Value = DateAdd("yyyy", 1800, TimeValue(row.Cells(5).Value))
-            txbTANTO.Text = row.Cells(6).Value.ToString()
+            txbPOST_KANRI.Text = row.Cells(1).Value.ToString()
+            txbPOST.Text = row.Cells(2).Value.ToString()
+            txbaddress1.Text = row.Cells(3).Value.ToString()
+            txbADDRESS.Text = row.Cells(4).Value.ToString()
+            dtpkDATE.Value = row.Cells(5).Value
+            dtpkTIME.Value = DateAdd("yyyy", 1800, TimeValue(row.Cells(6).Value))
+            txbTANTO.Text = row.Cells(7).Value.ToString()
             btndelete.Enabled = True
         End If
         If IsNothing(row.Cells(0).Value) Then
             btndelete.Enabled = False
             txbPOST_KANRI.Enabled = True
             cleartextbox()
-            txbPOST_KANRI.Text = dtgvPOST_KANRI.Rows(index - 1).Cells(0).Value + 1
+            txbPOST_KANRI.Text = dtgvPOST_KANRI.Rows(index - 1).Cells(1).Value + 1
 
         Else
             txbPOST_KANRI.Enabled = False

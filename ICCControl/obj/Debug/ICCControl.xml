@@ -163,21 +163,6 @@ ICCControl
  </summary>
  <param name="eventargs"></param>
 </member>
-<member name="M:ICCControl.CC_CalendarColumn.Clone">
- <summary>
- </summary>
- <returns></returns>
- <remarks>
- kevininstructor
- This is needed to persist our custom property DateFormat
- </remarks>
-</member>
-<member name="T:ICCControl.CalendarEditingControl">
- <summary>
- Provides Calendar popup within the GridView.
- </summary>
- <remarks></remarks>
-</member>
 <member name="T:ICCControl.CC_CalendarJP">
  <summary>
  JP カレンダー
@@ -688,6 +673,68 @@ ICCControl
  Valid when paste value
  </summary>
  <param name="e"></param>
+</member>
+<member name="P:ICCControl.DataGridViewCalendarColumnStyle.Format">
+ <summary>
+ Format
+ </summary>
+</member>
+<member name="M:ICCControl.DataGridViewCalendarColumnStyle.Clone">
+ <summary>
+ Clone
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:ICCControl.CalendarEditingControl">
+ <summary>
+ Provides Calendar popup within the GridView.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:ICCControl.CalendarEditingControl.EditingControlFormattedValue">
+ <summary>
+ EditingControlFormattedValue
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CalendarEditingControl.GetEditingControlFormattedValue(System.Windows.Forms.DataGridViewDataErrorContexts)">
+ <summary>
+ GetEditingControlFormattedValue
+ </summary>
+ <param name="context"></param>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CalendarEditingControl.ApplyCellStyleToEditingControl(System.Windows.Forms.DataGridViewCellStyle)">
+ <summary>
+ ApplyCellStyleToEditingControl
+ </summary>
+ <param name="dataGridViewCellStyle"></param>
+</member>
+<member name="M:ICCControl.CalendarEditingControl.EditingControlWantsInputKey(System.Windows.Forms.Keys,System.Boolean)">
+ <summary>
+ EditingControlWantsInputKey
+ </summary>
+ <param name="key"></param>
+ <param name="dataGridViewWantsInputKey"></param>
+ <returns></returns>
+</member>
+<member name="P:ICCControl.CalendarEditingControl.RepositionEditingControlOnValueChange">
+ <summary>
+ RepositionEditingControlOnValueChange
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ICCControl.CalendarEditingControl.EditingControlCursor">
+ <summary>
+ EditingControlCursor
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ICCControl.CalendarEditingControl.OnValueChanged(System.EventArgs)">
+ <summary>
+ OnValueChanged
+ </summary>
+ <param name="eventargs"></param>
 </member>
 <member name="T:ICCControl.CM_Enum">
  <summary>

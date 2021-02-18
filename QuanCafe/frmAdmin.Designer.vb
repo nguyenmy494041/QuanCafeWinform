@@ -22,6 +22,7 @@ Partial Class frmAdmin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tabrevenue = New System.Windows.Forms.TabPage()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -125,6 +126,7 @@ Partial Class frmAdmin
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.TabControl1.SuspendLayout()
         Me.tabrevenue.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -156,6 +158,7 @@ Partial Class frmAdmin
         Me.Panel17.SuspendLayout()
         Me.Panel18.SuspendLayout()
         CType(Me.dtgvaccount, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -169,7 +172,7 @@ Partial Class frmAdmin
         Me.TabControl1.Location = New System.Drawing.Point(3, 2)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(797, 448)
+        Me.TabControl1.Size = New System.Drawing.Size(820, 448)
         Me.TabControl1.TabIndex = 0
         '
         'tabrevenue
@@ -179,7 +182,7 @@ Partial Class frmAdmin
         Me.tabrevenue.Location = New System.Drawing.Point(4, 26)
         Me.tabrevenue.Name = "tabrevenue"
         Me.tabrevenue.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabrevenue.Size = New System.Drawing.Size(789, 418)
+        Me.tabrevenue.Size = New System.Drawing.Size(812, 418)
         Me.tabrevenue.TabIndex = 0
         Me.tabrevenue.Text = "Doanh thu"
         Me.tabrevenue.UseVisualStyleBackColor = True
@@ -301,7 +304,7 @@ Partial Class frmAdmin
         Me.tabfood.Location = New System.Drawing.Point(4, 26)
         Me.tabfood.Name = "tabfood"
         Me.tabfood.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabfood.Size = New System.Drawing.Size(789, 418)
+        Me.tabfood.Size = New System.Drawing.Size(812, 418)
         Me.tabfood.TabIndex = 1
         Me.tabfood.Text = "Món ăn"
         Me.tabfood.UseVisualStyleBackColor = True
@@ -356,7 +359,7 @@ Partial Class frmAdmin
         Me.Panel5.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel5.Location = New System.Drawing.Point(511, 56)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(262, 282)
+        Me.Panel5.Size = New System.Drawing.Size(301, 282)
         Me.Panel5.TabIndex = 2
         '
         'nbrpricefood
@@ -526,7 +529,7 @@ Partial Class frmAdmin
         Me.tabtable.Location = New System.Drawing.Point(4, 26)
         Me.tabtable.Name = "tabtable"
         Me.tabtable.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabtable.Size = New System.Drawing.Size(789, 418)
+        Me.tabtable.Size = New System.Drawing.Size(812, 418)
         Me.tabtable.TabIndex = 2
         Me.tabtable.Text = "Bàn"
         Me.tabtable.UseVisualStyleBackColor = True
@@ -699,7 +702,7 @@ Partial Class frmAdmin
         Me.tabcategory.Location = New System.Drawing.Point(4, 26)
         Me.tabcategory.Name = "tabcategory"
         Me.tabcategory.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabcategory.Size = New System.Drawing.Size(789, 418)
+        Me.tabcategory.Size = New System.Drawing.Size(812, 418)
         Me.tabcategory.TabIndex = 3
         Me.tabcategory.Text = "Danh mục"
         Me.tabcategory.UseVisualStyleBackColor = True
@@ -732,7 +735,7 @@ Partial Class frmAdmin
         Me.Panel12.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel12.Location = New System.Drawing.Point(512, 58)
         Me.Panel12.Name = "Panel12"
-        Me.Panel12.Size = New System.Drawing.Size(262, 282)
+        Me.Panel12.Size = New System.Drawing.Size(292, 282)
         Me.Panel12.TabIndex = 10
         '
         'txbnamecategory
@@ -853,7 +856,7 @@ Partial Class frmAdmin
         Me.tabaccount.Controls.Add(Me.Panel18)
         Me.tabaccount.Location = New System.Drawing.Point(4, 26)
         Me.tabaccount.Name = "tabaccount"
-        Me.tabaccount.Size = New System.Drawing.Size(789, 418)
+        Me.tabaccount.Size = New System.Drawing.Size(812, 418)
         Me.tabaccount.TabIndex = 4
         Me.tabaccount.Text = "Tài khoản"
         Me.tabaccount.UseVisualStyleBackColor = True
@@ -908,7 +911,7 @@ Partial Class frmAdmin
         Me.Panel16.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel16.Location = New System.Drawing.Point(484, 58)
         Me.Panel16.Name = "Panel16"
-        Me.Panel16.Size = New System.Drawing.Size(290, 282)
+        Me.Panel16.Size = New System.Drawing.Size(320, 282)
         Me.Panel16.TabIndex = 14
         '
         'CheckBox1
@@ -929,7 +932,7 @@ Partial Class frmAdmin
         Me.Panel19.Controls.Add(Me.Label18)
         Me.Panel19.Location = New System.Drawing.Point(6, 170)
         Me.Panel19.Name = "Panel19"
-        Me.Panel19.Size = New System.Drawing.Size(281, 89)
+        Me.Panel19.Size = New System.Drawing.Size(281, 30)
         Me.Panel19.TabIndex = 10
         '
         'radiouser
@@ -1098,13 +1101,18 @@ Partial Class frmAdmin
         Me.Column6.ReadOnly = True
         Me.Column6.Width = 81
         '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
+        '
         'frmAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(823, 450)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "frmAdmin"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmAdmin"
         Me.TabControl1.ResumeLayout(False)
         Me.tabrevenue.ResumeLayout(False)
@@ -1147,6 +1155,7 @@ Partial Class frmAdmin
         Me.Panel17.ResumeLayout(False)
         Me.Panel18.ResumeLayout(False)
         CType(Me.dtgvaccount, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1254,4 +1263,5 @@ Partial Class frmAdmin
     Friend WithEvents radiouser As RadioButton
     Friend WithEvents radioadmin As RadioButton
     Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents ErrorProvider1 As ErrorProvider
 End Class

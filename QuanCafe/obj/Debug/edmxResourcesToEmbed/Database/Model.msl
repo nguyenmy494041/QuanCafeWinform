@@ -83,5 +83,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="M_SCH_KAIHI">
+      <EntityTypeMapping TypeName="QuanCafeModel.M_SCH_KAIHI">
+        <MappingFragment StoreEntitySet="M_SCH_KAIHI">
+          <ScalarProperty Name="UPD_TANTO" ColumnName="UPD_TANTO" />
+          <ScalarProperty Name="UPD_TIME" ColumnName="UPD_TIME" />
+          <ScalarProperty Name="UPD_DATE" ColumnName="UPD_DATE" />
+          <ScalarProperty Name="KAIHI" ColumnName="KAIHI" />
+          <ScalarProperty Name="SCH_KAIHI_KBN" ColumnName="SCH_KAIHI_KBN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_CODE">
+      <EntityTypeMapping TypeName="QuanCafeModel.M_CODE">
+        <MappingFragment StoreEntitySet="M_CODE">
+          <ScalarProperty Name="UPD_TANTO" ColumnName="UPD_TANTO" />
+          <ScalarProperty Name="UPD_TIME" ColumnName="UPD_TIME" />
+          <ScalarProperty Name="UPD_DATE" ColumnName="UPD_DATE" />
+          <ScalarProperty Name="CD_RYAKU" ColumnName="CD_RYAKU" />
+          <ScalarProperty Name="CD_NAME" ColumnName="CD_NAME" />
+          <ScalarProperty Name="CD_NO" ColumnName="CD_NO" />
+          <ScalarProperty Name="CD_SYU" ColumnName="CD_SYU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

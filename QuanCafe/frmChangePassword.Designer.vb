@@ -22,6 +22,7 @@ Partial Class frmChangePassword
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txbusernamechange = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -37,11 +38,13 @@ Partial Class frmChangePassword
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.tbnexit = New System.Windows.Forms.Button()
         Me.btnchangepass = New System.Windows.Forms.Button()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel5.SuspendLayout()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -51,7 +54,7 @@ Partial Class frmChangePassword
         Me.Panel1.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel1.Location = New System.Drawing.Point(13, 13)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(393, 32)
+        Me.Panel1.Size = New System.Drawing.Size(404, 32)
         Me.Panel1.TabIndex = 0
         '
         'txbusernamechange
@@ -77,7 +80,7 @@ Partial Class frmChangePassword
         Me.Panel2.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel2.Location = New System.Drawing.Point(13, 55)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(393, 32)
+        Me.Panel2.Size = New System.Drawing.Size(404, 32)
         Me.Panel2.TabIndex = 2
         '
         'txboldpass
@@ -103,7 +106,7 @@ Partial Class frmChangePassword
         Me.Panel3.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel3.Location = New System.Drawing.Point(13, 93)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(393, 32)
+        Me.Panel3.Size = New System.Drawing.Size(404, 32)
         Me.Panel3.TabIndex = 3
         '
         'txbnewpass
@@ -129,7 +132,7 @@ Partial Class frmChangePassword
         Me.Panel4.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel4.Location = New System.Drawing.Point(13, 131)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(393, 32)
+        Me.Panel4.Size = New System.Drawing.Size(404, 32)
         Me.Panel4.TabIndex = 3
         '
         'txbpassconform
@@ -176,6 +179,10 @@ Partial Class frmChangePassword
         Me.btnchangepass.Text = "Đổi mật khẩu"
         Me.btnchangepass.UseVisualStyleBackColor = True
         '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
+        '
         'frmChangePassword
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -187,6 +194,7 @@ Partial Class frmChangePassword
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "frmChangePassword"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmChangePassword"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -197,6 +205,7 @@ Partial Class frmChangePassword
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         Me.Panel5.ResumeLayout(False)
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -216,4 +225,5 @@ Partial Class frmChangePassword
     Friend WithEvents Panel5 As Panel
     Friend WithEvents tbnexit As Button
     Friend WithEvents btnchangepass As Button
+    Friend WithEvents ErrorProvider1 As ErrorProvider
 End Class

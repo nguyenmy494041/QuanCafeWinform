@@ -22,6 +22,7 @@ Partial Class frmDangnhap
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txbusername = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -31,9 +32,11 @@ Partial Class frmDangnhap
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnclose = New System.Windows.Forms.Button()
         Me.btnlogin = New System.Windows.Forms.Button()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -42,7 +45,7 @@ Partial Class frmDangnhap
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Location = New System.Drawing.Point(12, 4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(342, 37)
+        Me.Panel1.Size = New System.Drawing.Size(359, 37)
         Me.Panel1.TabIndex = 0
         '
         'txbusername
@@ -69,7 +72,7 @@ Partial Class frmDangnhap
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Location = New System.Drawing.Point(12, 39)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(342, 37)
+        Me.Panel2.Size = New System.Drawing.Size(359, 37)
         Me.Panel2.TabIndex = 2
         '
         'txbpassword
@@ -120,6 +123,10 @@ Partial Class frmDangnhap
         Me.btnlogin.Text = "Đăng nhập"
         Me.btnlogin.UseVisualStyleBackColor = True
         '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
+        '
         'frmDangnhap
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -136,6 +143,7 @@ Partial Class frmDangnhap
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -149,4 +157,5 @@ Partial Class frmDangnhap
     Friend WithEvents Panel3 As Panel
     Friend WithEvents btnclose As Button
     Friend WithEvents btnlogin As Button
+    Friend WithEvents ErrorProvider1 As ErrorProvider
 End Class

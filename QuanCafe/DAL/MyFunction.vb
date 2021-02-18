@@ -45,9 +45,11 @@
     End Function
     Sub fillcomboboxFoodByCategory(ByVal combo As ComboBox, ByVal name As String)
         combo.Items.Clear()
+
         For Each item In getFoodBycategoryname(name)
             combo.Items.Add(item.Name)
         Next
+
     End Sub
 
     Function getIdOfFoodName(ByVal name As String) As Integer

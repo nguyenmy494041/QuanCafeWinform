@@ -49,6 +49,19 @@
           <Property Name="Price" Type="float" Nullable="false" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="M_CODE">
+          <Key>
+            <PropertyRef Name="CD_SYU" />
+            <PropertyRef Name="CD_NO" />
+          </Key>
+          <Property Name="CD_SYU" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="CD_NO" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="CD_NAME" Type="nvarchar" MaxLength="32" />
+          <Property Name="CD_RYAKU" Type="nvarchar" MaxLength="16" />
+          <Property Name="UPD_DATE" Type="datetime" />
+          <Property Name="UPD_TIME" Type="varchar" MaxLength="8" />
+          <Property Name="UPD_TANTO" Type="varchar" MaxLength="12" />
+        </EntityType>
         <EntityType Name="M_POST">
           <Key>
             <PropertyRef Name="POST_KANRI" />
@@ -57,6 +70,16 @@
           <Property Name="POST" Type="varchar" MaxLength="8" />
           <Property Name="ADDRESS1" Type="nvarchar" MaxLength="40" />
           <Property Name="ADDRESS_KN" Type="nvarchar" MaxLength="50" />
+          <Property Name="UPD_DATE" Type="datetime" />
+          <Property Name="UPD_TIME" Type="varchar" MaxLength="8" />
+          <Property Name="UPD_TANTO" Type="varchar" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="M_SCH_KAIHI">
+          <Key>
+            <PropertyRef Name="SCH_KAIHI_KBN" />
+          </Key>
+          <Property Name="SCH_KAIHI_KBN" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="KAIHI" Type="numeric" Precision="6" Scale="0" />
           <Property Name="UPD_DATE" Type="datetime" />
           <Property Name="UPD_TIME" Type="varchar" MaxLength="8" />
           <Property Name="UPD_TANTO" Type="varchar" MaxLength="12" />
@@ -133,7 +156,9 @@
           <EntitySet Name="BillInfor" EntityType="Self.BillInfor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_CODE" EntityType="Self.M_CODE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_POST" EntityType="Self.M_POST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_SCH_KAIHI" EntityType="Self.M_SCH_KAIHI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TableFood" EntityType="Self.TableFood" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Bill_TableFood" Association="Self.FK_Bill_TableFood">
@@ -300,6 +325,8 @@
             <End Role="Food" EntitySet="Foods" />
           </AssociationSet>
           <EntitySet Name="M_POST" EntityType="QuanCafeModel.M_POST" />
+          <EntitySet Name="M_SCH_KAIHI" EntityType="QuanCafeModel.M_SCH_KAIHI" />
+          <EntitySet Name="M_CODE" EntityType="QuanCafeModel.M_CODE" />
         </EntityContainer>
         <EntityType Name="M_POST">
           <Key>
@@ -309,6 +336,29 @@
           <Property Name="POST" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
           <Property Name="ADDRESS1" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="ADDRESS_KN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UPD_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPD_TIME" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="UPD_TANTO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="M_SCH_KAIHI">
+          <Key>
+            <PropertyRef Name="SCH_KAIHI_KBN" />
+          </Key>
+          <Property Name="SCH_KAIHI_KBN" Type="Decimal" Nullable="false" Precision="1" Scale="0" />
+          <Property Name="KAIHI" Type="Decimal" Precision="6" Scale="0" />
+          <Property Name="UPD_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPD_TIME" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="UPD_TANTO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="M_CODE">
+          <Key>
+            <PropertyRef Name="CD_SYU" />
+            <PropertyRef Name="CD_NO" />
+          </Key>
+          <Property Name="CD_SYU" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="CD_NO" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+          <Property Name="CD_NAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="CD_RYAKU" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
           <Property Name="UPD_DATE" Type="DateTime" Precision="3" />
           <Property Name="UPD_TIME" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
           <Property Name="UPD_TANTO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
@@ -398,6 +448,30 @@
                 <ScalarProperty Name="ADDRESS1" ColumnName="ADDRESS1" />
                 <ScalarProperty Name="POST" ColumnName="POST" />
                 <ScalarProperty Name="POST_KANRI" ColumnName="POST_KANRI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_SCH_KAIHI">
+            <EntityTypeMapping TypeName="QuanCafeModel.M_SCH_KAIHI">
+              <MappingFragment StoreEntitySet="M_SCH_KAIHI">
+                <ScalarProperty Name="UPD_TANTO" ColumnName="UPD_TANTO" />
+                <ScalarProperty Name="UPD_TIME" ColumnName="UPD_TIME" />
+                <ScalarProperty Name="UPD_DATE" ColumnName="UPD_DATE" />
+                <ScalarProperty Name="KAIHI" ColumnName="KAIHI" />
+                <ScalarProperty Name="SCH_KAIHI_KBN" ColumnName="SCH_KAIHI_KBN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_CODE">
+            <EntityTypeMapping TypeName="QuanCafeModel.M_CODE">
+              <MappingFragment StoreEntitySet="M_CODE">
+                <ScalarProperty Name="UPD_TANTO" ColumnName="UPD_TANTO" />
+                <ScalarProperty Name="UPD_TIME" ColumnName="UPD_TIME" />
+                <ScalarProperty Name="UPD_DATE" ColumnName="UPD_DATE" />
+                <ScalarProperty Name="CD_RYAKU" ColumnName="CD_RYAKU" />
+                <ScalarProperty Name="CD_NAME" ColumnName="CD_NAME" />
+                <ScalarProperty Name="CD_NO" ColumnName="CD_NO" />
+                <ScalarProperty Name="CD_SYU" ColumnName="CD_SYU" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
