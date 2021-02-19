@@ -13,3 +13,4 @@ C:\Users\nguye\Desktop\QuanCafe\dungform\obj\Debug\dungform.vbproj.CopyComplete
 C:\Users\nguye\Desktop\QuanCafe\dungform\obj\Debug\dungform.exe
 C:\Users\nguye\Desktop\QuanCafe\dungform\obj\Debug\dungform.xml
 C:\Users\nguye\Desktop\QuanCafe\dungform\obj\Debug\dungform.pdb
+C:\Users\nguye\Desktop\QuanCafe\dungform\obj\Debug\dungform.Formbasic.resources
