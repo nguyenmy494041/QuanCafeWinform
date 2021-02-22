@@ -25,3 +25,6 @@ C:\Users\nguye\Desktop\QuanCafe\QuanCafe\obj\Debug\QuanCafe.frmChangePassword.re
 C:\Users\nguye\Desktop\QuanCafe\QuanCafe\obj\Debug\QuanCafe.frmvalidate.resources
 C:\Users\nguye\Desktop\QuanCafe\QuanCafe\obj\Debug\QuanCafe.frmlamnhap.resources
 C:\Users\nguye\Desktop\QuanCafe\QuanCafe\obj\Debug\QuanCafe.frmSCH_KAIHI_KBN.resources
+C:\Users\nguye\Desktop\QuanCafe\QuanCafe\obj\Debug\QuanCafe.frmcombobox.resources
+C:\Users\nguye\Desktop\QuanCafe\QuanCafe\bin\Debug\Guna.UI2.dll
+C:\Users\nguye\Desktop\QuanCafe\QuanCafe\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll

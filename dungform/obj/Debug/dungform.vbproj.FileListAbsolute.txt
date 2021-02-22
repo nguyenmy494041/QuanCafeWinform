@@ -14,3 +14,5 @@ C:\Users\nguye\Desktop\QuanCafe\dungform\obj\Debug\dungform.exe
 C:\Users\nguye\Desktop\QuanCafe\dungform\obj\Debug\dungform.xml
 C:\Users\nguye\Desktop\QuanCafe\dungform\obj\Debug\dungform.pdb
 C:\Users\nguye\Desktop\QuanCafe\dungform\obj\Debug\dungform.Formbasic.resources
+C:\Users\nguye\Desktop\QuanCafe\dungform\bin\Debug\Guna.UI2.dll
+C:\Users\nguye\Desktop\QuanCafe\dungform\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
