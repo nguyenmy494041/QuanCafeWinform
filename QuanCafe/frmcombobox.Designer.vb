@@ -24,6 +24,7 @@ Partial Class frmcombobox
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmcombobox))
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
@@ -57,6 +58,7 @@ Partial Class frmcombobox
         '
         'PrintDocument1
         '
+        Me.PrintDocument1.OriginAtMargins = True
         '
         'PrintPreviewDialog1
         '
@@ -117,6 +119,10 @@ Partial Class frmcombobox
         '
         'UPD_DATE
         '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.Format = "d"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.UPD_DATE.DefaultCellStyle = DataGridViewCellStyle2
         Me.UPD_DATE.Format = ""
         Me.UPD_DATE.HeaderText = "UPD_DATE"
         Me.UPD_DATE.Name = "UPD_DATE"
@@ -193,12 +199,6 @@ Partial Class frmcombobox
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
     Friend WithEvents PrintForm1 As PowerPacks.Printing.PrintForm
     Friend WithEvents dtgv As ICCControl.CC_DataGridView
-    Friend WithEvents DELETE As DataGridViewCheckBoxColumn
-    Friend WithEvents SCH_KAIHI_KBN As ICCControl.CC_DataGridViewColumnNumber
-    Friend WithEvents CD_NAME As DataGridViewComboBoxColumn
-    Friend WithEvents KAIHI As ICCControl.CC_DataGridViewColumnNumber
-    Friend WithEvents UPD_DATE As ICCControl.DataGridViewCalendarColumnStyle
-    Friend WithEvents TANGO As DataGridViewTextBoxColumn
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents Button2 As Button
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
@@ -206,4 +206,10 @@ Partial Class frmcombobox
     Friend WithEvents btnopoen As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents btnSCHKAIHI As Button
+    Friend WithEvents DELETE As DataGridViewCheckBoxColumn
+    Friend WithEvents SCH_KAIHI_KBN As ICCControl.CC_DataGridViewColumnNumber
+    Friend WithEvents CD_NAME As DataGridViewComboBoxColumn
+    Friend WithEvents KAIHI As ICCControl.CC_DataGridViewColumnNumber
+    Friend WithEvents UPD_DATE As ICCControl.DataGridViewCalendarColumnStyle
+    Friend WithEvents TANGO As DataGridViewTextBoxColumn
 End Class

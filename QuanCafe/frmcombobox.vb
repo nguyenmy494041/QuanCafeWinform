@@ -31,21 +31,24 @@ Public Class frmcombobox
     End Sub
 
     'Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
-    '    Dim lWidth As Integer = e.MarginBounds.X + (e.MarginBounds.Width - mPrintBitMap.Width) * 2
-    '    Dim lHeight As Integer = e.MarginBounds.Y + (e.MarginBounds.Height - mPrintBitMap.Height) * 2
-    '    e.Graphics.DrawImage(mPrintBitMap, lWidth, lHeight)
+    '    Dim lWidth As Integer = e.MarginBounds.X + (e.MarginBounds.Width - mPrintBitMap.Width) / 2
+    '    Dim lHeight As Integer = e.MarginBounds.Y + (e.MarginBounds.Height - mPrintBitMap.Height) / 2
+    '    e.Graphics.DrawImage(mPrintBitMap, 0, 0)
+
     '    e.HasMorePages = False
     'End Sub
 
     'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-    '    mPrintBitMap = New Bitmap(Me.Width, Me.Width)
-    '    Dim lRect As System.Drawing.Rectangle
+    '    mPrintBitMap = New Bitmap(Me.Width, Me.Height)
+    '    Dim lRect, ki As System.Drawing.Rectangle
     '    lRect.Width = Me.Width
-    '    lRect.Height = Me.Width
+    '    lRect.Height = Me.Height
+    '    ki.Width = 500
+    '    ki.Height = 300
     '    Me.DrawToBitmap(mPrintBitMap, lRect)
-
-    '    mPrintDocument = New PrintDocument
-    '    mPrintDocument.Print()
+    '    PrintPreviewDialog1.ShowDialog()
+    '    'mPrintDocument = New PrintDocument
+    '    'mPrintDocument.Print()
     'End Sub
 
     ' dùng formprint
@@ -59,16 +62,18 @@ Public Class frmcombobox
     ''Copy màn hình
 
 
-    Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
-        e.Graphics.DrawImage(mPrintBitMap, 0, 0)
-    End Sub
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim g = Me.CreateGraphics()
-        mPrintBitMap = New Bitmap(Me.Size.Width, Me.Size.Height, g)
-        Dim gm = Graphics.FromImage(mPrintBitMap)
-        gm.CopyFromScreen(Me.Location.X, Me.Location.Y, 0, 0, Me.Size)
-        PrintPreviewDialog1.ShowDialog()
-    End Sub
+    'Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+    '    e.Graphics.DrawImage(mPrintBitMap, 0, 0)
+    'End Sub
+    'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    '    Dim g = Me.CreateGraphics()
+    '    mPrintBitMap = New Bitmap(Me.Size.Width, Me.Size.Height, g)
+    '    Dim gm = Graphics.FromImage(mPrintBitMap)
+
+    '    gm.CopyFromScreen(Me.Location.X, Me.Location.Y, 0, 0, Me.Size)
+
+    '    PrintPreviewDialog1.ShowDialog()
+    'End Sub
 
 
 
@@ -146,8 +151,8 @@ Public Class frmcombobox
                     Next
                     context.SaveChanges()
                 End If
-                btnupdate_Click(Nothing, Nothing)
-        Catch ex As Exception
+                'btnupdate_Click(Nothing, Nothing)
+            Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
         End If
@@ -200,5 +205,33 @@ Public Class frmcombobox
             dtgv.Rows(index).Cells(5).Value = row.UPD_TANTO
         Next
         dtgv.Columns(1).ReadOnly = True
+    End Sub
+
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        mPrintBitMap = New Bitmap(Me.Width, Me.Height)
+        Me.DrawToBitmap(mPrintBitMap, New Rectangle(0, 0, Me.Width, Me.Height))
+        Dim ratio As Single = CSng(mPrintBitMap.Width / mPrintBitMap.Height)
+        If ratio > e.MarginBounds.Width / e.MarginBounds.Height Then
+            Dim xxx = CInt(e.MarginBounds.Top + (e.MarginBounds.Height / 2) - ((e.MarginBounds.Width / ratio) / 2))
+            Dim yyy = CInt(e.MarginBounds.Width / ratio)
+            e.Graphics.DrawImage(mPrintBitMap,
+                                 0,
+                                 0,
+                                 e.MarginBounds.Width,
+                                 yyy)
+        Else
+            Dim xxx = CInt(e.MarginBounds.Left + (e.MarginBounds.Width / 2) - (e.MarginBounds.Height * ratio / 2))
+            Dim yyy = CInt(e.MarginBounds.Height * ratio)
+            e.Graphics.DrawImage(mPrintBitMap,
+                                 0,
+                                 0,
+                                 yyy,
+                                 e.MarginBounds.Height)
+        End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        PrintPreviewDialog1.Document = PrintDocument1
+        PrintPreviewDialog1.ShowDialog()
     End Sub
 End Class
