@@ -193,13 +193,13 @@ Partial Class frmM_IRYOKIKAN
         '
         'dtpk_HAISI_DATE
         '
-        Me.dtpk_HAISI_DATE.CustomFormat = "dd/MM/yyyy"
+        Me.dtpk_HAISI_DATE.CustomFormat = ""
         Me.dtpk_HAISI_DATE.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpk_HAISI_DATE.Location = New System.Drawing.Point(3, 294)
         Me.dtpk_HAISI_DATE.Name = "dtpk_HAISI_DATE"
         Me.dtpk_HAISI_DATE.Size = New System.Drawing.Size(144, 22)
         Me.dtpk_HAISI_DATE.TabIndex = 20
-        Me.dtpk_HAISI_DATE.Value = New Date(2021, 2, 24, 8, 23, 38, 0)
+        Me.dtpk_HAISI_DATE.Value = New Date(1753, 1, 1, 0, 0, 0, 0)
         '
         'txb_IRYO_URL
         '

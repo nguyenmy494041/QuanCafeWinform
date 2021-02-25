@@ -6,6 +6,7 @@
         For Each item In listCDNAME
             cbx_HAISI_KBN.Items.Add(item.CD_NAME)
         Next
+        cbx_HAISI_KBN.Text = ""
         For Each ctrol In Panel3.Controls
             If TypeOf (ctrol) Is Button Then
                 Dim btn = CType(ctrol, Button)
@@ -23,6 +24,8 @@
                 End If
             Next ctrol
         End If
+        dtpk_HAISI_DATE.CustomFormat = " "
+        'dtpk_HAISI_DATE.Value = Nothing
     End Sub
     Private Sub CC_Button2_Click(sender As Object, e As EventArgs) Handles CC_Button2.Click
         Dim frmsearch = New frmCOMBO00200()
@@ -161,21 +164,6 @@
         txb_IRYO_KIKAN_CD.Clear()
         txb_IRYO_KIKAN_CD.Enabled = True
         txb_IRYO_KIKAN_CD.BackColor = Color.White
-        'txb_IRYO_KIKAN_CD.Clear()
-        'txb_IRYO_NAME_KN.Clear()
-        'tbx_IRYO_NAME_KJ.Clear()
-        'txb_SORT_KN.Clear()
-        'txb_POST.Clear()
-        'txb_ADDRESS1.Clear()
-        'txb_ADDRESS2.Clear()
-        'txb_TEL1.Clear()
-        'txb_TEL2.Clear()
-        'txb_FAX.Clear()
-        'txb_HAISI_KBN.Clear()
-        'cbx_HAISI_KBN.Text = ""
-        'dtpk_HAISI_DATE.Value = Date.Now
-        'txb_IRYO_CARD_40.Clear()
-        'txb_IRYO_CARD_NIN.Clear()
         For Each ctrol In Panel2.Controls
             If TypeOf (ctrol) Is ICCControl.CC_TextBox Then
                 Dim a = CType(ctrol, ICCControl.CC_TextBox)
@@ -190,6 +178,8 @@
                 a.Value = Date.Now
             End If
         Next ctrol
+        cbx_HAISI_KBN.Text = ""
+        dtpk_HAISI_DATE.CustomFormat = " "
     End Sub
 
     Private Sub btnF1_Click(sender As Object, e As EventArgs) Handles btnF1.Click
@@ -250,7 +240,6 @@
                 exitmodel.IRYO_EM = model.IRYO_EM
                 exitmodel.IRYO_URL = model.IRYO_URL
                 context.SaveChanges()
-
             End If
             If btnF3.BackColor = Color.MistyRose Then
                 Dim context = New QuanCafeEntities()
@@ -259,6 +248,7 @@
                 context.SaveChanges()
             End If
             btnESC_Click(Nothing, Nothing)
+            Panel2.Enabled = False
         End If
         btnF5.BackColor = Color.MistyRose
         Dim key = CDec(Val(txb_IRYO_KIKAN_CD.Text))
@@ -269,6 +259,22 @@
                 If IsNothing(iryokikan) Then
                     Panel2.Enabled = True
                     txb_IRYO_KIKAN_CD.Enabled = False
+                    For Each ctrol In Panel2.Controls
+                        If TypeOf (ctrol) Is ICCControl.CC_TextBox Then
+                            Dim a = CType(ctrol, ICCControl.CC_TextBox)
+                            a.ReadOnly = False
+                        End If
+                        If TypeOf (ctrol) Is ICCControl.CC_Combobox Then
+                            Dim a = CType(ctrol, ICCControl.CC_Combobox)
+                            a.Enabled = True
+                        End If
+                        If TypeOf (ctrol) Is DateTimePicker Then
+                            Dim a = CType(ctrol, DateTimePicker)
+                            a.Enabled = True
+                            'a.ShowUpDown = False
+                            a.CustomFormat = " "
+                        End If
+                    Next ctrol
                 Else
                     txb_IRYO_KIKAN_CD.BackColor = Color.MistyRose
                     Panel2.Enabled = False
@@ -279,6 +285,20 @@
                 If Not IsNothing(iryokikan) Then
                     Panel2.Enabled = True
                     txb_IRYO_KIKAN_CD.Enabled = False
+                    For Each ctrol In Panel2.Controls
+                        If TypeOf (ctrol) Is ICCControl.CC_TextBox Then
+                            Dim a = CType(ctrol, ICCControl.CC_TextBox)
+                            a.ReadOnly = False
+                        End If
+                        If TypeOf (ctrol) Is ICCControl.CC_Combobox Then
+                            Dim a = CType(ctrol, ICCControl.CC_Combobox)
+                            a.Enabled = True
+                        End If
+                        If TypeOf (ctrol) Is DateTimePicker Then
+                            Dim a = CType(ctrol, DateTimePicker)
+                            a.Enabled = True
+                        End If
+                    Next ctrol
                     filldataintextbox(iryokikan)
                 Else
                     txb_IRYO_KIKAN_CD.BackColor = Color.MistyRose
@@ -365,6 +385,8 @@
 
     Function createModel() As M_IRYOKIKAN
         Dim newmodel = New M_IRYOKIKAN()
+        Dim datenull = CType("01/01/1753", Date)
+        Dim newdate = CDate(dtpk_HAISI_DATE.Value)
         newmodel.IRYO_KIKAN_CD = CDec(Val(txb_IRYO_KIKAN_CD.Text))
         newmodel.IRYO_NAME_KJ = If(tbx_IRYO_NAME_KJ.TextLength <> 0, tbx_IRYO_NAME_KJ.Text, Nothing)
         newmodel.IRYO_NAME_KN = If(txb_IRYO_NAME_KN.TextLength <> 0, txb_IRYO_NAME_KN.Text, Nothing)
@@ -374,7 +396,9 @@
         newmodel.TEL1 = If(txb_TEL1.TextLength <> 0, txb_TEL1.Text, Nothing)
         newmodel.TEL2 = If(txb_TEL2.TextLength <> 0, txb_TEL2.Text, Nothing)
         newmodel.HAISI_KBN = If(CDec(Val(txb_HAISI_KBN.Text)) <> 0, CDec(Val(txb_HAISI_KBN.Text)), Nothing)
-        newmodel.HAISI_DATE = CDate(dtpk_HAISI_DATE.Value)
+        If datenull <> newdate Then
+            newmodel.HAISI_DATE = CDate(dtpk_HAISI_DATE.Value)
+        End If
         newmodel.UPD_DATE = Date.Now
         newmodel.UPD_TIME = Date.Now.ToString("hh:mm:ss")
         newmodel.SORT_KN = If(txb_SORT_KN.TextLength <> 0, txb_SORT_KN.Text, Nothing)
@@ -406,11 +430,19 @@
         ' dtpk_HAISI_DATE.Value = If(IsNothing(model.HAISI_DATE),??, model.HAISI_DATE)
         If Not IsNothing(model.HAISI_DATE) Then
             dtpk_HAISI_DATE.Value = model.HAISI_DATE
+            dtpk_HAISI_DATE.CustomFormat = "dd/MM/yyyy"
+        Else
+            dtpk_HAISI_DATE.Value = CDate("01/01/1753")
+            dtpk_HAISI_DATE.CustomFormat = " "
         End If
         ' lỗi
         txb_IRYO_CARD_40.Text = If(IsNothing(model.IRYO_CARD_40), "", model.IRYO_CARD_40)
         txb_IRYO_CARD_NIN.Text = If(IsNothing(model.IRYO_CARD_NIN), "", model.IRYO_CARD_NIN)
         txb_IRYO_EM.Text = model.IRYO_EM
         txb_IRYO_URL.Text = model.IRYO_URL
+    End Sub
+
+    Private Sub dtpk_HAISI_DATE_ValueChanged(sender As Object, e As EventArgs) Handles dtpk_HAISI_DATE.ValueChanged
+        dtpk_HAISI_DATE.CustomFormat = "dd/MM/yyyy"
     End Sub
 End Class
