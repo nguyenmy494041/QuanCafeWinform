@@ -145,6 +145,7 @@
     <EntitySet Name="M_POST" EntityType="QuanCafeModel.M_POST" />
     <EntitySet Name="M_SCH_KAIHI" EntityType="QuanCafeModel.M_SCH_KAIHI" />
     <EntitySet Name="M_CODE" EntityType="QuanCafeModel.M_CODE" />
+    <EntitySet Name="M_IRYOKIKAN" EntityType="QuanCafeModel.M_IRYOKIKAN" />
   </EntityContainer>
   <EntityType Name="M_POST">
     <Key>
@@ -180,5 +181,29 @@
     <Property Name="UPD_DATE" Type="DateTime" Precision="3" />
     <Property Name="UPD_TIME" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
     <Property Name="UPD_TANTO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="M_IRYOKIKAN">
+    <Key>
+      <PropertyRef Name="IRYO_KIKAN_CD" />
+    </Key>
+    <Property Name="IRYO_KIKAN_CD" Type="Decimal" Nullable="false" Precision="7" Scale="0" />
+    <Property Name="IRYO_NAME_KJ" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="IRYO_NAME_KN" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="POST" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="ADDRESS1" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="ADDRESS2" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="TEL1" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="TEL2" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="FAX" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="HAISI_KBN" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="HAISI_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPD_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPD_TIME" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="UPD_TANTO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="SORT_KN" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="IRYO_EM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="IRYO_URL" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="IRYO_CARD_40" Type="Decimal" Precision="7" Scale="0" />
+    <Property Name="IRYO_CARD_NIN" Type="Decimal" Precision="7" Scale="0" />
   </EntityType>
 </Schema>

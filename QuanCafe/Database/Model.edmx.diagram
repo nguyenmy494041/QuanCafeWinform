@@ -19,6 +19,7 @@
         <EntityTypeShape EntityType="QuanCafeModel.M_POST" Width="1.5" PointX="5.375" PointY="7.75" />
         <EntityTypeShape EntityType="QuanCafeModel.M_SCH_KAIHI" Width="1.5" PointX="7.375" PointY="7.75" />
         <EntityTypeShape EntityType="QuanCafeModel.M_CODE" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="QuanCafeModel.M_IRYOKIKAN" Width="1.5" PointX="9.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

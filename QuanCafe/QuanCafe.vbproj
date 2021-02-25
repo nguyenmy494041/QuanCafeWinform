@@ -124,6 +124,9 @@
     <Compile Include="Database\M_CODE.vb">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\M_IRYOKIKAN.vb">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\M_POST.vb">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -148,6 +151,12 @@
     <Compile Include="frmChangePassword.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmCOMBO00200.Designer.vb">
+      <DependentUpon>frmCOMBO00200.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCOMBO00200.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmcombobox.Designer.vb">
       <DependentUpon>frmcombobox.vb</DependentUpon>
     </Compile>
@@ -161,6 +170,12 @@
       <DependentUpon>frmDangnhap.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmKAIHI.Designer.vb">
+      <DependentUpon>frmKAIHI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmKAIHI.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmlamnhap.Designer.vb">
       <DependentUpon>frmlamnhap.vb</DependentUpon>
     </Compile>
@@ -169,6 +184,12 @@
       <DependentUpon>frmManagement.vb</DependentUpon>
     </Compile>
     <Compile Include="frmManagement.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmM_IRYOKIKAN.Designer.vb">
+      <DependentUpon>frmM_IRYOKIKAN.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmM_IRYOKIKAN.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPOST_KANRI.Designer.vb">
@@ -205,6 +226,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="QuanCafe_Control\NewButton.Designer.vb">
+      <DependentUpon>NewButton.vb</DependentUpon>
+    </Compile>
+    <Compile Include="QuanCafe_Control\NewButton.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QuanCafe_Control\NewTextBox.Designer.vb">
+      <DependentUpon>NewTextBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="QuanCafe_Control\NewTextBox.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmAdmin.resx">
@@ -213,17 +246,26 @@
     <EmbeddedResource Include="frmChangePassword.resx">
       <DependentUpon>frmChangePassword.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCOMBO00200.resx">
+      <DependentUpon>frmCOMBO00200.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmcombobox.resx">
       <DependentUpon>frmcombobox.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangnhap.resx">
       <DependentUpon>frmDangnhap.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmKAIHI.resx">
+      <DependentUpon>frmKAIHI.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmlamnhap.resx">
       <DependentUpon>frmlamnhap.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManagement.resx">
       <DependentUpon>frmManagement.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmM_IRYOKIKAN.resx">
+      <DependentUpon>frmM_IRYOKIKAN.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPOST_KANRI.resx">
       <DependentUpon>frmPOST_KANRI.vb</DependentUpon>
@@ -239,6 +281,12 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanCafe_Control\NewButton.resx">
+      <DependentUpon>NewButton.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanCafe_Control\NewTextBox.resx">
+      <DependentUpon>NewTextBox.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

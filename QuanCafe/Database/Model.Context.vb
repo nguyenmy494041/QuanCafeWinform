@@ -32,5 +32,6 @@ Partial Public Class QuanCafeEntities
     Public Overridable Property M_POST() As DbSet(Of M_POST)
     Public Overridable Property M_SCH_KAIHI() As DbSet(Of M_SCH_KAIHI)
     Public Overridable Property M_CODE() As DbSet(Of M_CODE)
+    Public Overridable Property M_IRYOKIKAN() As DbSet(Of M_IRYOKIKAN)
 
 End Class

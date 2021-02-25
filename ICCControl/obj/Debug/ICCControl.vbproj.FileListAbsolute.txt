@@ -19,3 +19,4 @@ C:\Users\nguye\Desktop\QuanCafe\ICCControl\obj\Debug\ICCControl.vbproj.CoreCompi
 C:\Users\nguye\Desktop\QuanCafe\ICCControl\obj\Debug\ICCControl.dll
 C:\Users\nguye\Desktop\QuanCafe\ICCControl\obj\Debug\ICCControl.xml
 C:\Users\nguye\Desktop\QuanCafe\ICCControl\obj\Debug\ICCControl.pdb
+C:\Users\nguye\Desktop\QuanCafe\ICCControl\obj\Debug\ICCControl.vbprojAssemblyReference.cache

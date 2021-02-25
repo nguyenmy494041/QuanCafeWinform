@@ -57,6 +57,30 @@
     <Property Name="UPD_TIME" Type="varchar" MaxLength="8" />
     <Property Name="UPD_TANTO" Type="varchar" MaxLength="12" />
   </EntityType>
+  <EntityType Name="M_IRYOKIKAN">
+    <Key>
+      <PropertyRef Name="IRYO_KIKAN_CD" />
+    </Key>
+    <Property Name="IRYO_KIKAN_CD" Type="numeric" Precision="7" Scale="0" Nullable="false" />
+    <Property Name="IRYO_NAME_KJ" Type="nvarchar" MaxLength="40" />
+    <Property Name="IRYO_NAME_KN" Type="nvarchar" MaxLength="32" />
+    <Property Name="POST" Type="varchar" MaxLength="8" />
+    <Property Name="ADDRESS1" Type="nvarchar" MaxLength="40" />
+    <Property Name="ADDRESS2" Type="nvarchar" MaxLength="40" />
+    <Property Name="TEL1" Type="varchar" MaxLength="13" />
+    <Property Name="TEL2" Type="varchar" MaxLength="13" />
+    <Property Name="FAX" Type="varchar" MaxLength="13" />
+    <Property Name="HAISI_KBN" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="HAISI_DATE" Type="datetime" />
+    <Property Name="UPD_DATE" Type="datetime" />
+    <Property Name="UPD_TIME" Type="varchar" MaxLength="8" />
+    <Property Name="UPD_TANTO" Type="varchar" MaxLength="12" />
+    <Property Name="SORT_KN" Type="nvarchar" MaxLength="32" />
+    <Property Name="IRYO_EM" Type="varchar" MaxLength="40" />
+    <Property Name="IRYO_URL" Type="varchar" MaxLength="60" />
+    <Property Name="IRYO_CARD_40" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="IRYO_CARD_NIN" Type="numeric" Precision="7" Scale="0" />
+  </EntityType>
   <EntityType Name="M_POST">
     <Key>
       <PropertyRef Name="POST_KANRI" />
@@ -152,6 +176,7 @@
     <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="M_CODE" EntityType="Self.M_CODE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_IRYOKIKAN" EntityType="Self.M_IRYOKIKAN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="M_POST" EntityType="Self.M_POST" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="M_SCH_KAIHI" EntityType="Self.M_SCH_KAIHI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />

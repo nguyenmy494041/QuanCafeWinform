@@ -29,13 +29,6 @@ Partial Class frmcombobox
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.PrintForm1 = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
-        Me.dtgv = New ICCControl.CC_DataGridView()
-        Me.DELETE = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.SCH_KAIHI_KBN = New ICCControl.CC_DataGridViewColumnNumber()
-        Me.CD_NAME = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.KAIHI = New ICCControl.CC_DataGridViewColumnNumber()
-        Me.UPD_DATE = New ICCControl.DataGridViewCalendarColumnStyle()
-        Me.TANGO = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
@@ -43,6 +36,14 @@ Partial Class frmcombobox
         Me.btnupdate = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.btnSCHKAIHI = New System.Windows.Forms.Button()
+        Me.PageSetupDialog1 = New System.Windows.Forms.PageSetupDialog()
+        Me.dtgv = New ICCControl.CC_DataGridView()
+        Me.DELETE = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.SCH_KAIHI_KBN = New ICCControl.CC_DataGridViewColumnNumber()
+        Me.CD_NAME = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.KAIHI = New ICCControl.CC_DataGridViewColumnNumber()
+        Me.UPD_DATE = New ICCControl.DataGridViewCalendarColumnStyle()
+        Me.TANGO = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dtgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -78,6 +79,54 @@ Partial Class frmcombobox
         Me.PrintForm1.PrintAction = System.Drawing.Printing.PrintAction.PrintToPrinter
         Me.PrintForm1.PrinterSettings = CType(resources.GetObject("PrintForm1.PrinterSettings"), System.Drawing.Printing.PrinterSettings)
         Me.PrintForm1.PrintFileName = Nothing
+        '
+        'Button2
+        '
+        Me.Button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.Button2.Location = New System.Drawing.Point(345, 225)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 3
+        Me.Button2.Text = "export"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'btnopoen
+        '
+        Me.btnopoen.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnopoen.Location = New System.Drawing.Point(476, 225)
+        Me.btnopoen.Name = "btnopoen"
+        Me.btnopoen.Size = New System.Drawing.Size(75, 23)
+        Me.btnopoen.TabIndex = 4
+        Me.btnopoen.Text = "Open"
+        Me.btnopoen.UseVisualStyleBackColor = True
+        '
+        'btnupdate
+        '
+        Me.btnupdate.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnupdate.Location = New System.Drawing.Point(74, 225)
+        Me.btnupdate.Name = "btnupdate"
+        Me.btnupdate.Size = New System.Drawing.Size(75, 23)
+        Me.btnupdate.TabIndex = 5
+        Me.btnupdate.Text = "UpdateDB"
+        Me.btnupdate.UseVisualStyleBackColor = True
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'btnSCHKAIHI
+        '
+        Me.btnSCHKAIHI.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnSCHKAIHI.Location = New System.Drawing.Point(585, 225)
+        Me.btnSCHKAIHI.Name = "btnSCHKAIHI"
+        Me.btnSCHKAIHI.Size = New System.Drawing.Size(75, 23)
+        Me.btnSCHKAIHI.TabIndex = 6
+        Me.btnSCHKAIHI.Text = "exportSCHKAIHI"
+        Me.btnSCHKAIHI.UseVisualStyleBackColor = True
+        '
+        'PageSetupDialog1
+        '
+        Me.PageSetupDialog1.Document = Me.PrintDocument1
         '
         'dtgv
         '
@@ -132,50 +181,6 @@ Partial Class frmcombobox
         Me.TANGO.HeaderText = "TANGO"
         Me.TANGO.Name = "TANGO"
         '
-        'Button2
-        '
-        Me.Button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.Button2.Location = New System.Drawing.Point(345, 225)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "export"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'btnopoen
-        '
-        Me.btnopoen.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.btnopoen.Location = New System.Drawing.Point(476, 225)
-        Me.btnopoen.Name = "btnopoen"
-        Me.btnopoen.Size = New System.Drawing.Size(75, 23)
-        Me.btnopoen.TabIndex = 4
-        Me.btnopoen.Text = "Open"
-        Me.btnopoen.UseVisualStyleBackColor = True
-        '
-        'btnupdate
-        '
-        Me.btnupdate.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.btnupdate.Location = New System.Drawing.Point(74, 225)
-        Me.btnupdate.Name = "btnupdate"
-        Me.btnupdate.Size = New System.Drawing.Size(75, 23)
-        Me.btnupdate.TabIndex = 5
-        Me.btnupdate.Text = "UpdateDB"
-        Me.btnupdate.UseVisualStyleBackColor = True
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'btnSCHKAIHI
-        '
-        Me.btnSCHKAIHI.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.btnSCHKAIHI.Location = New System.Drawing.Point(585, 225)
-        Me.btnSCHKAIHI.Name = "btnSCHKAIHI"
-        Me.btnSCHKAIHI.Size = New System.Drawing.Size(75, 23)
-        Me.btnSCHKAIHI.TabIndex = 6
-        Me.btnSCHKAIHI.Text = "exportSCHKAIHI"
-        Me.btnSCHKAIHI.UseVisualStyleBackColor = True
-        '
         'frmcombobox
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -212,4 +217,5 @@ Partial Class frmcombobox
     Friend WithEvents KAIHI As ICCControl.CC_DataGridViewColumnNumber
     Friend WithEvents UPD_DATE As ICCControl.DataGridViewCalendarColumnStyle
     Friend WithEvents TANGO As DataGridViewTextBoxColumn
+    Friend WithEvents PageSetupDialog1 As PageSetupDialog
 End Class

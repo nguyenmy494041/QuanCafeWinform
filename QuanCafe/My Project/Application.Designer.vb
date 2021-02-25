@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.QuanCafe.frmcombobox
+            Me.MainForm = Global.QuanCafe.frmM_IRYOKIKAN
         End Sub
     End Class
 End Namespace

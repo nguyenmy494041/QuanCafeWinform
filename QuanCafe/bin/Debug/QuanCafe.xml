@@ -25,5 +25,10 @@ QuanCafe
 <member name="M:QuanCafe.FunctionFrmAdmin.getdatabill">
 thống kê doanh thu
 </member>
+<member name="M:QuanCafe.NewButton.OnCreateControl">
+ <summary>
+ OnCreateControl Overrides
+ </summary>
+</member>
 </members>
 </doc>

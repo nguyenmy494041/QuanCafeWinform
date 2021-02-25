@@ -113,6 +113,7 @@ Public Class frmcombobox
         If OpenFileDialog1.FileName <> "" Then
             Try
                 Dim listresult = New List(Of List(Of String))
+                FileClose()
                 FileOpen(1, OpenFileDialog1.FileName, OpenMode.Input)
                 Do Until EOF(1)
                     Dim LineOfText = LineInput(1)
@@ -123,6 +124,7 @@ Public Class frmcombobox
                     Next
                     listresult.Add(liststr)
                 Loop
+                FileClose()
                 Dim a = listresult
                 Dim context = New QuanCafeEntities()
                 If listresult.Count > 1 Then
@@ -147,9 +149,9 @@ Public Class frmcombobox
                             newSCH.UPD_TANTO = CType(listresult(i)(4), String)
                             context.M_SCH_KAIHI.Add(newSCH)
                         End If
-
                     Next
                     context.SaveChanges()
+
                 End If
                 'btnupdate_Click(Nothing, Nothing)
             Catch ex As Exception
@@ -214,24 +216,29 @@ Public Class frmcombobox
         If ratio > e.MarginBounds.Width / e.MarginBounds.Height Then
             Dim xxx = CInt(e.MarginBounds.Top + (e.MarginBounds.Height / 2) - ((e.MarginBounds.Width / ratio) / 2))
             Dim yyy = CInt(e.MarginBounds.Width / ratio)
-            e.Graphics.DrawImage(mPrintBitMap,
-                                 0,
-                                 0,
-                                 e.MarginBounds.Width,
-                                 yyy)
+            e.Graphics.DrawImage(mPrintBitMap, 0, 0, e.MarginBounds.Width, yyy)
         Else
             Dim xxx = CInt(e.MarginBounds.Left + (e.MarginBounds.Width / 2) - (e.MarginBounds.Height * ratio / 2))
             Dim yyy = CInt(e.MarginBounds.Height * ratio)
-            e.Graphics.DrawImage(mPrintBitMap,
-                                 0,
-                                 0,
-                                 yyy,
-                                 e.MarginBounds.Height)
+            e.Graphics.DrawImage(mPrintBitMap, 0, 0, yyy, e.MarginBounds.Height)
         End If
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         PrintPreviewDialog1.Document = PrintDocument1
-        PrintPreviewDialog1.ShowDialog()
+        Try
+            PageSetupDialog1.Document = PrintDocument1
+            PageSetupDialog1.PageSettings = New PageSettings()
+            Dim a = PageSetupDialog1.ShowDialog()
+            If a = DialogResult.OK Then
+                PrintPreviewDialog1.ShowDialog()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub CC_Button1_Click(sender As Object, e As EventArgs) 
+
     End Sub
 End Class

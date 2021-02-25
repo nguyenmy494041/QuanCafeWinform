@@ -107,5 +107,30 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="M_IRYOKIKAN">
+      <EntityTypeMapping TypeName="QuanCafeModel.M_IRYOKIKAN">
+        <MappingFragment StoreEntitySet="M_IRYOKIKAN">
+          <ScalarProperty Name="IRYO_CARD_NIN" ColumnName="IRYO_CARD_NIN" />
+          <ScalarProperty Name="IRYO_CARD_40" ColumnName="IRYO_CARD_40" />
+          <ScalarProperty Name="IRYO_URL" ColumnName="IRYO_URL" />
+          <ScalarProperty Name="IRYO_EM" ColumnName="IRYO_EM" />
+          <ScalarProperty Name="SORT_KN" ColumnName="SORT_KN" />
+          <ScalarProperty Name="UPD_TANTO" ColumnName="UPD_TANTO" />
+          <ScalarProperty Name="UPD_TIME" ColumnName="UPD_TIME" />
+          <ScalarProperty Name="UPD_DATE" ColumnName="UPD_DATE" />
+          <ScalarProperty Name="HAISI_DATE" ColumnName="HAISI_DATE" />
+          <ScalarProperty Name="HAISI_KBN" ColumnName="HAISI_KBN" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="TEL2" ColumnName="TEL2" />
+          <ScalarProperty Name="TEL1" ColumnName="TEL1" />
+          <ScalarProperty Name="ADDRESS2" ColumnName="ADDRESS2" />
+          <ScalarProperty Name="ADDRESS1" ColumnName="ADDRESS1" />
+          <ScalarProperty Name="POST" ColumnName="POST" />
+          <ScalarProperty Name="IRYO_NAME_KN" ColumnName="IRYO_NAME_KN" />
+          <ScalarProperty Name="IRYO_NAME_KJ" ColumnName="IRYO_NAME_KJ" />
+          <ScalarProperty Name="IRYO_KIKAN_CD" ColumnName="IRYO_KIKAN_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
