@@ -181,37 +181,42 @@
         cbx_HAISI_KBN.Text = ""
         dtpk_HAISI_DATE.CustomFormat = " "
     End Sub
-
+    Sub btnmistyrose(ByVal btn As Button)
+        btn.BackColor = Color.MistyRose
+    End Sub
+    Sub btnArgb(ByVal btn As Button)
+        btn.BackColor = Color.FromArgb(227, 227, 227)
+    End Sub
     Private Sub btnF1_Click(sender As Object, e As EventArgs) Handles btnF1.Click
-        btnF1.BackColor = Color.MistyRose
-        btnF2.BackColor = Color.FromArgb(227, 227, 227)
-        btnF3.BackColor = Color.FromArgb(227, 227, 227)
-        btnF4.BackColor = Color.FromArgb(227, 227, 227)
-        btnF5.BackColor = Color.FromArgb(227, 227, 227)
+        btnmistyrose(btnF1)
+        btnArgb(btnF2)
+        btnArgb(btnF3)
+        btnArgb(btnF4)
+        btnArgb(btnF5)
     End Sub
 
     Private Sub btnF2_Click(sender As Object, e As EventArgs) Handles btnF2.Click
-        btnF2.BackColor = Color.MistyRose
-        btnF1.BackColor = Color.FromArgb(227, 227, 227)
-        btnF3.BackColor = Color.FromArgb(227, 227, 227)
-        btnF4.BackColor = Color.FromArgb(227, 227, 227)
-        btnF5.BackColor = Color.FromArgb(227, 227, 227)
+        btnmistyrose(btnF2)
+        btnArgb(btnF1)
+        btnArgb(btnF3)
+        btnArgb(btnF4)
+        btnArgb(btnF5)
     End Sub
 
     Private Sub btnF3_Click(sender As Object, e As EventArgs) Handles btnF3.Click
-        btnF3.BackColor = Color.MistyRose
-        btnF1.BackColor = Color.FromArgb(227, 227, 227)
-        btnF2.BackColor = Color.FromArgb(227, 227, 227)
-        btnF4.BackColor = Color.FromArgb(227, 227, 227)
-        btnF5.BackColor = Color.FromArgb(227, 227, 227)
+        btnmistyrose(btnF3)
+        btnArgb(btnF1)
+        btnArgb(btnF2)
+        btnArgb(btnF4)
+        btnArgb(btnF5)
     End Sub
 
     Private Sub btnF4_Click(sender As Object, e As EventArgs) Handles btnF4.Click
-        btnF4.BackColor = Color.MistyRose
-        btnF1.BackColor = Color.FromArgb(227, 227, 227)
-        btnF2.BackColor = Color.FromArgb(227, 227, 227)
-        btnF3.BackColor = Color.FromArgb(227, 227, 227)
-        btnF5.BackColor = Color.FromArgb(227, 227, 227)
+        btnmistyrose(btnF4)
+        btnArgb(btnF1)
+        btnArgb(btnF3)
+        btnArgb(btnF2)
+        btnArgb(btnF5)
     End Sub
 
     Private Sub btnF5_Click(sender As Object, e As EventArgs) Handles btnF5.Click
@@ -259,22 +264,8 @@
                 If IsNothing(iryokikan) Then
                     Panel2.Enabled = True
                     txb_IRYO_KIKAN_CD.Enabled = False
-                    For Each ctrol In Panel2.Controls
-                        If TypeOf (ctrol) Is ICCControl.CC_TextBox Then
-                            Dim a = CType(ctrol, ICCControl.CC_TextBox)
-                            a.ReadOnly = False
-                        End If
-                        If TypeOf (ctrol) Is ICCControl.CC_Combobox Then
-                            Dim a = CType(ctrol, ICCControl.CC_Combobox)
-                            a.Enabled = True
-                        End If
-                        If TypeOf (ctrol) Is DateTimePicker Then
-                            Dim a = CType(ctrol, DateTimePicker)
-                            a.Enabled = True
-                            'a.ShowUpDown = False
-                            a.CustomFormat = " "
-                        End If
-                    Next ctrol
+                    dtpk_HAISI_DATE.CustomFormat = " "
+                    showHidepanel2(False, True, True)
                 Else
                     txb_IRYO_KIKAN_CD.BackColor = Color.MistyRose
                     Panel2.Enabled = False
@@ -285,26 +276,12 @@
                 If Not IsNothing(iryokikan) Then
                     Panel2.Enabled = True
                     txb_IRYO_KIKAN_CD.Enabled = False
-                    For Each ctrol In Panel2.Controls
-                        If TypeOf (ctrol) Is ICCControl.CC_TextBox Then
-                            Dim a = CType(ctrol, ICCControl.CC_TextBox)
-                            a.ReadOnly = False
-                        End If
-                        If TypeOf (ctrol) Is ICCControl.CC_Combobox Then
-                            Dim a = CType(ctrol, ICCControl.CC_Combobox)
-                            a.Enabled = True
-                        End If
-                        If TypeOf (ctrol) Is DateTimePicker Then
-                            Dim a = CType(ctrol, DateTimePicker)
-                            a.Enabled = True
-                        End If
-                    Next ctrol
+                    showHidepanel2(False, True, True)
                     filldataintextbox(iryokikan)
                 Else
                     txb_IRYO_KIKAN_CD.BackColor = Color.MistyRose
                     Panel2.Enabled = False
                 End If
-
             End If
 
             'delete
@@ -312,47 +289,19 @@
                 If Not IsNothing(iryokikan) Then
                     Panel2.Enabled = True
                     txb_IRYO_KIKAN_CD.Enabled = False
-                    For Each ctrol In Panel2.Controls
-                        If TypeOf (ctrol) Is ICCControl.CC_TextBox Then
-                            Dim a = CType(ctrol, ICCControl.CC_TextBox)
-                            a.ReadOnly = True
-                        End If
-                        If TypeOf (ctrol) Is ICCControl.CC_Combobox Then
-                            Dim a = CType(ctrol, ICCControl.CC_Combobox)
-                            a.Enabled = False
-                        End If
-                        If TypeOf (ctrol) Is DateTimePicker Then
-                            Dim a = CType(ctrol, DateTimePicker)
-                            a.Enabled = False
-                        End If
-                    Next ctrol
+                    showHidepanel2(True, False, False)
                     filldataintextbox(iryokikan)
                 Else
                     txb_IRYO_KIKAN_CD.BackColor = Color.MistyRose
                     Panel2.Enabled = False
                 End If
-
             End If
-
             'search
             If btnF4.BackColor = Color.MistyRose Then
                 If Not IsNothing(iryokikan) Then
                     Panel2.Enabled = True
                     txb_IRYO_KIKAN_CD.Enabled = False
-                    For Each ctrol In Panel2.Controls
-                        If TypeOf (ctrol) Is ICCControl.CC_TextBox Then
-                            Dim a = CType(ctrol, ICCControl.CC_TextBox)
-                            a.ReadOnly = True
-                        End If
-                        If TypeOf (ctrol) Is ICCControl.CC_Combobox Then
-                            Dim a = CType(ctrol, ICCControl.CC_Combobox)
-                            a.Enabled = False
-                        End If
-                        If TypeOf (ctrol) Is DateTimePicker Then
-                            Dim a = CType(ctrol, DateTimePicker)
-                            a.Enabled = False
-                        End If
-                    Next ctrol
+                    showHidepanel2(True, False, False)
                     filldataintextbox(iryokikan)
                     btnF5.Enabled = False
                 Else
@@ -367,8 +316,6 @@
         Else
             txb_IRYO_KIKAN_CD.BackColor = Color.MistyRose
         End If
-
-
     End Sub
 
     Private Sub txb_IRYO_KIKAN_CD_TextChanged(sender As Object, e As EventArgs) Handles txb_IRYO_KIKAN_CD.TextChanged
@@ -382,28 +329,34 @@
             Next ctrol
         End If
     End Sub
-
+    Function txbIsNull(ByRef txb As ICCControl.CC_TextBox) As String
+        If txb.TextLength <> 0 Then
+            Return txb.Text
+        Else
+            Return Nothing
+        End If
+    End Function
     Function createModel() As M_IRYOKIKAN
         Dim newmodel = New M_IRYOKIKAN()
         Dim datenull = CType("01/01/1753", Date)
         Dim newdate = CDate(dtpk_HAISI_DATE.Value)
         newmodel.IRYO_KIKAN_CD = CDec(Val(txb_IRYO_KIKAN_CD.Text))
-        newmodel.IRYO_NAME_KJ = If(tbx_IRYO_NAME_KJ.TextLength <> 0, tbx_IRYO_NAME_KJ.Text, Nothing)
-        newmodel.IRYO_NAME_KN = If(txb_IRYO_NAME_KN.TextLength <> 0, txb_IRYO_NAME_KN.Text, Nothing)
-        newmodel.POST = If(txb_POST.TextLength <> 0, txb_POST.Text, Nothing)
-        newmodel.ADDRESS1 = If(txb_ADDRESS1.TextLength <> 0, txb_ADDRESS1.Text, Nothing)
-        newmodel.ADDRESS2 = If(txb_ADDRESS2.TextLength <> 0, txb_ADDRESS2.Text, Nothing)
-        newmodel.TEL1 = If(txb_TEL1.TextLength <> 0, txb_TEL1.Text, Nothing)
-        newmodel.TEL2 = If(txb_TEL2.TextLength <> 0, txb_TEL2.Text, Nothing)
+        newmodel.IRYO_NAME_KJ = txbIsNull(tbx_IRYO_NAME_KJ)
+        newmodel.IRYO_NAME_KN = txbIsNull(txb_IRYO_NAME_KN)
+        newmodel.POST = txbIsNull(txb_POST)
+        newmodel.ADDRESS1 = txbIsNull(txb_ADDRESS1)
+        newmodel.ADDRESS2 = txbIsNull(txb_ADDRESS2)
+        newmodel.TEL1 = txbIsNull(txb_TEL1)
+        newmodel.TEL2 = txbIsNull(txb_TEL2)
         newmodel.HAISI_KBN = If(CDec(Val(txb_HAISI_KBN.Text)) <> 0, CDec(Val(txb_HAISI_KBN.Text)), Nothing)
         If datenull <> newdate Then
             newmodel.HAISI_DATE = CDate(dtpk_HAISI_DATE.Value)
         End If
-        newmodel.UPD_DATE = Date.Now
+        newmodel.UPD_DATE = Date.Now.Date
         newmodel.UPD_TIME = Date.Now.ToString("hh:mm:ss")
-        newmodel.SORT_KN = If(txb_SORT_KN.TextLength <> 0, txb_SORT_KN.Text, Nothing)
-        newmodel.IRYO_EM = If(txb_IRYO_EM.TextLength > 0, txb_IRYO_EM.Text, Nothing)
-        newmodel.IRYO_URL = If(txb_IRYO_URL.TextLength > 0, txb_IRYO_URL.Text, Nothing)
+        newmodel.SORT_KN = txbIsNull(txb_SORT_KN)
+        newmodel.IRYO_EM = txbIsNull(txb_IRYO_EM)
+        newmodel.IRYO_URL = txbIsNull(txb_IRYO_URL)
         If CDec(Val(txb_IRYO_CARD_40.Text)) <> 0 Then
             newmodel.IRYO_CARD_40 = CDec(Val(txb_IRYO_CARD_40.Text))
         End If
@@ -411,7 +364,7 @@
             newmodel.IRYO_CARD_NIN = CDec(Val(txb_IRYO_CARD_NIN.Text))
         End If
         newmodel.UPD_TANTO = "1"
-        newmodel.FAX = If(txb_FAX.TextLength > 0, txb_FAX.Text, Nothing)
+        newmodel.FAX = txbIsNull(txb_FAX)
         Return newmodel
     End Function
 
@@ -427,7 +380,6 @@
         txb_FAX.Text = model.FAX
         txb_HAISI_KBN.Text = model.HAISI_KBN
         cbx_HAISI_KBN.SelectedItem = get_CD_NAME().Where(Function(x) x.CD_NO = model.HAISI_KBN).FirstOrDefault().CD_NAME
-        ' dtpk_HAISI_DATE.Value = If(IsNothing(model.HAISI_DATE),??, model.HAISI_DATE)
         If Not IsNothing(model.HAISI_DATE) Then
             dtpk_HAISI_DATE.Value = model.HAISI_DATE
             dtpk_HAISI_DATE.CustomFormat = "dd/MM/yyyy"
@@ -435,7 +387,6 @@
             dtpk_HAISI_DATE.Value = CDate("01/01/1753")
             dtpk_HAISI_DATE.CustomFormat = " "
         End If
-        ' lỗi
         txb_IRYO_CARD_40.Text = If(IsNothing(model.IRYO_CARD_40), "", model.IRYO_CARD_40)
         txb_IRYO_CARD_NIN.Text = If(IsNothing(model.IRYO_CARD_NIN), "", model.IRYO_CARD_NIN)
         txb_IRYO_EM.Text = model.IRYO_EM
@@ -444,5 +395,21 @@
 
     Private Sub dtpk_HAISI_DATE_ValueChanged(sender As Object, e As EventArgs) Handles dtpk_HAISI_DATE.ValueChanged
         dtpk_HAISI_DATE.CustomFormat = "dd/MM/yyyy"
+    End Sub
+    Sub showHidepanel2(ByRef tebox As Boolean, ByRef cbx As Boolean, ByRef dtpk As Boolean)
+        For Each ctrol In Panel2.Controls
+            If TypeOf (ctrol) Is ICCControl.CC_TextBox Then
+                Dim a = CType(ctrol, ICCControl.CC_TextBox)
+                a.ReadOnly = tebox
+            End If
+            If TypeOf (ctrol) Is ICCControl.CC_Combobox Then
+                Dim a = CType(ctrol, ICCControl.CC_Combobox)
+                a.Enabled = cbx
+            End If
+            If TypeOf (ctrol) Is DateTimePicker Then
+                Dim a = CType(ctrol, DateTimePicker)
+                a.Enabled = dtpk
+            End If
+        Next ctrol
     End Sub
 End Class
