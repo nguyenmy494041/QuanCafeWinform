@@ -1,34 +1,46 @@
 ﻿Public Class frmCOMBO00200
     Private Sub frmCOMBO00200_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Dim arr As String() = {"部分一致", "前方一致", "後方一致", "完全一致"}
+        CC_Combobox1.Items.AddRange(arr)
+        CC_Combobox2.Items.AddRange(arr)
+        CC_Combobox2.SelectedIndex = 0
+        CC_Combobox1.SelectedIndex = 0
     End Sub
 
     Function getDataM_IRYOKIKAN() As List(Of M_IRYOKIKAN)
         Return New QuanCafeEntities().M_IRYOKIKAN.ToList()
     End Function
-    Function searchM_IRYOKIKAN(ByVal key As Decimal, ByVal IRYO_NAME_KJ As String, ByVal IRYO_NAME_KN As String) As List(Of M_IRYOKIKAN)
+    Function searchM_IRYOKIKAN(ByVal key As Decimal, ByVal IRYO_NAME_KJ As String, ByVal kjvalue As Integer, ByVal IRYO_NAME_KN As String, ByVal knvalue As Integer) As List(Of M_IRYOKIKAN)
         Dim listmodel = getDataM_IRYOKIKAN()
-        Dim listKJ = New List(Of M_IRYOKIKAN)
-        Dim listKN = New List(Of M_IRYOKIKAN)
-        Dim listKey = New List(Of M_IRYOKIKAN)
-        If IRYO_NAME_KJ.Length > 0 Then
-            listKJ = listmodel.Where(Function(e) e.IRYO_NAME_KJ = IRYO_NAME_KJ).ToList()
-        Else
-            listKJ = listmodel
-        End If
-
-        If IRYO_NAME_KN.Length > 0 Then
-            listKN = listKJ.Where(Function(e) e.IRYO_NAME_KN = IRYO_NAME_KN).ToList()
-        Else
-            listKN = listKJ
-        End If
-
         If key > 0 Then
-            listKey = listKN.Where(Function(e) e.IRYO_KIKAN_CD >= key).ToList()
-        Else
-            listKey = listKN
+            listmodel = listmodel.Where(Function(e) e.IRYO_KIKAN_CD >= key).ToList()
         End If
-        Return listKey
+
+        If Not String.IsNullOrEmpty(IRYO_NAME_KJ) Then
+            Select Case kjvalue
+                Case 0
+                    listmodel = listmodel.Where(Function(x) x.IRYO_NAME_KJ.Contains(IRYO_NAME_KJ)).ToList()
+                Case 1
+                    listmodel = listmodel.Where(Function(x) x.IRYO_NAME_KJ.StartsWith(IRYO_NAME_KJ)).ToList()
+                Case 2
+                    listmodel = listmodel.Where(Function(x) x.IRYO_NAME_KJ.EndsWith(IRYO_NAME_KJ)).ToList()
+                Case 3
+                    listmodel = listmodel.Where(Function(x) x.IRYO_NAME_KJ = IRYO_NAME_KJ).ToList()
+            End Select
+        End If
+        If Not String.IsNullOrEmpty(IRYO_NAME_KN) Then
+            Select Case knvalue
+                Case 0
+                    listmodel = listmodel.Where(Function(x) x.IRYO_NAME_KN.Contains(IRYO_NAME_KN)).ToList()
+                Case 1
+                    listmodel = listmodel.Where(Function(x) x.IRYO_NAME_KN.StartsWith(IRYO_NAME_KN)).ToList()
+                Case 2
+                    listmodel = listmodel.Where(Function(x) x.IRYO_NAME_KN.EndsWith(IRYO_NAME_KN)).ToList()
+                Case 3
+                    listmodel = listmodel.Where(Function(x) x.IRYO_NAME_KN = IRYO_NAME_KN).ToList()
+            End Select
+        End If
+        Return listmodel
     End Function
     Sub fillDataInDatagridview(ByVal listmodel As List(Of M_IRYOKIKAN))
         If listmodel.Count > 0 Then
@@ -50,7 +62,7 @@
         Dim key = CDec(Val(txb_IRYO_KIKAN_CD.Text))
         Dim irynamekj = txb_IRYO_NAME_KJ.Text
         Dim irynamekn = txb_IRYO_NAME_KN.Text
-        Dim listmodel = searchM_IRYOKIKAN(key, irynamekj, irynamekn)
+        Dim listmodel = searchM_IRYOKIKAN(key, irynamekj, CC_Combobox2.SelectedIndex, irynamekn, CC_Combobox1.SelectedIndex)
         If listmodel.Count = 0 Then
             txb_IRYO_KIKAN_CD.BackColor = Color.MistyRose
         Else
@@ -59,6 +71,7 @@
             txb_IRYO_NAME_KJ.Enabled = False
             txb_IRYO_KIKAN_CD.Enabled = False
             fillDataInDatagridview(listmodel)
+            btnF5.Enabled = False
         End If
 
     End Sub
@@ -75,6 +88,7 @@
         txb_IRYO_NAME_KJ.Enabled = True
         txb_IRYO_KIKAN_CD.Enabled = True
         txb_IRYO_KIKAN_CD.BackColor = Color.White
+        btnF5.Enabled = True
     End Sub
 
     Private Sub dtgvIRYOKIKAN_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvIRYOKIKAN.CellClick
