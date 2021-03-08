@@ -1,4 +1,24 @@
 ﻿Public Class frmM_IRYOKIKAN
+    Private btncheck As Integer = 0
+    Private f5check As Boolean = False
+    Private colorerror As Color = Color.FromArgb(227, 227, 227)
+    'Private btnarray As Control() = {Me.btnF1, Me.btnF2, Me.btnF3, Me.btnF4}
+
+    Public Enum frm As Integer
+        Insert = 1
+        Update = 2
+        Delete = 3
+        Search = 4
+    End Enum
+    Sub enabled_btn(ByVal enable As Boolean)
+        btnF1.Enabled = enable
+        btnF2.Enabled = enable
+        btnF3.Enabled = enable
+        btnF4.Enabled = enable
+    End Sub
+    Sub enabled_f5(ByVal enable As Boolean)
+        btnF5.Enabled = enable
+    End Sub
 
     Private Sub frmM_IRYOKIKAN_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim listCDNAME = get_CD_NAME()
@@ -7,25 +27,9 @@
             cbx_HAISI_KBN.Items.Add(item.CD_NAME)
         Next
         cbx_HAISI_KBN.Text = ""
-        For Each ctrol In Panel3.Controls
-            If TypeOf (ctrol) Is Button Then
-                Dim btn = CType(ctrol, Button)
-                btn.Enabled = False
-                'btn.BackColor = Color.FromArgb(227, 227, 227)
-            End If
-        Next ctrol
         Panel2.Enabled = False
-        If txb_IRYO_KIKAN_CD.TextLength > 0 Then
-            For Each ctrol In Panel3.Controls
-                If TypeOf (ctrol) Is Button Then
-                    Dim btn = CType(ctrol, Button)
-                    btn.Enabled = True
-                    'btn.BackColor = Color.FromArgb(227, 227, 227)
-                End If
-            Next ctrol
-        End If
         dtpk_HAISI_DATE.CustomFormat = " "
-        'dtpk_HAISI_DATE.Value = Nothing
+        btnESC.Enabled = True
     End Sub
     Private Sub CC_Button2_Click(sender As Object, e As EventArgs) Handles CC_Button2.Click
         Dim frmsearch = New frmCOMBO00200()
@@ -154,13 +158,6 @@
     End Sub
 
     Private Sub btnESC_Click(sender As Object, e As EventArgs) Handles btnESC.Click
-        For Each ctrol In Panel3.Controls
-            If TypeOf (ctrol) Is Button Then
-                Dim btn = CType(ctrol, Button)
-                btn.Enabled = True
-                btn.BackColor = Color.FromArgb(227, 227, 227)
-            End If
-        Next ctrol
         txb_IRYO_KIKAN_CD.Clear()
         txb_IRYO_KIKAN_CD.Enabled = True
         txb_IRYO_KIKAN_CD.BackColor = Color.White
@@ -180,6 +177,8 @@
         Next ctrol
         cbx_HAISI_KBN.Text = ""
         dtpk_HAISI_DATE.CustomFormat = " "
+        enabled_btn(False)
+        enabled_f5(False)
     End Sub
     Sub btnmistyrose(ByVal btn As Button)
         btn.BackColor = Color.MistyRose
@@ -187,146 +186,11 @@
     Sub btnArgb(ByVal btn As Button)
         btn.BackColor = Color.FromArgb(227, 227, 227)
     End Sub
-    Private Sub btnF1_Click(sender As Object, e As EventArgs) Handles btnF1.Click
-        btnmistyrose(btnF1)
-        btnArgb(btnF2)
-        btnArgb(btnF3)
-        btnArgb(btnF4)
-        btnArgb(btnF5)
-    End Sub
-
-    Private Sub btnF2_Click(sender As Object, e As EventArgs) Handles btnF2.Click
-        btnmistyrose(btnF2)
-        btnArgb(btnF1)
-        btnArgb(btnF3)
-        btnArgb(btnF4)
-        btnArgb(btnF5)
-    End Sub
-
-    Private Sub btnF3_Click(sender As Object, e As EventArgs) Handles btnF3.Click
-        btnmistyrose(btnF3)
-        btnArgb(btnF1)
-        btnArgb(btnF2)
-        btnArgb(btnF4)
-        btnArgb(btnF5)
-    End Sub
-
-    Private Sub btnF4_Click(sender As Object, e As EventArgs) Handles btnF4.Click
-        btnmistyrose(btnF4)
-        btnArgb(btnF1)
-        btnArgb(btnF3)
-        btnArgb(btnF2)
-        btnArgb(btnF5)
-    End Sub
-
-    Private Sub btnF5_Click(sender As Object, e As EventArgs) Handles btnF5.Click
-        If Panel2.Enabled = True AndAlso txb_IRYO_KIKAN_CD.Text <> "" AndAlso txb_IRYO_KIKAN_CD.Enabled = False Then
-            Dim model = createModel()
-            If btnF1.BackColor = Color.MistyRose Then
-                Dim context = New QuanCafeEntities()
-                context.M_IRYOKIKAN.Add(model)
-                context.SaveChanges()
-            End If
-            If btnF2.BackColor = Color.MistyRose Then
-                Dim context = New QuanCafeEntities()
-                Dim exitmodel = context.M_IRYOKIKAN.Where(Function(x) x.IRYO_KIKAN_CD = model.IRYO_KIKAN_CD).FirstOrDefault()
-                exitmodel.IRYO_NAME_KJ = model.IRYO_NAME_KJ
-                exitmodel.IRYO_NAME_KN = model.IRYO_NAME_KN
-                exitmodel.SORT_KN = model.SORT_KN
-                exitmodel.POST = model.POST
-                exitmodel.ADDRESS1 = model.ADDRESS1
-                exitmodel.ADDRESS2 = model.ADDRESS2
-                exitmodel.TEL1 = model.TEL1
-                exitmodel.TEL2 = model.TEL2
-                exitmodel.HAISI_KBN = model.HAISI_KBN
-                exitmodel.HAISI_DATE = model.HAISI_DATE
-                exitmodel.IRYO_CARD_40 = model.IRYO_CARD_40
-                exitmodel.IRYO_CARD_NIN = model.IRYO_CARD_NIN
-                exitmodel.IRYO_EM = model.IRYO_EM
-                exitmodel.IRYO_URL = model.IRYO_URL
-                context.SaveChanges()
-            End If
-            If btnF3.BackColor = Color.MistyRose Then
-                Dim context = New QuanCafeEntities()
-                Dim exitmodel = context.M_IRYOKIKAN.Where(Function(x) x.IRYO_KIKAN_CD = model.IRYO_KIKAN_CD).FirstOrDefault()
-                context.M_IRYOKIKAN.Remove(exitmodel)
-                context.SaveChanges()
-            End If
-            btnESC_Click(Nothing, Nothing)
-            Panel2.Enabled = False
-        End If
-        btnF5.BackColor = Color.MistyRose
-        Dim key = CDec(Val(txb_IRYO_KIKAN_CD.Text))
-        If txb_IRYO_KIKAN_CD.Text <> "" AndAlso txb_IRYO_KIKAN_CD.Enabled = True Then
-            Dim iryokikan = New QuanCafeEntities().M_IRYOKIKAN.Where(Function(x) x.IRYO_KIKAN_CD = key).FirstOrDefault()
-            'insert
-            If btnF1.BackColor = Color.MistyRose Then
-                If IsNothing(iryokikan) Then
-                    Panel2.Enabled = True
-                    txb_IRYO_KIKAN_CD.Enabled = False
-                    dtpk_HAISI_DATE.CustomFormat = " "
-                    showHidepanel2(False, True, True)
-                Else
-                    txb_IRYO_KIKAN_CD.BackColor = Color.MistyRose
-                    Panel2.Enabled = False
-                End If
-            End If
-            'update
-            If btnF2.BackColor = Color.MistyRose Then
-                If Not IsNothing(iryokikan) Then
-                    Panel2.Enabled = True
-                    txb_IRYO_KIKAN_CD.Enabled = False
-                    showHidepanel2(False, True, True)
-                    filldataintextbox(iryokikan)
-                Else
-                    txb_IRYO_KIKAN_CD.BackColor = Color.MistyRose
-                    Panel2.Enabled = False
-                End If
-            End If
-
-            'delete
-            If btnF3.BackColor = Color.MistyRose Then
-                If Not IsNothing(iryokikan) Then
-                    Panel2.Enabled = True
-                    txb_IRYO_KIKAN_CD.Enabled = False
-                    showHidepanel2(True, False, False)
-                    filldataintextbox(iryokikan)
-                Else
-                    txb_IRYO_KIKAN_CD.BackColor = Color.MistyRose
-                    Panel2.Enabled = False
-                End If
-            End If
-            'search
-            If btnF4.BackColor = Color.MistyRose Then
-                If Not IsNothing(iryokikan) Then
-                    Panel2.Enabled = True
-                    txb_IRYO_KIKAN_CD.Enabled = False
-                    showHidepanel2(True, False, False)
-                    filldataintextbox(iryokikan)
-                    btnF5.Enabled = False
-                Else
-                    txb_IRYO_KIKAN_CD.BackColor = Color.MistyRose
-                    Panel2.Enabled = False
-                End If
-            End If
-            btnF1.Enabled = False
-            btnF2.Enabled = False
-            btnF3.Enabled = False
-            btnF4.Enabled = False
-        Else
-            txb_IRYO_KIKAN_CD.BackColor = Color.MistyRose
-        End If
-    End Sub
 
     Private Sub txb_IRYO_KIKAN_CD_TextChanged(sender As Object, e As EventArgs) Handles txb_IRYO_KIKAN_CD.TextChanged
         txb_IRYO_KIKAN_CD.BackColor = Color.White
         If txb_IRYO_KIKAN_CD.TextLength > 0 Then
-            For Each ctrol In Panel3.Controls
-                If TypeOf (ctrol) Is Button Then
-                    Dim btn = CType(ctrol, Button)
-                    btn.Enabled = True
-                End If
-            Next ctrol
+            enabled_btn(True)
         End If
     End Sub
     Function txbIsNull(ByRef txb As ICCControl.CC_TextBox) As String
@@ -372,7 +236,7 @@
         tbx_IRYO_NAME_KJ.Text = model.IRYO_NAME_KJ
         txb_IRYO_NAME_KN.Text = model.IRYO_NAME_KN
         txb_SORT_KN.Text = model.SORT_KN
-        txb_POST.Text = model.SORT_KN
+        txb_POST.Text = model.POST
         txb_ADDRESS1.Text = model.ADDRESS1
         txb_ADDRESS2.Text = model.ADDRESS2
         txb_TEL1.Text = model.TEL1
@@ -411,5 +275,159 @@
                 a.Enabled = dtpk
             End If
         Next ctrol
+    End Sub
+
+    Private Sub btnF1_Click(sender As Object, e As EventArgs) Handles btnF1.Click
+        btncheck = frm.Insert
+        enabled_f5(True)
+        f5check = True
+    End Sub
+
+    Private Sub btnF2_Click(sender As Object, e As EventArgs) Handles btnF2.Click
+        btncheck = frm.Update
+        enabled_f5(True)
+        f5check = True
+    End Sub
+
+    Private Sub btnF3_Click(sender As Object, e As EventArgs) Handles btnF3.Click
+        btncheck = frm.Delete
+        enabled_f5(True)
+        f5check = True
+    End Sub
+
+    Private Sub btnF4_Click(sender As Object, e As EventArgs) Handles btnF4.Click
+        btncheck = frm.Search
+        enabled_f5(True)
+        f5check = True
+    End Sub
+
+    Sub checkInsert()
+        Dim key = CDec(Val(txb_IRYO_KIKAN_CD.Text))
+        Dim iryokikan = New QuanCafeEntities().M_IRYOKIKAN.Where(Function(x) x.IRYO_KIKAN_CD = key).FirstOrDefault()
+        If IsNothing(iryokikan) Then
+            Panel2.Enabled = True
+            txb_IRYO_KIKAN_CD.Enabled = False
+            dtpk_HAISI_DATE.CustomFormat = " "
+            showHidepanel2(False, True, True)
+        Else
+            txb_IRYO_KIKAN_CD.BackColor = Color.MistyRose
+            Panel2.Enabled = False
+            enabled_f5(False)
+        End If
+    End Sub
+
+    Sub checkUpdate()
+        Dim key = CDec(Val(txb_IRYO_KIKAN_CD.Text))
+        Dim iryokikan = New QuanCafeEntities().M_IRYOKIKAN.Where(Function(x) x.IRYO_KIKAN_CD = key).FirstOrDefault()
+        If Not IsNothing(iryokikan) Then
+            Panel2.Enabled = True
+            txb_IRYO_KIKAN_CD.Enabled = False
+            showHidepanel2(False, True, True)
+            filldataintextbox(iryokikan)
+        Else
+            txb_IRYO_KIKAN_CD.BackColor = Color.MistyRose
+            Panel2.Enabled = False
+            enabled_f5(False)
+        End If
+    End Sub
+
+    Sub checkdelete()
+        Dim key = CDec(Val(txb_IRYO_KIKAN_CD.Text))
+        Dim iryokikan = New QuanCafeEntities().M_IRYOKIKAN.Where(Function(x) x.IRYO_KIKAN_CD = key).FirstOrDefault()
+        If Not IsNothing(iryokikan) Then
+            Panel2.Enabled = True
+            txb_IRYO_KIKAN_CD.Enabled = False
+            showHidepanel2(True, False, False)
+            filldataintextbox(iryokikan)
+        Else
+            txb_IRYO_KIKAN_CD.BackColor = Color.MistyRose
+            Panel2.Enabled = False
+            enabled_f5(False)
+        End If
+    End Sub
+
+    Sub checksearch()
+        Dim key = CDec(Val(txb_IRYO_KIKAN_CD.Text))
+        Dim iryokikan = New QuanCafeEntities().M_IRYOKIKAN.Where(Function(x) x.IRYO_KIKAN_CD = key).FirstOrDefault()
+        If Not IsNothing(iryokikan) Then
+            Panel2.Enabled = True
+            txb_IRYO_KIKAN_CD.Enabled = False
+            showHidepanel2(True, False, False)
+            filldataintextbox(iryokikan)
+            btnF5.Enabled = False
+        Else
+            txb_IRYO_KIKAN_CD.BackColor = Color.MistyRose
+            Panel2.Enabled = False
+        End If
+    End Sub
+
+    Sub insert()
+        Dim model = createModel()
+        Dim context = New QuanCafeEntities()
+        context.M_IRYOKIKAN.Add(model)
+        context.SaveChanges()
+    End Sub
+
+    Sub updated()
+        Dim model = createModel()
+        Dim context = New QuanCafeEntities()
+        Dim exitmodel = context.M_IRYOKIKAN.Where(Function(x) x.IRYO_KIKAN_CD = model.IRYO_KIKAN_CD).FirstOrDefault()
+        'With exitmodel
+        '    .IRYO_NAME_KJ = model.IRYO_NAME_KJ
+        '    .IRYO_NAME_KN = model.IRYO_NAME_KN
+        '    .SORT_KN = model.SORT_KN
+        '    .POST = model.POST
+        '    .ADDRESS1 = model.ADDRESS1
+        '    .ADDRESS2 = model.ADDRESS2
+        '    .TEL1 = model.TEL1
+        '    .TEL2 = model.TEL2
+        '    .HAISI_KBN = model.HAISI_KBN
+        '    .HAISI_DATE = model.HAISI_DATE
+        '    .IRYO_CARD_40 = model.IRYO_CARD_40
+        '    .IRYO_CARD_NIN = model.IRYO_CARD_NIN
+        '    .IRYO_EM = model.IRYO_EM
+        '    .IRYO_URL = model.IRYO_URL
+        'End With
+        context.Entry(exitmodel).CurrentValues.SetValues(model)
+        context.SaveChanges()
+    End Sub
+
+    Sub delete()
+        Dim model = createModel()
+        Dim context = New QuanCafeEntities()
+        Dim exitmodel = context.M_IRYOKIKAN.Where(Function(x) x.IRYO_KIKAN_CD = model.IRYO_KIKAN_CD).FirstOrDefault()
+        context.M_IRYOKIKAN.Remove(exitmodel)
+        context.SaveChanges()
+    End Sub
+    Private Sub btnF5_Click(sender As Object, e As EventArgs) Handles btnF5.Click
+        If f5check Then     ' kiem tra
+            enabled_f5(True)
+            Select Case btncheck
+                Case frm.Insert
+                    checkInsert()
+                Case frm.Update
+                    checkUpdate()
+                Case frm.Delete
+                    checkdelete()
+                Case frm.Search
+                    checksearch()
+                    enabled_f5(False)
+            End Select
+            enabled_btn(False)
+            f5check = Not f5check
+        Else
+            'thuc hien chuc nang
+            Select Case btncheck
+                Case frm.Insert
+                    insert()
+                Case frm.Update
+                    updated()
+                Case frm.Delete
+                    delete()
+            End Select
+            f5check = Not f5check
+            btnESC_Click(Nothing, Nothing)
+            Panel2.Enabled = False
+        End If
     End Sub
 End Class

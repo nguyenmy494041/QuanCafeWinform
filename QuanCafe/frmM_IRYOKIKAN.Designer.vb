@@ -566,6 +566,7 @@ Partial Class frmM_IRYOKIKAN
         '
         'btnF6
         '
+        Me.btnF6.Enabled = False
         Me.btnF6.Location = New System.Drawing.Point(444, 7)
         Me.btnF6.Name = "btnF6"
         Me.btnF6.Size = New System.Drawing.Size(51, 34)
@@ -575,6 +576,7 @@ Partial Class frmM_IRYOKIKAN
         '
         'btnF5
         '
+        Me.btnF5.Enabled = False
         Me.btnF5.Location = New System.Drawing.Point(390, 7)
         Me.btnF5.Name = "btnF5"
         Me.btnF5.Size = New System.Drawing.Size(51, 34)
@@ -584,6 +586,7 @@ Partial Class frmM_IRYOKIKAN
         '
         'btnF3
         '
+        Me.btnF3.Enabled = False
         Me.btnF3.Location = New System.Drawing.Point(259, 7)
         Me.btnF3.Name = "btnF3"
         Me.btnF3.Size = New System.Drawing.Size(51, 34)
@@ -593,6 +596,7 @@ Partial Class frmM_IRYOKIKAN
         '
         'btnF4
         '
+        Me.btnF4.Enabled = False
         Me.btnF4.Location = New System.Drawing.Point(314, 7)
         Me.btnF4.Name = "btnF4"
         Me.btnF4.Size = New System.Drawing.Size(51, 34)
@@ -603,6 +607,7 @@ Partial Class frmM_IRYOKIKAN
         'btnF1
         '
         Me.btnF1.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.btnF1.Enabled = False
         Me.btnF1.Location = New System.Drawing.Point(150, 7)
         Me.btnF1.Name = "btnF1"
         Me.btnF1.Size = New System.Drawing.Size(51, 34)
@@ -612,6 +617,7 @@ Partial Class frmM_IRYOKIKAN
         '
         'btnF2
         '
+        Me.btnF2.Enabled = False
         Me.btnF2.Location = New System.Drawing.Point(204, 7)
         Me.btnF2.Name = "btnF2"
         Me.btnF2.Size = New System.Drawing.Size(51, 34)

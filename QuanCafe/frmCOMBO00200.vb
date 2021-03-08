@@ -83,7 +83,6 @@
         End If
         dtgvIRYOKIKAN.Rows.Clear()
         txb_IRYO_KIKAN_CD.Clear()
-
         txb_IRYO_NAME_KN.Enabled = True
         txb_IRYO_NAME_KJ.Enabled = True
         txb_IRYO_KIKAN_CD.Enabled = True
@@ -100,15 +99,9 @@
         Dim key = dtgvIRYOKIKAN.SelectedRows(0).Cells(clm1.Index).Value
         Dim frm = New frmM_IRYOKIKAN()
         frm.txb_IRYO_KIKAN_CD.Text = key
-        frm.btnF5.Enabled = True
-        frm.btnF4.Enabled = True
-        frm.btnF3.Enabled = True
-        frm.btnF2.Enabled = True
-        frm.btnF1.Enabled = True
         frm.btnESC.Enabled = True
         frm.Show()
         Me.Close()
-
     End Sub
 
     Private Sub txb_IRYO_KIKAN_CD_TextChanged(sender As Object, e As EventArgs) Handles txb_IRYO_KIKAN_CD.TextChanged
