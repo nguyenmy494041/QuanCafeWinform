@@ -149,6 +149,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Com.Controls\DataGridViewCalendarColumnStyle.vb" />
+    <Compile Include="Com.Controls\lich.Designer.vb">
+      <DependentUpon>lich.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Com.Controls\lich.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Com.Controls\RadioButtonCell.vb" />
     <Compile Include="Com.Controls\RadioButtonColumn.vb" />
     <Compile Include="Com.Controls\RadioButtonEditingControl.vb">
@@ -176,6 +182,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Com.Controls\CC_CalendarJP.resx">
       <DependentUpon>CC_CalendarJP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Com.Controls\lich.resx">
+      <DependentUpon>lich.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

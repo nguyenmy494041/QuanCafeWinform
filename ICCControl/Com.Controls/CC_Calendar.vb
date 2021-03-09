@@ -154,8 +154,6 @@ DefaultValue(False)>
     Public Sub setValue(ByVal value As Integer?)
         Try
             setFomat(CheckValueType(value))
-
-
             Dim valueParse As String = value.ToString()
             If valueParse = "101" Or valueParse = "0" Or valueParse = "10101" Then
                 Me.Value = Me.MinDate
@@ -369,6 +367,7 @@ DefaultValue(False)>
     ''' <param name="e"></param>
     Protected Overrides Sub OnKeyDown(e As KeyEventArgs)
         MyBase.OnKeyDown(e)
+        Dim str = Me.getValue
         Try
             If Not (Me.CustomFormat = " " Or Me.CustomFormat = MaxValueFomat Or Me.CustomFormat = MinValueFomat) Then
                 _currentFomat = Me.CustomFormat
@@ -404,6 +403,7 @@ DefaultValue(False)>
 
     End Sub
 
+
     Protected Overrides Sub OnGotFocus(e As EventArgs)
         'MyBase.OnGotFocus(e)
         If IsNothing(Me.getValue) Then
@@ -412,9 +412,7 @@ DefaultValue(False)>
             Else
                 SendKeys.Send("{RIGHT 1}")
             End If
-
         End If
-
     End Sub
 
 
@@ -425,6 +423,7 @@ DefaultValue(False)>
     ''' </summary>
     ''' <param name="eventargs"></param>
     Protected Overrides Sub OnValueChanged(eventargs As EventArgs)
+
         Try
             setFomat(CheckValueType(Me.getValue))
             MyBase.OnValueChanged(eventargs)
@@ -432,5 +431,46 @@ DefaultValue(False)>
 
         End Try
     End Sub
+
+
+
+
+    Dim str As String = ""
+    Private isdel As Boolean = False
+    Private so As Integer = 0
+    Protected Overrides Sub OnKeyPress(e As KeyPressEventArgs)
+        MyBase.OnKeyPress(e)
+        Try
+            Dim b = Me.GetType.GetProperties
+
+            Dim c = Me.GetType.GetFields
+            str = Me.getValue()
+            If Asc(e.KeyChar) = 8 Then
+                str = Me.getValue()
+                Dim y = CInt(str.Substring(0, 4)) \ 10
+                'Me.Value = New DateTime(CInt(CInt(str.Substring(0, 4)) \ 10), CInt(str.Substring(4, 2)), CInt(str.Substring(6, 2)))
+                Me.setValue(y, CInt(str.Substring(4, 2)), CInt(str.Substring(6, 2)))
+
+                'Dim b = Me.GetType.GetProperties
+                'Dim c = Me.GetType.GetFields
+                Dim va = Me.Value
+            End If
+            'If Char.IsDigit(e.KeyChar) Then
+            '    so += 1
+            '    If so Mod 6 = 0 OrElse so Mod 4 = 0 Then
+            '        SendKeys.Send("{right}")
+            '    End If
+            '    If so = 8 Then
+            '        so = 0
+            '    End If
+            'End If
+        Catch ex As Exception
+        End Try
+    End Sub
+
+
+
+
+
 
 End Class

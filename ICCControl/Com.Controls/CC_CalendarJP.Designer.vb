@@ -64,7 +64,7 @@ Partial Class CC_CalendarJP
         Me.dtpCalendar.Location = New System.Drawing.Point(0, 1)
         Me.dtpCalendar.Margin = New System.Windows.Forms.Padding(0)
         Me.dtpCalendar.Name = "dtpCalendar"
-        Me.dtpCalendar.Size = New System.Drawing.Size(150, 22)
+        Me.dtpCalendar.Size = New System.Drawing.Size(150, 20)
         Me.dtpCalendar.TabIndex = 1
         '
         'CC_CalendarJP

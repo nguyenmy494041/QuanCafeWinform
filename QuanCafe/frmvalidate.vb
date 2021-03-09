@@ -1,20 +1,10 @@
 ﻿Imports System.ComponentModel
 
 Public Class frmvalidate
-    Private Sub CC_Button1_Click(sender As Object, e As EventArgs) Handles CC_Button1.Click
-        Dim str As String = "aaaaa" & vbCrLf & "aaaa" & vbCrLf & "ccccc" & vbCrLf & "ccccc" & vbCrLf & "ccccc" & vbCrLf & "caaaacccc"
-        lblerror.Text = str
 
-    End Sub
 
-    Private Sub CC_Button2_Click(sender As Object, e As EventArgs) Handles CC_Button2.Click
-        lblerror.Text = "lbblerrror"
-    End Sub
 
-    Private Sub CC_Button3_Click(sender As Object, e As EventArgs) Handles CC_Button3.Click
-        Dim str As String = "aaaaa" & vbCrLf & "aaaa" & vbCrLf & "ccccc" & vbCrLf & "ccccc" & vbCrLf & "ccccc" & vbCrLf & "caaaacccc"
-        lblerror.Text &= str
-    End Sub
+
 
     'Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs)
     '    Isnotnulldata(TextBox1)

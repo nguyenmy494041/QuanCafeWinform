@@ -42,3 +42,4 @@ C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\ICCControl\obj\Debug\ICCControl.
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\ICCControl\obj\Debug\ICCControl.dll
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\ICCControl\obj\Debug\ICCControl.xml
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\ICCControl\obj\Debug\ICCControl.pdb
+C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\ICCControl\obj\Debug\ICCControl.lich.resources
