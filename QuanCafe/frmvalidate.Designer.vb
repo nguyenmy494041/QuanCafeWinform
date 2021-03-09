@@ -65,10 +65,10 @@ Partial Class frmvalidate
         '
         'Lich1
         '
-        Me.Lich1.Location = New System.Drawing.Point(280, 100)
-        Me.Lich1.MinimumSize = New System.Drawing.Size(100, 20)
+        Me.Lich1.Location = New System.Drawing.Point(68, 104)
+        Me.Lich1.MinimumSize = New System.Drawing.Size(130, 20)
         Me.Lich1.Name = "Lich1"
-        Me.Lich1.Size = New System.Drawing.Size(174, 22)
+        Me.Lich1.Size = New System.Drawing.Size(130, 22)
         Me.Lich1.TabIndex = 9
         '
         'frmvalidate

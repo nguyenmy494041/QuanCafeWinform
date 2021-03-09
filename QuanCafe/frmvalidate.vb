@@ -1,6 +1,17 @@
 ﻿Imports System.ComponentModel
 
 Public Class frmvalidate
+    Private Sub frmvalidate_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub Lich1_Load(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub CC_Calendar1_ValueChanged(sender As Object, e As EventArgs) Handles CC_Calendar1.ValueChanged
+
+    End Sub
 
 
 

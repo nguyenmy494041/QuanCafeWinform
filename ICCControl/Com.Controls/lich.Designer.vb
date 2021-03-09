@@ -23,7 +23,7 @@ Partial Class lich
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.calendar = New ICCControl.CC_Calendar()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtValue = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'calendar
@@ -38,21 +38,24 @@ Partial Class lich
         Me.calendar.Size = New System.Drawing.Size(146, 20)
         Me.calendar.TabIndex = 0
         '
-        'TextBox1
+        'txtValue
         '
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Location = New System.Drawing.Point(3, 0)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(116, 20)
-        Me.TextBox1.TabIndex = 1
+        Me.txtValue.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtValue.Location = New System.Drawing.Point(3, 1)
+        Me.txtValue.Name = "txtValue"
+        Me.txtValue.Size = New System.Drawing.Size(116, 20)
+        Me.txtValue.TabIndex = 1
         '
         'lich
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtValue)
         Me.Controls.Add(Me.calendar)
-        Me.MinimumSize = New System.Drawing.Size(100, 20)
+        Me.MinimumSize = New System.Drawing.Size(130, 20)
         Me.Name = "lich"
         Me.Size = New System.Drawing.Size(151, 22)
         Me.ResumeLayout(False)
@@ -61,5 +64,5 @@ Partial Class lich
     End Sub
 
     Friend WithEvents calendar As CC_Calendar
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtValue As TextBox
 End Class
