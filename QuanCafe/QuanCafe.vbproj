@@ -204,12 +204,6 @@
     <Compile Include="frmSCH_KAIHI_KBN.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmvalidate.Designer.vb">
-      <DependentUpon>frmvalidate.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmvalidate.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -225,6 +219,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="QuanCafe_Control\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="QuanCafe_Control\Form1.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="QuanCafe_Control\NewButton.Designer.vb">
       <DependentUpon>NewButton.vb</DependentUpon>
@@ -273,14 +273,14 @@
     <EmbeddedResource Include="frmSCH_KAIHI_KBN.resx">
       <DependentUpon>frmSCH_KAIHI_KBN.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmvalidate.resx">
-      <DependentUpon>frmvalidate.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanCafe_Control\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuanCafe_Control\NewButton.resx">
       <DependentUpon>NewButton.vb</DependentUpon>

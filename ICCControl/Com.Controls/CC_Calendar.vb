@@ -1,5 +1,6 @@
 ﻿Imports System.ComponentModel
 Imports System.Globalization
+Imports System.Windows.Forms.Control
 
 Public Class CC_Calendar
 
@@ -8,7 +9,6 @@ Public Class CC_Calendar
     ''' </summary>
     Protected Overrides Sub OnCreateControl()
         MyBase.OnCreateControl()
-
         Me.Height = 20
         Me.Format = DateTimePickerFormat.Custom
         'Me.CustomFormat = "yyyy/MM/dd"
@@ -384,6 +384,8 @@ DefaultValue(False)>
             If (e.KeyCode = Keys.F4) Then
                 e.Handled = True
             End If
+
+
         Catch ex As Exception
 
         End Try
@@ -413,64 +415,41 @@ DefaultValue(False)>
                 SendKeys.Send("{RIGHT 1}")
             End If
         End If
+
     End Sub
 
 
 
 #End Region
-    ''' <summary>
-    ''' OnValueChanged
-    ''' </summary>
-    ''' <param name="eventargs"></param>
-    Protected Overrides Sub OnValueChanged(eventargs As EventArgs)
 
+
+
+
+
+    Protected Overrides Sub OnValueChanged(eventargs As EventArgs)
         Try
+
+
             setFomat(CheckValueType(Me.getValue))
             MyBase.OnValueChanged(eventargs)
+            tam = ""
+            newvalue = Me.getValue()
         Catch ex As Exception
 
         End Try
     End Sub
 
 
-
-
-    Dim str As String = ""
-    Private isdel As Boolean = False
-    Private so As Integer = 0
+    Private tam As String = ""
+    Private oldvalue As String = ""
+    Private newvalue As String = DateTime.Now.ToString("yyyyMMdd")
     Protected Overrides Sub OnKeyPress(e As KeyPressEventArgs)
         MyBase.OnKeyPress(e)
-        Try
-            Dim b = Me.GetType.GetProperties
-
-            Dim c = Me.GetType.GetFields
-            str = Me.getValue()
-            If Asc(e.KeyChar) = 8 Then
-                str = Me.getValue()
-                Dim y = CInt(str.Substring(0, 4)) \ 10
-                'Me.Value = New DateTime(CInt(CInt(str.Substring(0, 4)) \ 10), CInt(str.Substring(4, 2)), CInt(str.Substring(6, 2)))
-                Me.setValue(y, CInt(str.Substring(4, 2)), CInt(str.Substring(6, 2)))
-
-                'Dim b = Me.GetType.GetProperties
-                'Dim c = Me.GetType.GetFields
-                Dim va = Me.Value
-            End If
-            'If Char.IsDigit(e.KeyChar) Then
-            '    so += 1
-            '    If so Mod 6 = 0 OrElse so Mod 4 = 0 Then
-            '        SendKeys.Send("{right}")
-            '    End If
-            '    If so = 8 Then
-            '        so = 0
-            '    End If
-            'End If
-        Catch ex As Exception
-        End Try
+        If Asc(e.KeyChar) = 8 Then
+            Me.setValue(CInt(newvalue))
+            'Else
+            '    oldvalue = Me.Value
+        End If
     End Sub
-
-
-
-
-
 
 End Class

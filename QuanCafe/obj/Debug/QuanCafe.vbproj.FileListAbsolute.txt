@@ -93,7 +93,6 @@ C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\QuanCafe\obj\Debug\QuanCafe.frmM
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\QuanCafe\obj\Debug\QuanCafe.frmM_IRYOKIKAN.resources
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\QuanCafe\obj\Debug\QuanCafe.frmPOST_KANRI.resources
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\QuanCafe\obj\Debug\QuanCafe.frmSCH_KAIHI_KBN.resources
-C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\QuanCafe\obj\Debug\QuanCafe.frmvalidate.resources
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\QuanCafe\obj\Debug\QuanCafe.Resources.resources
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\QuanCafe\obj\Debug\QuanCafe.NewButton.resources
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\QuanCafe\obj\Debug\QuanCafe.NewTextBox.resources
@@ -103,3 +102,4 @@ C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\QuanCafe\obj\Debug\QuanCafe.vbpr
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\QuanCafe\obj\Debug\QuanCafe.exe
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\QuanCafe\obj\Debug\QuanCafe.xml
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\QuanCafe\obj\Debug\QuanCafe.pdb
+C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\QuanCafe\obj\Debug\QuanCafe.Form1.resources

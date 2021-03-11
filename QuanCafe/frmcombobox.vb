@@ -224,7 +224,7 @@ Public Class frmcombobox
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
         PrintPreviewDialog1.Document = PrintDocument1
         Try
             PageSetupDialog1.Document = PrintDocument1
@@ -238,7 +238,5 @@ Public Class frmcombobox
         End Try
     End Sub
 
-    Private Sub CC_Button1_Click(sender As Object, e As EventArgs) 
 
-    End Sub
 End Class

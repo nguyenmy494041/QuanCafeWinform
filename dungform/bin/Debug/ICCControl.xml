@@ -157,12 +157,6 @@ ICCControl
  </summary>
  <param name="e"></param>
 </member>
-<member name="M:ICCControl.CC_Calendar.OnValueChanged(System.EventArgs)">
- <summary>
- OnValueChanged
- </summary>
- <param name="eventargs"></param>
-</member>
 <member name="T:ICCControl.CC_CalendarJP">
  <summary>
  JP カレンダー

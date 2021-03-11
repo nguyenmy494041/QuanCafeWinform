@@ -24,8 +24,8 @@ Partial Class frmcombobox
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmcombobox))
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.btnPrint = New System.Windows.Forms.Button()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.PrintForm1 = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
@@ -47,15 +47,15 @@ Partial Class frmcombobox
         CType(Me.dtgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Button1
+        'btnPrint
         '
-        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.Button1.Location = New System.Drawing.Point(216, 225)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "print"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnPrint.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnPrint.Location = New System.Drawing.Point(216, 225)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(75, 23)
+        Me.btnPrint.TabIndex = 1
+        Me.btnPrint.Text = "print"
+        Me.btnPrint.UseVisualStyleBackColor = True
         '
         'PrintDocument1
         '
@@ -168,10 +168,10 @@ Partial Class frmcombobox
         '
         'UPD_DATE
         '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.Format = "d"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.UPD_DATE.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.Format = "d"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.UPD_DATE.DefaultCellStyle = DataGridViewCellStyle1
         Me.UPD_DATE.Format = ""
         Me.UPD_DATE.HeaderText = "UPD_DATE"
         Me.UPD_DATE.Name = "UPD_DATE"
@@ -191,7 +191,7 @@ Partial Class frmcombobox
         Me.Controls.Add(Me.btnopoen)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.dtgv)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnPrint)
         Me.Name = "frmcombobox"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmcombobox"
@@ -199,7 +199,7 @@ Partial Class frmcombobox
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnPrint As Button
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
     Friend WithEvents PrintForm1 As PowerPacks.Printing.PrintForm
