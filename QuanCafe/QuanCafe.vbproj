@@ -88,7 +88,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="classVB\Course.vb" />
+    <Compile Include="classVB\SchoolRowNum.vb" />
+    <Compile Include="Course.vb">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
     <Compile Include="DAL\FunctionFrmAdmin.vb" />
     <Compile Include="DAL\MyFunction.vb" />
     <Compile Include="DAL\ViewBill.vb" />
@@ -211,6 +214,36 @@
     <Compile Include="frmSCH_KAIHI_KBN.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="getCourse_Result.vb">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getdatatablescholl_Result.vb">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getinformationByIdstudent_Result.vb">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getinformationstudent_Result.vb">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getRegion_Result.vb">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model2.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -244,6 +277,24 @@
     </Compile>
     <Compile Include="QuanCafe_Control\NewTextBox.vb">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Region.vb">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="School.vb">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="searchSchool_Result.vb">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.vb">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.vb">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.vb">
+      <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -307,6 +358,13 @@
     <None Include="Database\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="Model2.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model2.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model2.edmx.diagram">
+      <DependentUpon>Model2.edmx</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -329,6 +387,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.vb</LastGenOutput>
+    </Content>
+    <Content Include="Model2.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model2.edmx</DependentUpon>
+      <LastGenOutput>Model2.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="Model2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model2.edmx</DependentUpon>
+      <LastGenOutput>Model2.vb</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

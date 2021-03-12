@@ -5,16 +5,24 @@ Public Class frmBAITAP
 
     Function getCourse() As List(Of Course)
         Dim listresult = New List(Of Course)
-        conec.Open()
-        Dim cmd As SqlCommand = New SqlCommand("getCourse", conec)
-        cmd.CommandType = CommandType.StoredProcedure
-        cmd.ExecuteNonQuery()
+        Dim Sql = $"EXEC getCourse"
+        Dim result = New NCVEntities().Database.SqlQuery(Of Course)(Sql).ToList()
+        Return result
+    End Function
 
-        conec.Close()
-        Return listresult
+    Function getinfor(ByVal id As Int32) As SchoolRowNum
+        Dim sql = $"EXEC getinformationstudent @rownum = '{id}'"
+        Dim result = New NCVEntities().Database.SqlQuery(Of SchoolRowNum)(sql).FirstOrDefault()
+        Return result
     End Function
 
     Private Sub frmBAITAP_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim list = getCourse()
+        'Dim list = getCourse()
+        Dim b = 3
+        Dim result = getinfor(18)
+        txbcoursecode.Text = result.CourseCode
+        txbcoursename.Text = result.CourseName
+        cbxRegion.Text = result.RegionName
+
     End Sub
 End Class

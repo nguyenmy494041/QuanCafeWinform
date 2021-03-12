@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NCVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="IdCourse" />
+    </Key>
+    <Property Name="IdCourse" Type="Int32" Nullable="false" />
+    <Property Name="CourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CourseCode" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="IdRegion" />
+    </Key>
+    <Property Name="IdRegion" Type="Int32" Nullable="false" />
+    <Property Name="RegionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RegionCode" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="School">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="SchoolName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SchoolCode" Type="Int32" Nullable="false" />
+    <Property Name="RegionCode" Type="Int32" Nullable="false" />
+    <Property Name="CourseCode" Type="Int32" Nullable="false" />
+    <Property Name="AdultSpecial" Type="Int32" Nullable="false" />
+    <Property Name="ReturneeStudent" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="NCVEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Course" EntityType="Self.Course" />
+    <EntitySet Name="Region" EntityType="Self.Region" />
+    <EntitySet Name="School" EntityType="Self.School" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <FunctionImport Name="getCourse" ReturnType="Collection(NCVModel.getCourse_Result)" />
+    <FunctionImport Name="getdatatablescholl" ReturnType="Collection(NCVModel.getdatatablescholl_Result)" />
+    <FunctionImport Name="getinformationByIdstudent" ReturnType="Collection(NCVModel.getinformationByIdstudent_Result)">
+      <Parameter Name="idstudent" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getinformationstudent" ReturnType="Collection(NCVModel.getinformationstudent_Result)">
+      <Parameter Name="rownuum" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getRegion" ReturnType="Collection(NCVModel.getRegion_Result)" />
+    <FunctionImport Name="searchSchool" ReturnType="Collection(NCVModel.searchSchool_Result)">
+      <Parameter Name="schoolcode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(NCVModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(NCVModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="getCourse_Result">
+    <Property Type="Int32" Name="IdCourse" Nullable="false" />
+    <Property Type="String" Name="CourseName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="CourseCode" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="getdatatablescholl_Result">
+    <Property Type="Int64" Name="RowNum" Nullable="true" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="SchoolName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="SchoolCode" Nullable="false" />
+    <Property Type="String" Name="RegionName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="RegionCode" Nullable="false" />
+    <Property Type="String" Name="CourseName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="CourseCode" Nullable="false" />
+    <Property Type="Int32" Name="AdultSpecial" Nullable="false" />
+    <Property Type="Int32" Name="ReturneeStudent" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="getinformationByIdstudent_Result">
+    <Property Type="Int64" Name="RowNum" Nullable="true" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="SchoolName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="SchoolCode" Nullable="false" />
+    <Property Type="String" Name="RegionName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="RegionCode" Nullable="false" />
+    <Property Type="String" Name="CourseName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="CourseCode" Nullable="false" />
+    <Property Type="Int32" Name="AdultSpecial" Nullable="false" />
+    <Property Type="Int32" Name="ReturneeStudent" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="getinformationstudent_Result">
+    <Property Type="Int64" Name="RowNum" Nullable="true" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="SchoolName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="SchoolCode" Nullable="false" />
+    <Property Type="String" Name="RegionName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="RegionCode" Nullable="false" />
+    <Property Type="String" Name="CourseName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="CourseCode" Nullable="false" />
+    <Property Type="Int32" Name="AdultSpecial" Nullable="false" />
+    <Property Type="Int32" Name="ReturneeStudent" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="getRegion_Result">
+    <Property Type="Int32" Name="IdRegion" Nullable="false" />
+    <Property Type="String" Name="RegionName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="RegionCode" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="searchSchool_Result">
+    <Property Type="Int64" Name="RowNum" Nullable="true" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="SchoolName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="SchoolCode" Nullable="false" />
+    <Property Type="String" Name="RegionName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="RegionCode" Nullable="false" />
+    <Property Type="String" Name="CourseName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="CourseCode" Nullable="false" />
+    <Property Type="Int32" Name="AdultSpecial" Nullable="false" />
+    <Property Type="Int32" Name="ReturneeStudent" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>
