@@ -22,41 +22,51 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.dtpk = New System.Windows.Forms.DateTimePicker()
-        Me.CCdtpk = New ICCControl.CC_Calendar()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
-        'dtpk
+        'Button1
         '
-        Me.dtpk.CustomFormat = "ddd  dd/MM/yyyy"
-        Me.dtpk.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpk.Location = New System.Drawing.Point(36, 48)
-        Me.dtpk.Name = "dtpk"
-        Me.dtpk.Size = New System.Drawing.Size(200, 20)
-        Me.dtpk.TabIndex = 0
+        Me.Button1.Location = New System.Drawing.Point(12, 12)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'CCdtpk
+        'OpenFileDialog1
         '
-        Me.CCdtpk.CustomFormat = "ddd   yyyy/MM/dd"
-        Me.CCdtpk.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.CCdtpk.Location = New System.Drawing.Point(36, 94)
-        Me.CCdtpk.Name = "CCdtpk"
-        Me.CCdtpk.Size = New System.Drawing.Size(200, 20)
-        Me.CCdtpk.TabIndex = 1
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox1.Location = New System.Drawing.Point(12, 41)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(1133, 450)
+        Me.TextBox1.TabIndex = 1
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(340, 179)
-        Me.Controls.Add(Me.CCdtpk)
-        Me.Controls.Add(Me.dtpk)
+        Me.ClientSize = New System.Drawing.Size(1157, 503)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.Button1)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents dtpk As DateTimePicker
-    Friend WithEvents CCdtpk As ICCControl.CC_Calendar
+    Friend WithEvents Button1 As Button
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents TextBox1 As TextBox
 End Class

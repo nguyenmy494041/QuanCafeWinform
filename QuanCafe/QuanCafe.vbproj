@@ -88,6 +88,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classVB\Course.vb" />
     <Compile Include="DAL\FunctionFrmAdmin.vb" />
     <Compile Include="DAL\MyFunction.vb" />
     <Compile Include="DAL\ViewBill.vb" />
@@ -143,6 +144,12 @@
       <DependentUpon>frmAdmin.vb</DependentUpon>
     </Compile>
     <Compile Include="frmAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBAITAP.Designer.vb">
+      <DependentUpon>frmBAITAP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBAITAP.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmChangePassword.Designer.vb">
@@ -242,6 +249,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmAdmin.resx">
       <DependentUpon>frmAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBAITAP.resx">
+      <DependentUpon>frmBAITAP.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChangePassword.resx">
       <DependentUpon>frmChangePassword.vb</DependentUpon>
