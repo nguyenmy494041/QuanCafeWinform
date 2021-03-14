@@ -104,3 +104,39 @@ C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\QuanCafe\obj\Debug\QuanCafe.exe
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\QuanCafe\obj\Debug\QuanCafe.xml
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\QuanCafe\obj\Debug\QuanCafe.pdb
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\QuanCafe\obj\Debug\QuanCafe.frmBAITAP.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\bin\Debug\QuanCafe.exe.config
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\bin\Debug\QuanCafe.exe
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\bin\Debug\QuanCafe.pdb
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\bin\Debug\QuanCafe.xml
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\bin\Debug\EntityFramework.dll
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\bin\Debug\Guna.UI2.dll
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\bin\Debug\ICCControl.dll
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\bin\Debug\ICCControl.pdb
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\bin\Debug\ICCControl.xml
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\bin\Debug\EntityFramework.xml
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.vbprojAssemblyReference.cache
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.frmAdmin.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.frmBAITAP.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.frmChangePassword.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.frmCOMBO00200.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.frmcombobox.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.frmDangnhap.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.frmKAIHI.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.frmlamnhap.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.frmManagement.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.frmM_IRYOKIKAN.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.frmPOST_KANRI.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.frmSCH_KAIHI_KBN.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.Resources.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.Form1.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.NewButton.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.NewTextBox.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.vbproj.GenerateResource.cache
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.vbproj.CoreCompileInputs.cache
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.vbproj.CopyComplete
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.exe
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.xml
+C:\Users\nguye\Desktop\New folder\Quancafe\QuanCafe\obj\Debug\QuanCafe.pdb

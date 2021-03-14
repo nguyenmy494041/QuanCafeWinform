@@ -24,12 +24,15 @@ Partial Class frmBAITAP
     Private Sub InitializeComponent()
         Me.pnlbody = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txbrow = New System.Windows.Forms.TextBox()
+        Me.txbId = New System.Windows.Forms.TextBox()
+        Me.btnNewrecord = New System.Windows.Forms.Button()
         Me.btnsearch = New System.Windows.Forms.TextBox()
         Me.lblnofilter = New System.Windows.Forms.Label()
         Me.txbrecord = New System.Windows.Forms.TextBox()
         Me.btnprevious = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnnextrecord = New System.Windows.Forms.Button()
+        Me.btnlastrecord = New System.Windows.Forms.Button()
         Me.btnfirstrecord = New System.Windows.Forms.Button()
         Me.lblrecord = New System.Windows.Forms.Label()
         Me.btndeleterecord = New System.Windows.Forms.Button()
@@ -77,28 +80,56 @@ Partial Class frmBAITAP
         Me.pnlbody.Controls.Add(Me.CC_Label1)
         Me.pnlbody.Location = New System.Drawing.Point(2, 6)
         Me.pnlbody.Name = "pnlbody"
-        Me.pnlbody.Size = New System.Drawing.Size(696, 380)
+        Me.pnlbody.Size = New System.Drawing.Size(653, 357)
         Me.pnlbody.TabIndex = 0
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.txbrow)
+        Me.Panel1.Controls.Add(Me.txbId)
+        Me.Panel1.Controls.Add(Me.btnNewrecord)
         Me.Panel1.Controls.Add(Me.btnsearch)
         Me.Panel1.Controls.Add(Me.lblnofilter)
         Me.Panel1.Controls.Add(Me.txbrecord)
         Me.Panel1.Controls.Add(Me.btnprevious)
-        Me.Panel1.Controls.Add(Me.Button3)
-        Me.Panel1.Controls.Add(Me.Button2)
+        Me.Panel1.Controls.Add(Me.btnnextrecord)
+        Me.Panel1.Controls.Add(Me.btnlastrecord)
         Me.Panel1.Controls.Add(Me.btnfirstrecord)
         Me.Panel1.Controls.Add(Me.lblrecord)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 353)
+        Me.Panel1.Location = New System.Drawing.Point(0, 330)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(696, 27)
+        Me.Panel1.Size = New System.Drawing.Size(653, 27)
         Me.Panel1.TabIndex = 5
+        '
+        'txbrow
+        '
+        Me.txbrow.Location = New System.Drawing.Point(596, 4)
+        Me.txbrow.Name = "txbrow"
+        Me.txbrow.Size = New System.Drawing.Size(53, 20)
+        Me.txbrow.TabIndex = 10
+        Me.txbrow.Visible = False
+        '
+        'txbId
+        '
+        Me.txbId.Location = New System.Drawing.Point(539, 4)
+        Me.txbId.Name = "txbId"
+        Me.txbId.Size = New System.Drawing.Size(53, 20)
+        Me.txbId.TabIndex = 9
+        Me.txbId.Visible = False
+        '
+        'btnNewrecord
+        '
+        Me.btnNewrecord.Location = New System.Drawing.Point(266, 5)
+        Me.btnNewrecord.Name = "btnNewrecord"
+        Me.btnNewrecord.Size = New System.Drawing.Size(30, 21)
+        Me.btnNewrecord.TabIndex = 8
+        Me.btnNewrecord.Text = ">*I"
+        Me.btnNewrecord.UseVisualStyleBackColor = True
         '
         'btnsearch
         '
-        Me.btnsearch.Location = New System.Drawing.Point(346, 6)
+        Me.btnsearch.Location = New System.Drawing.Point(386, 5)
         Me.btnsearch.Name = "btnsearch"
         Me.btnsearch.Size = New System.Drawing.Size(70, 20)
         Me.btnsearch.TabIndex = 7
@@ -107,7 +138,7 @@ Partial Class frmBAITAP
         'lblnofilter
         '
         Me.lblnofilter.AutoSize = True
-        Me.lblnofilter.Location = New System.Drawing.Point(293, 10)
+        Me.lblnofilter.Location = New System.Drawing.Point(333, 9)
         Me.lblnofilter.Name = "lblnofilter"
         Me.lblnofilter.Size = New System.Drawing.Size(46, 13)
         Me.lblnofilter.TabIndex = 6
@@ -129,23 +160,23 @@ Partial Class frmBAITAP
         Me.btnprevious.Text = "<"
         Me.btnprevious.UseVisualStyleBackColor = True
         '
-        'Button3
+        'btnnextrecord
         '
-        Me.Button3.Location = New System.Drawing.Point(204, 5)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(25, 21)
-        Me.Button3.TabIndex = 3
-        Me.Button3.Text = ">"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnnextrecord.Location = New System.Drawing.Point(204, 5)
+        Me.btnnextrecord.Name = "btnnextrecord"
+        Me.btnnextrecord.Size = New System.Drawing.Size(25, 21)
+        Me.btnnextrecord.TabIndex = 3
+        Me.btnnextrecord.Text = ">"
+        Me.btnnextrecord.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnlastrecord
         '
-        Me.Button2.Location = New System.Drawing.Point(235, 5)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(25, 21)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = ">I"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnlastrecord.Location = New System.Drawing.Point(235, 5)
+        Me.btnlastrecord.Name = "btnlastrecord"
+        Me.btnlastrecord.Size = New System.Drawing.Size(25, 21)
+        Me.btnlastrecord.TabIndex = 2
+        Me.btnlastrecord.Text = ">I"
+        Me.btnlastrecord.UseVisualStyleBackColor = True
         '
         'btnfirstrecord
         '
@@ -159,7 +190,7 @@ Partial Class frmBAITAP
         'lblrecord
         '
         Me.lblrecord.AutoSize = True
-        Me.lblrecord.Location = New System.Drawing.Point(7, 10)
+        Me.lblrecord.Location = New System.Drawing.Point(7, 9)
         Me.lblrecord.Name = "lblrecord"
         Me.lblrecord.Size = New System.Drawing.Size(42, 13)
         Me.lblrecord.TabIndex = 0
@@ -167,7 +198,7 @@ Partial Class frmBAITAP
         '
         'btndeleterecord
         '
-        Me.btndeleterecord.Location = New System.Drawing.Point(13, 308)
+        Me.btndeleterecord.Location = New System.Drawing.Point(20, 282)
         Me.btndeleterecord.Name = "btndeleterecord"
         Me.btndeleterecord.Size = New System.Drawing.Size(110, 30)
         Me.btndeleterecord.TabIndex = 4
@@ -186,36 +217,39 @@ Partial Class frmBAITAP
         Me.pnlschool.Controls.Add(Me.lblReturneeStudent)
         Me.pnlschool.Controls.Add(Me.lblAdultSpecial)
         Me.pnlschool.Controls.Add(Me.lblschoolname)
-        Me.pnlschool.Location = New System.Drawing.Point(3, 192)
+        Me.pnlschool.Location = New System.Drawing.Point(3, 165)
         Me.pnlschool.Name = "pnlschool"
-        Me.pnlschool.Size = New System.Drawing.Size(690, 100)
+        Me.pnlschool.Size = New System.Drawing.Size(647, 100)
         Me.pnlschool.TabIndex = 3
         '
         'txbReturneeStudent
         '
-        Me.txbReturneeStudent.Location = New System.Drawing.Point(435, 78)
+        Me.txbReturneeStudent.Location = New System.Drawing.Point(381, 78)
         Me.txbReturneeStudent.Name = "txbReturneeStudent"
-        Me.txbReturneeStudent.Size = New System.Drawing.Size(80, 20)
+        Me.txbReturneeStudent.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.txbReturneeStudent.Size = New System.Drawing.Size(60, 20)
         Me.txbReturneeStudent.TabIndex = 7
         '
         'txbAdultSpecial
         '
-        Me.txbAdultSpecial.Location = New System.Drawing.Point(435, 53)
+        Me.txbAdultSpecial.Location = New System.Drawing.Point(381, 53)
         Me.txbAdultSpecial.Name = "txbAdultSpecial"
-        Me.txbAdultSpecial.Size = New System.Drawing.Size(80, 20)
+        Me.txbAdultSpecial.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.txbAdultSpecial.Size = New System.Drawing.Size(60, 20)
         Me.txbAdultSpecial.TabIndex = 6
         '
         'txbschoolname
         '
-        Me.txbschoolname.Location = New System.Drawing.Point(191, 3)
+        Me.txbschoolname.Location = New System.Drawing.Point(195, 3)
         Me.txbschoolname.Name = "txbschoolname"
-        Me.txbschoolname.Size = New System.Drawing.Size(324, 20)
+        Me.txbschoolname.Size = New System.Drawing.Size(246, 20)
         Me.txbschoolname.TabIndex = 5
         '
         'txbschoolcode
         '
-        Me.txbschoolcode.Location = New System.Drawing.Point(192, 28)
+        Me.txbschoolcode.Location = New System.Drawing.Point(195, 28)
         Me.txbschoolcode.Name = "txbschoolcode"
+        Me.txbschoolcode.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.txbschoolcode.Size = New System.Drawing.Size(148, 20)
         Me.txbschoolcode.TabIndex = 4
         '
@@ -268,22 +302,22 @@ Partial Class frmBAITAP
         Me.pnlcourseregion.Controls.Add(Me.txbcoursename)
         Me.pnlcourseregion.Controls.Add(Me.lblcoursename)
         Me.pnlcourseregion.Enabled = False
-        Me.pnlcourseregion.Location = New System.Drawing.Point(3, 142)
+        Me.pnlcourseregion.Location = New System.Drawing.Point(3, 120)
         Me.pnlcourseregion.Name = "pnlcourseregion"
-        Me.pnlcourseregion.Size = New System.Drawing.Size(690, 44)
+        Me.pnlcourseregion.Size = New System.Drawing.Size(647, 44)
         Me.pnlcourseregion.TabIndex = 2
         '
         'txbcoursecode
         '
-        Me.txbcoursecode.Location = New System.Drawing.Point(226, 22)
+        Me.txbcoursecode.Location = New System.Drawing.Point(195, 22)
         Me.txbcoursecode.Name = "txbcoursecode"
-        Me.txbcoursecode.Size = New System.Drawing.Size(80, 20)
+        Me.txbcoursecode.Size = New System.Drawing.Size(60, 20)
         Me.txbcoursecode.TabIndex = 7
         '
         'lblcoursecode
         '
         Me.lblcoursecode.AutoSize = True
-        Me.lblcoursecode.Location = New System.Drawing.Point(223, 6)
+        Me.lblcoursecode.Location = New System.Drawing.Point(192, 6)
         Me.lblcoursecode.Name = "lblcoursecode"
         Me.lblcoursecode.Size = New System.Drawing.Size(61, 13)
         Me.lblcoursecode.TabIndex = 6
@@ -291,15 +325,15 @@ Partial Class frmBAITAP
         '
         'txbregioncode
         '
-        Me.txbregioncode.Location = New System.Drawing.Point(570, 22)
+        Me.txbregioncode.Location = New System.Drawing.Point(484, 22)
         Me.txbregioncode.Name = "txbregioncode"
-        Me.txbregioncode.Size = New System.Drawing.Size(80, 20)
+        Me.txbregioncode.Size = New System.Drawing.Size(60, 20)
         Me.txbregioncode.TabIndex = 5
         '
         'lblregioncode
         '
         Me.lblregioncode.AutoSize = True
-        Me.lblregioncode.Location = New System.Drawing.Point(561, 6)
+        Me.lblregioncode.Location = New System.Drawing.Point(475, 6)
         Me.lblregioncode.Name = "lblregioncode"
         Me.lblregioncode.Size = New System.Drawing.Size(61, 13)
         Me.lblregioncode.TabIndex = 4
@@ -307,15 +341,15 @@ Partial Class frmBAITAP
         '
         'txbregionname
         '
-        Me.txbregionname.Location = New System.Drawing.Point(355, 22)
+        Me.txbregionname.Location = New System.Drawing.Point(304, 22)
         Me.txbregionname.Name = "txbregionname"
-        Me.txbregionname.Size = New System.Drawing.Size(160, 20)
+        Me.txbregionname.Size = New System.Drawing.Size(137, 20)
         Me.txbregionname.TabIndex = 3
         '
         'lblregionname
         '
         Me.lblregionname.AutoSize = True
-        Me.lblregionname.Location = New System.Drawing.Point(350, 6)
+        Me.lblregionname.Location = New System.Drawing.Point(299, 6)
         Me.lblregionname.Name = "lblregionname"
         Me.lblregionname.Size = New System.Drawing.Size(46, 13)
         Me.lblregionname.TabIndex = 2
@@ -325,7 +359,7 @@ Partial Class frmBAITAP
         '
         Me.txbcoursename.Location = New System.Drawing.Point(15, 22)
         Me.txbcoursename.Name = "txbcoursename"
-        Me.txbcoursename.Size = New System.Drawing.Size(160, 20)
+        Me.txbcoursename.Size = New System.Drawing.Size(140, 20)
         Me.txbcoursename.TabIndex = 1
         '
         'lblcoursename
@@ -347,29 +381,30 @@ Partial Class frmBAITAP
         Me.pnlheader.Controls.Add(Me.lblListCourse)
         Me.pnlheader.Location = New System.Drawing.Point(3, 42)
         Me.pnlheader.Name = "pnlheader"
-        Me.pnlheader.Size = New System.Drawing.Size(690, 100)
+        Me.pnlheader.Size = New System.Drawing.Size(647, 75)
         Me.pnlheader.TabIndex = 1
         '
         'libCourse
         '
         Me.libCourse.FormattingEnabled = True
-        Me.libCourse.Location = New System.Drawing.Point(180, 3)
+        Me.libCourse.Location = New System.Drawing.Point(182, 3)
         Me.libCourse.Name = "libCourse"
-        Me.libCourse.Size = New System.Drawing.Size(111, 95)
+        Me.libCourse.Size = New System.Drawing.Size(95, 69)
         Me.libCourse.TabIndex = 3
         '
         'cbxRegion
         '
         Me.cbxRegion.FormattingEnabled = True
-        Me.cbxRegion.Location = New System.Drawing.Point(486, 1)
+        Me.cbxRegion.Location = New System.Drawing.Point(465, 1)
         Me.cbxRegion.Name = "cbxRegion"
-        Me.cbxRegion.Size = New System.Drawing.Size(164, 21)
+        Me.cbxRegion.Size = New System.Drawing.Size(143, 21)
         Me.cbxRegion.TabIndex = 2
+        Me.cbxRegion.TabStop = False
         '
         'lblListRegion
         '
         Me.lblListRegion.AutoSize = True
-        Me.lblListRegion.Location = New System.Drawing.Point(328, 6)
+        Me.lblListRegion.Location = New System.Drawing.Point(307, 6)
         Me.lblListRegion.Name = "lblListRegion"
         Me.lblListRegion.Size = New System.Drawing.Size(142, 13)
         Me.lblListRegion.TabIndex = 1
@@ -378,7 +413,7 @@ Partial Class frmBAITAP
         'lblListCourse
         '
         Me.lblListCourse.AutoSize = True
-        Me.lblListCourse.Location = New System.Drawing.Point(7, 6)
+        Me.lblListCourse.Location = New System.Drawing.Point(14, 6)
         Me.lblListCourse.Name = "lblListCourse"
         Me.lblListCourse.Size = New System.Drawing.Size(163, 13)
         Me.lblListCourse.TabIndex = 0
@@ -401,7 +436,7 @@ Partial Class frmBAITAP
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ClientSize = New System.Drawing.Size(701, 391)
+        Me.ClientSize = New System.Drawing.Size(667, 371)
         Me.Controls.Add(Me.pnlbody)
         Me.MaximizeBox = False
         Me.Name = "frmBAITAP"
@@ -442,8 +477,8 @@ Partial Class frmBAITAP
     Friend WithEvents lblnofilter As Label
     Friend WithEvents txbrecord As TextBox
     Friend WithEvents btnprevious As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnnextrecord As Button
+    Friend WithEvents btnlastrecord As Button
     Friend WithEvents btnfirstrecord As Button
     Friend WithEvents lblrecord As Label
     Friend WithEvents btndeleterecord As Button
@@ -456,4 +491,7 @@ Partial Class frmBAITAP
     Friend WithEvents lblReturneeStudent As Label
     Friend WithEvents lblAdultSpecial As Label
     Friend WithEvents lblschoolname As Label
+    Friend WithEvents btnNewrecord As Button
+    Friend WithEvents txbId As TextBox
+    Friend WithEvents txbrow As TextBox
 End Class

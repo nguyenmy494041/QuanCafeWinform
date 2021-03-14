@@ -1,5 +1,5 @@
 ﻿Public Class SchoolRowNum
-    Public Property RowNum As Integer
+    Public Property RowNum As Long
     Public Property Id As Integer
     Public Property SchoolName As String
 

@@ -88,6 +88,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classVB\Reponse.vb" />
     <Compile Include="classVB\SchoolRowNum.vb" />
     <Compile Include="Course.vb">
       <DependentUpon>Model2.tt</DependentUpon>

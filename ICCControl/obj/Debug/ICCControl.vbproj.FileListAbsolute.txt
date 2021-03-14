@@ -43,3 +43,15 @@ C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\ICCControl\obj\Debug\ICCControl.
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\ICCControl\obj\Debug\ICCControl.dll
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\ICCControl\obj\Debug\ICCControl.xml
 C:\Users\ADMIN\Desktop\QuanCafe\QuanCafeWinform\ICCControl\obj\Debug\ICCControl.pdb
+C:\Users\nguye\Desktop\New folder\Quancafe\ICCControl\bin\Debug\ICCControl.dll
+C:\Users\nguye\Desktop\New folder\Quancafe\ICCControl\bin\Debug\ICCControl.pdb
+C:\Users\nguye\Desktop\New folder\Quancafe\ICCControl\bin\Debug\ICCControl.xml
+C:\Users\nguye\Desktop\New folder\Quancafe\ICCControl\obj\Debug\ICCControl.vbprojAssemblyReference.cache
+C:\Users\nguye\Desktop\New folder\Quancafe\ICCControl\obj\Debug\ICCControl.CC_CalendarJP.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\ICCControl\obj\Debug\ICCControl.lich.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\ICCControl\obj\Debug\ICCControl.Resources.resources
+C:\Users\nguye\Desktop\New folder\Quancafe\ICCControl\obj\Debug\ICCControl.vbproj.GenerateResource.cache
+C:\Users\nguye\Desktop\New folder\Quancafe\ICCControl\obj\Debug\ICCControl.vbproj.CoreCompileInputs.cache
+C:\Users\nguye\Desktop\New folder\Quancafe\ICCControl\obj\Debug\ICCControl.dll
+C:\Users\nguye\Desktop\New folder\Quancafe\ICCControl\obj\Debug\ICCControl.xml
+C:\Users\nguye\Desktop\New folder\Quancafe\ICCControl\obj\Debug\ICCControl.pdb
