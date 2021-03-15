@@ -288,6 +288,10 @@ Public Class frmBAITAP
         Clear()
     End Sub
 
+    Private Sub btnsearch_TextChanged(sender As Object, e As EventArgs) Handles btnsearch.TextChanged
+        Dim search = btnsearch.Text
+    End Sub
+
 
 
 
