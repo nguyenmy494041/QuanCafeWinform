@@ -172,14 +172,19 @@ Public Class frmBAITAP
     End Sub
 
     Private Sub txbReturneeStudent_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txbReturneeStudent.KeyPress
-        If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) <> 48 AndAlso Asc(e.KeyChar) <> 49 Then
-                e.Handled = True
-            End If
-            If txbReturneeStudent.TextLength >= 1 Then
-                e.Handled = True
+        If Asc(e.KeyChar) = 13 Then
+            SendKeys.Send("{TAB}")
+        Else
+            If Asc(e.KeyChar) <> 8 Then
+                If Asc(e.KeyChar) <> 48 AndAlso Asc(e.KeyChar) <> 49 Then
+                    e.Handled = True
+                End If
+                If txbReturneeStudent.TextLength >= 1 Then
+                    e.Handled = True
+                End If
             End If
         End If
+
     End Sub
 
 
@@ -385,6 +390,11 @@ Public Class frmBAITAP
             txbrecord.Text = rownumber & $" of {count}"
         End If
     End Sub
+
+    Private Sub txbReturneeStudent_Leave(sender As Object, e As EventArgs) Handles txbReturneeStudent.Leave
+        btnnextrecord_Click(Nothing, Nothing)
+    End Sub
+
 
 
 

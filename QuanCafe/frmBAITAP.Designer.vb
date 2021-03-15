@@ -108,6 +108,7 @@ Partial Class frmBAITAP
         Me.txbrow.Name = "txbrow"
         Me.txbrow.Size = New System.Drawing.Size(53, 20)
         Me.txbrow.TabIndex = 10
+        Me.txbrow.TabStop = False
         Me.txbrow.Visible = False
         '
         'txbId
@@ -116,6 +117,7 @@ Partial Class frmBAITAP
         Me.txbId.Name = "txbId"
         Me.txbId.Size = New System.Drawing.Size(53, 20)
         Me.txbId.TabIndex = 9
+        Me.txbId.TabStop = False
         Me.txbId.Visible = False
         '
         'btnNewrecord
@@ -123,7 +125,8 @@ Partial Class frmBAITAP
         Me.btnNewrecord.Location = New System.Drawing.Point(266, 5)
         Me.btnNewrecord.Name = "btnNewrecord"
         Me.btnNewrecord.Size = New System.Drawing.Size(30, 21)
-        Me.btnNewrecord.TabIndex = 8
+        Me.btnNewrecord.TabIndex = 10000
+        Me.btnNewrecord.TabStop = False
         Me.btnNewrecord.Text = ">*I"
         Me.btnNewrecord.UseVisualStyleBackColor = True
         '
@@ -132,7 +135,8 @@ Partial Class frmBAITAP
         Me.btnsearch.Location = New System.Drawing.Point(386, 5)
         Me.btnsearch.Name = "btnsearch"
         Me.btnsearch.Size = New System.Drawing.Size(70, 20)
-        Me.btnsearch.TabIndex = 7
+        Me.btnsearch.TabIndex = 10000
+        Me.btnsearch.TabStop = False
         Me.btnsearch.Text = "Search"
         '
         'lblnofilter
@@ -149,14 +153,16 @@ Partial Class frmBAITAP
         Me.txbrecord.Location = New System.Drawing.Point(118, 6)
         Me.txbrecord.Name = "txbrecord"
         Me.txbrecord.Size = New System.Drawing.Size(80, 20)
-        Me.txbrecord.TabIndex = 5
+        Me.txbrecord.TabIndex = 10000
+        Me.txbrecord.TabStop = False
         '
         'btnprevious
         '
         Me.btnprevious.Location = New System.Drawing.Point(88, 5)
         Me.btnprevious.Name = "btnprevious"
         Me.btnprevious.Size = New System.Drawing.Size(25, 21)
-        Me.btnprevious.TabIndex = 4
+        Me.btnprevious.TabIndex = 10000
+        Me.btnprevious.TabStop = False
         Me.btnprevious.Text = "<"
         Me.btnprevious.UseVisualStyleBackColor = True
         '
@@ -165,7 +171,8 @@ Partial Class frmBAITAP
         Me.btnnextrecord.Location = New System.Drawing.Point(204, 5)
         Me.btnnextrecord.Name = "btnnextrecord"
         Me.btnnextrecord.Size = New System.Drawing.Size(25, 21)
-        Me.btnnextrecord.TabIndex = 3
+        Me.btnnextrecord.TabIndex = 7
+        Me.btnnextrecord.TabStop = False
         Me.btnnextrecord.Text = ">"
         Me.btnnextrecord.UseVisualStyleBackColor = True
         '
@@ -174,7 +181,8 @@ Partial Class frmBAITAP
         Me.btnlastrecord.Location = New System.Drawing.Point(235, 5)
         Me.btnlastrecord.Name = "btnlastrecord"
         Me.btnlastrecord.Size = New System.Drawing.Size(25, 21)
-        Me.btnlastrecord.TabIndex = 2
+        Me.btnlastrecord.TabIndex = 10000
+        Me.btnlastrecord.TabStop = False
         Me.btnlastrecord.Text = ">I"
         Me.btnlastrecord.UseVisualStyleBackColor = True
         '
@@ -183,7 +191,8 @@ Partial Class frmBAITAP
         Me.btnfirstrecord.Location = New System.Drawing.Point(57, 5)
         Me.btnfirstrecord.Name = "btnfirstrecord"
         Me.btnfirstrecord.Size = New System.Drawing.Size(25, 21)
-        Me.btnfirstrecord.TabIndex = 1
+        Me.btnfirstrecord.TabIndex = 10000
+        Me.btnfirstrecord.TabStop = False
         Me.btnfirstrecord.Text = "I<"
         Me.btnfirstrecord.UseVisualStyleBackColor = True
         '
@@ -201,7 +210,8 @@ Partial Class frmBAITAP
         Me.btndeleterecord.Location = New System.Drawing.Point(20, 282)
         Me.btndeleterecord.Name = "btndeleterecord"
         Me.btndeleterecord.Size = New System.Drawing.Size(110, 30)
-        Me.btndeleterecord.TabIndex = 4
+        Me.btndeleterecord.TabIndex = 10000
+        Me.btndeleterecord.TabStop = False
         Me.btndeleterecord.Text = "レコードの削除"
         Me.btndeleterecord.UseVisualStyleBackColor = True
         '
@@ -228,7 +238,7 @@ Partial Class frmBAITAP
         Me.txbReturneeStudent.Name = "txbReturneeStudent"
         Me.txbReturneeStudent.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.txbReturneeStudent.Size = New System.Drawing.Size(60, 20)
-        Me.txbReturneeStudent.TabIndex = 7
+        Me.txbReturneeStudent.TabIndex = 3
         '
         'txbAdultSpecial
         '
@@ -236,14 +246,14 @@ Partial Class frmBAITAP
         Me.txbAdultSpecial.Name = "txbAdultSpecial"
         Me.txbAdultSpecial.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.txbAdultSpecial.Size = New System.Drawing.Size(60, 20)
-        Me.txbAdultSpecial.TabIndex = 6
+        Me.txbAdultSpecial.TabIndex = 2
         '
         'txbschoolname
         '
         Me.txbschoolname.Location = New System.Drawing.Point(195, 3)
         Me.txbschoolname.Name = "txbschoolname"
         Me.txbschoolname.Size = New System.Drawing.Size(246, 20)
-        Me.txbschoolname.TabIndex = 5
+        Me.txbschoolname.TabIndex = 0
         '
         'txbschoolcode
         '
@@ -251,7 +261,7 @@ Partial Class frmBAITAP
         Me.txbschoolcode.Name = "txbschoolcode"
         Me.txbschoolcode.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.txbschoolcode.Size = New System.Drawing.Size(148, 20)
-        Me.txbschoolcode.TabIndex = 4
+        Me.txbschoolcode.TabIndex = 1
         '
         'lblschoolcode
         '
@@ -390,7 +400,7 @@ Partial Class frmBAITAP
         Me.libCourse.Location = New System.Drawing.Point(182, 3)
         Me.libCourse.Name = "libCourse"
         Me.libCourse.Size = New System.Drawing.Size(95, 69)
-        Me.libCourse.TabIndex = 3
+        Me.libCourse.TabIndex = 0
         '
         'cbxRegion
         '
@@ -398,7 +408,7 @@ Partial Class frmBAITAP
         Me.cbxRegion.Location = New System.Drawing.Point(465, 1)
         Me.cbxRegion.Name = "cbxRegion"
         Me.cbxRegion.Size = New System.Drawing.Size(143, 21)
-        Me.cbxRegion.TabIndex = 2
+        Me.cbxRegion.TabIndex = 1
         Me.cbxRegion.TabStop = False
         '
         'lblListRegion
