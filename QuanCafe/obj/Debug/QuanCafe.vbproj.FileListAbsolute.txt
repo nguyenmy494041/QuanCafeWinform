@@ -176,3 +176,4 @@ D:\Quancafe\Quancafe\QuanCafe\obj\Debug\QuanCafe.vbproj.CopyComplete
 D:\Quancafe\Quancafe\QuanCafe\obj\Debug\QuanCafe.exe
 D:\Quancafe\Quancafe\QuanCafe\obj\Debug\QuanCafe.xml
 D:\Quancafe\Quancafe\QuanCafe\obj\Debug\QuanCafe.pdb
+D:\Quancafe\Quancafe\QuanCafe\obj\Debug\QuanCafe.frmBaiTap2.resources

@@ -157,6 +157,12 @@
     <Compile Include="frmBAITAP.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmBaiTap2.Designer.vb">
+      <DependentUpon>frmBaiTap2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBaiTap2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmChangePassword.Designer.vb">
       <DependentUpon>frmChangePassword.vb</DependentUpon>
     </Compile>
@@ -305,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBAITAP.resx">
       <DependentUpon>frmBAITAP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBaiTap2.resx">
+      <DependentUpon>frmBaiTap2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChangePassword.resx">
       <DependentUpon>frmChangePassword.vb</DependentUpon>
