@@ -53,10 +53,26 @@ Public Class frmBAITAP
         End If
     End Function
 
+    Function getnewmodel() As NewModel
+        If checkModelInvalid() Then
+            Dim model = New NewModel()
+            With model
+                .SchoolName = txbschoolname.Text
+                .SchoolCode = CInt(Val(txbschoolcode.Text))
+                .RegionCode = CInt(Val(txbregioncode.Text))
+                .CourseCode = CInt(Val(txbcoursecode.Text))
+                .AdultSpecial = CInt(Val(txbAdultSpecial.Text))
+                .ReturneeStudent = CInt(Val(txbReturneeStudent.Text))
+            End With
+            Return model
+        Else
+            Return Nothing
+        End If
+    End Function
     Function checkModelInvalid() As Boolean
         If txbschoolname.TextLength > 0 AndAlso Val(txbschoolcode.Text) > 9999999 AndAlso Val(txbschoolcode.Text) < 100000000 _
-            AndAlso txbrecord.TextLength > 0 AndAlso txbcoursecode.TextLength > 0 AndAlso Val(txbAdultSpecial.Text) >= 0 _
-            AndAlso Val(txbAdultSpecial.Text) < 2 AndAlso Val(txbReturneeStudent.Text) >= 0 AndAlso Val(txbAdultSpecial.Text) < 2 Then
+        AndAlso txbrecord.TextLength > 0 AndAlso txbcoursecode.TextLength > 0 AndAlso Val(txbAdultSpecial.Text) >= 0 _
+        AndAlso Val(txbAdultSpecial.Text) < 2 AndAlso Val(txbReturneeStudent.Text) >= 0 AndAlso Val(txbAdultSpecial.Text) < 2 Then
             Return True
         Else
             Return False
@@ -64,12 +80,12 @@ Public Class frmBAITAP
     End Function
 
     Function updateSchool(ByVal school As School) As Reponse
-        Dim Sql = $"EXEC UpdateSchool @id ={school.Id},@SchoolName ={school.SchoolName},@SchoolCode={school.SchoolCode},@RegionCode={school.RegionCode},@CourseCode={school.CourseCode},@AdultSpecial={school.AdultSpecial},@ReturneeStudent={school.ReturneeStudent}"
+        Dim Sql = $"EXEC UpdateSchool @id ={school.Id},@SchoolName =N'{school.SchoolName}',@SchoolCode={school.SchoolCode},@RegionCode={school.RegionCode},@CourseCode={school.CourseCode},@AdultSpecial={school.AdultSpecial},@ReturneeStudent={school.ReturneeStudent}"
         Return New NCVEntities().Database.SqlQuery(Of Reponse)(Sql).FirstOrDefault()
     End Function
 
     Function createSchool(ByVal school As School) As Reponse
-        Dim Sql = $"EXEC createSchool @SchoolName ={school.SchoolName},@SchoolCode={school.SchoolCode},@RegionCode={school.RegionCode},@CourseCode={school.CourseCode},@AdultSpecial={school.AdultSpecial},@ReturneeStudent={school.ReturneeStudent}"
+        Dim Sql = $"EXEC createSchool @SchoolName =N'{school.SchoolName}',@SchoolCode={school.SchoolCode},@RegionCode={school.RegionCode},@CourseCode={school.CourseCode},@AdultSpecial={school.AdultSpecial},@ReturneeStudent={school.ReturneeStudent}"
         Return New NCVEntities().Database.SqlQuery(Of Reponse)(Sql).FirstOrDefault()
     End Function
 
@@ -83,6 +99,15 @@ Public Class frmBAITAP
     End Function
     Function getnameRegion(ByVal code As Integer) As String
         Return regions.Where(Function(x) x.RegionCode = code).FirstOrDefault().RegionName
+    End Function
+
+    Function searchSchollByName(ByVal name As String) As SchoolRowNum
+        Dim sql = $"EXEC searchSchoolByName '{name}'"
+        Return New NCVEntities().Database.SqlQuery(Of SchoolRowNum)(sql).FirstOrDefault()
+    End Function
+    Function searchSchollByCode(ByVal code As Integer) As SchoolRowNum
+        Dim sql = $"EXEC searchSchool {code}"
+        Return New NCVEntities().Database.SqlQuery(Of SchoolRowNum)(sql).FirstOrDefault()
     End Function
 
 #End Region
@@ -170,6 +195,18 @@ Public Class frmBAITAP
             lblAdultSpecial.Focus()
         End If
     End Sub
+
+
+    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
+        btnsearch.Clear()
+    End Sub
+
+    Private Sub btnsearch_Leave(sender As Object, e As EventArgs) Handles btnsearch.Leave
+        If btnsearch.Text = "" Then
+            btnsearch.Text = "Search"
+        End If
+    End Sub
+
 #End Region
 
 
@@ -196,6 +233,7 @@ Public Class frmBAITAP
         txbschoolname.Clear()
         txbAdultSpecial.Clear()
         txbReturneeStudent.Clear()
+        txbId.Clear()
     End Sub
     Sub filldata(ByVal model As SchoolRowNum)
         If Not IsNothing(model) Then
@@ -233,22 +271,45 @@ Public Class frmBAITAP
     End Sub
 
     Private Sub btnprevious_Click(sender As Object, e As EventArgs) Handles btnprevious.Click
-        If CInt(txbrecord.Text.Split(" of")(0)) - 1 < count Then
-            rownumber -= 1
+        If CInt(txbrecord.Text.Split(" of")(0)) > count Then
+            btnlastrecord_Click(Nothing, Nothing)
+        Else
+            If rownumber > 1 Then
+                rownumber -= 1
+                txbrecord.Text = rownumber & $" of {count}"
+                filldata(listmodelSchool(rownumber - 1))
+            End If
         End If
-        If rownumber > 1 Then
-            txbrecord.Text = rownumber & $" of {count}"
-            filldata(listmodelSchool(rownumber - 1))
-        End If
+
     End Sub
     Private Sub btnnextrecord_Click(sender As Object, e As EventArgs) Handles btnnextrecord.Click
-        If rownumber <= count - 1 Then
-            rownumber += 1
-            txbrecord.Text = rownumber & $" of {count}"
-            filldata(listmodelSchool(rownumber - 1))
-        Else
+        Dim school As School = getmodel()
+        If CInt(txbrecord.Text.Split(" of")(0)) > count Then
+            If Not IsNothing(school) Then
+                Dim asa = createSchool(school)
+                listmodelSchool = getAllScholl()
+                count = listmodelSchool.Count
+                rownumber = count
+            Else
+                MsgBox("lỗi trog du lieu")
+            End If
             txbrecord.Text = count + 1 & $" of {count + 1}"
             Clear()
+        Else
+            If Not IsNothing(school) Then
+                Dim qq = updateSchool(school)
+                listmodelSchool = getAllScholl()
+                count = listmodelSchool.Count
+                If rownumber = count Then
+                    txbrecord.Text = count + 1 & $" of {count + 1}"
+                    Clear()
+                Else
+                    rownumber += 1
+                    txbrecord.Text = rownumber & $" of {count}"
+                    filldata(listmodelSchool(rownumber - 1))
+                End If
+
+            End If
         End If
     End Sub
 
@@ -290,7 +351,43 @@ Public Class frmBAITAP
 
     Private Sub btnsearch_TextChanged(sender As Object, e As EventArgs) Handles btnsearch.TextChanged
         Dim search = btnsearch.Text
+        Dim result As SchoolRowNum
+        Dim i = InStr(txbschoolcode.Text, search)
+        Dim j = InStr(txbschoolname.Text, search)
+        If IsNumeric(search) Then
+            result = searchSchollByCode(CInt(search))
+            If i > 0 Then
+                txbschoolcode.SelectionStart = i - 1
+                txbschoolcode.SelectionLength = search.Length
+            End If
+        Else
+            result = searchSchollByName(search)
+            If j > 0 Then
+                txbschoolname.SelectionStart = i - 1
+                txbschoolname.SelectionLength = search.Length
+            End If
+        End If
+        If Not IsNothing(result) Then
+            filldata(result)
+            txbrecord.Text = result.RowNum & $" of {count + 1}"
+        End If
     End Sub
+
+    Private Sub btndeleterecord_Click(sender As Object, e As EventArgs) Handles btndeleterecord.Click
+        If txbId.Text <> "" Then
+            deleteSchool(Val(txbId.Text))
+            listmodelSchool = getAllScholl()
+            count = listmodelSchool.Count
+            If rownumber > count Then
+                rownumber = count
+            End If
+            filldata(listmodelSchool(rownumber - 1))
+            txbrecord.Text = rownumber & $" of {count}"
+        End If
+    End Sub
+
+
+
 
 
 
