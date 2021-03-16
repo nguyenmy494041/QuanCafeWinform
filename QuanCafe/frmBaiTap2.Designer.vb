@@ -32,7 +32,6 @@ Partial Class frmBaiTap2
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.dtgv = New ICCControl.CC_DataGridViewMergeHeader()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.txbrow = New System.Windows.Forms.TextBox()
         Me.txbId = New System.Windows.Forms.TextBox()
@@ -45,7 +44,8 @@ Partial Class frmBaiTap2
         Me.btnlastrecord = New System.Windows.Forms.Button()
         Me.btnfirstrecord = New System.Windows.Forms.Button()
         Me.lblrecord = New System.Windows.Forms.Label()
-        Me.Id = New ICCControl.CC_DataGridViewColumnNumber()
+        Me.dtgv = New ICCControl.CC_DataGridViewMergeHeader()
+        Me.SchoolCode = New ICCControl.CC_DataGridViewColumnNumber()
         Me.SchoolName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RegionName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RegionCode = New ICCControl.CC_DataGridViewColumnNumber()
@@ -53,9 +53,11 @@ Partial Class frmBaiTap2
         Me.CourseCode = New ICCControl.CC_DataGridViewColumnNumber()
         Me.AdultSpecial = New ICCControl.CC_DataGridViewColumnNumber()
         Me.ReturneeStudent = New ICCControl.CC_DataGridViewColumnNumber()
+        Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Rownum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
-        CType(Me.dtgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        CType(Me.dtgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -64,30 +66,8 @@ Partial Class frmBaiTap2
         Me.Panel1.Controls.Add(Me.dtgv)
         Me.Panel1.Location = New System.Drawing.Point(5, 4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(880, 445)
+        Me.Panel1.Size = New System.Drawing.Size(891, 445)
         Me.Panel1.TabIndex = 0
-        '
-        'dtgv
-        '
-        Me.dtgv.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("MS Gothic", 9.0!)
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dtgv.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.SchoolName, Me.RegionName, Me.RegionCode, Me.CourseName, Me.CourseCode, Me.AdultSpecial, Me.ReturneeStudent})
-        Me.dtgv.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
-        Me.dtgv.Font = New System.Drawing.Font("MS Gothic", 9.0!)
-        Me.dtgv.ListColMapping = CType(resources.GetObject("dtgv.ListColMapping"), System.Collections.Generic.List(Of System.Collections.Generic.KeyValuePair(Of String, String)))
-        Me.dtgv.Location = New System.Drawing.Point(6, 46)
-        Me.dtgv.MultiSelect = False
-        Me.dtgv.Name = "dtgv"
-        Me.dtgv.Size = New System.Drawing.Size(860, 366)
-        Me.dtgv.TabIndex = 0
         '
         'Panel2
         '
@@ -105,7 +85,7 @@ Partial Class frmBaiTap2
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 418)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(880, 27)
+        Me.Panel2.Size = New System.Drawing.Size(891, 27)
         Me.Panel2.TabIndex = 6
         '
         'txbrow
@@ -211,15 +191,37 @@ Partial Class frmBaiTap2
         Me.lblrecord.TabIndex = 0
         Me.lblrecord.Text = "Record"
         '
-        'Id
+        'dtgv
+        '
+        Me.dtgv.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("MS Gothic", 9.0!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dtgv.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dtgv.ColumnHeadersHeight = 40
+        Me.dtgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SchoolCode, Me.SchoolName, Me.RegionName, Me.RegionCode, Me.CourseName, Me.CourseCode, Me.AdultSpecial, Me.ReturneeStudent, Me.Id, Me.Rownum})
+        Me.dtgv.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
+        Me.dtgv.Font = New System.Drawing.Font("MS Gothic", 9.0!)
+        Me.dtgv.ListColMapping = CType(resources.GetObject("dtgv.ListColMapping"), System.Collections.Generic.List(Of System.Collections.Generic.KeyValuePair(Of String, String)))
+        Me.dtgv.Location = New System.Drawing.Point(10, 8)
+        Me.dtgv.MultiSelect = False
+        Me.dtgv.Name = "dtgv"
+        Me.dtgv.Size = New System.Drawing.Size(872, 404)
+        Me.dtgv.TabIndex = 0
+        '
+        'SchoolCode
         '
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Id.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Id.HeaderText = "学校コード"
-        Me.Id.Name = "Id"
-        Me.Id.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Id.Width = 80
+        Me.SchoolCode.DefaultCellStyle = DataGridViewCellStyle2
+        Me.SchoolCode.HeaderText = "学校コード"
+        Me.SchoolCode.Name = "SchoolCode"
+        Me.SchoolCode.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.SchoolCode.Width = 80
         '
         'SchoolName
         '
@@ -279,18 +281,31 @@ Partial Class frmBaiTap2
         Me.ReturneeStudent.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.ReturneeStudent.Width = 60
         '
+        'Id
+        '
+        Me.Id.HeaderText = "Id"
+        Me.Id.Name = "Id"
+        Me.Id.Visible = False
+        '
+        'Rownum
+        '
+        Me.Rownum.HeaderText = "num"
+        Me.Rownum.Name = "Rownum"
+        Me.Rownum.Visible = False
+        '
         'frmBaiTap2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(897, 453)
+        Me.ClientSize = New System.Drawing.Size(899, 453)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "frmBaiTap2"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmBaiTap2"
         Me.Panel1.ResumeLayout(False)
-        CType(Me.dtgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.dtgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -309,7 +324,7 @@ Partial Class frmBaiTap2
     Friend WithEvents btnlastrecord As Button
     Friend WithEvents btnfirstrecord As Button
     Friend WithEvents lblrecord As Label
-    Friend WithEvents Id As ICCControl.CC_DataGridViewColumnNumber
+    Friend WithEvents SchoolCode As ICCControl.CC_DataGridViewColumnNumber
     Friend WithEvents SchoolName As DataGridViewTextBoxColumn
     Friend WithEvents RegionName As DataGridViewTextBoxColumn
     Friend WithEvents RegionCode As ICCControl.CC_DataGridViewColumnNumber
@@ -317,4 +332,6 @@ Partial Class frmBaiTap2
     Friend WithEvents CourseCode As ICCControl.CC_DataGridViewColumnNumber
     Friend WithEvents AdultSpecial As ICCControl.CC_DataGridViewColumnNumber
     Friend WithEvents ReturneeStudent As ICCControl.CC_DataGridViewColumnNumber
+    Friend WithEvents Id As DataGridViewTextBoxColumn
+    Friend WithEvents Rownum As DataGridViewTextBoxColumn
 End Class
