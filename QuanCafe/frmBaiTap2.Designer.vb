@@ -33,6 +33,7 @@ Partial Class frmBaiTap2
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.txbrow = New System.Windows.Forms.TextBox()
         Me.txbId = New System.Windows.Forms.TextBox()
         Me.btnNewrecord = New System.Windows.Forms.Button()
@@ -45,7 +46,7 @@ Partial Class frmBaiTap2
         Me.btnfirstrecord = New System.Windows.Forms.Button()
         Me.lblrecord = New System.Windows.Forms.Label()
         Me.dtgv = New ICCControl.CC_DataGridViewMergeHeader()
-        Me.SchoolCode = New ICCControl.CC_DataGridViewColumnNumber()
+        Me.SchoolCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SchoolName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RegionName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RegionCode = New ICCControl.CC_DataGridViewColumnNumber()
@@ -71,6 +72,7 @@ Partial Class frmBaiTap2
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.Button1)
         Me.Panel2.Controls.Add(Me.txbrow)
         Me.Panel2.Controls.Add(Me.txbId)
         Me.Panel2.Controls.Add(Me.btnNewrecord)
@@ -87,6 +89,15 @@ Partial Class frmBaiTap2
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(891, 27)
         Me.Panel2.TabIndex = 6
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(808, 5)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 10001
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'txbrow
         '
@@ -202,7 +213,7 @@ Partial Class frmBaiTap2
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dtgv.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.dtgv.ColumnHeadersHeight = 40
+        Me.dtgv.ColumnHeadersHeight = 80
         Me.dtgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SchoolCode, Me.SchoolName, Me.RegionName, Me.RegionCode, Me.CourseName, Me.CourseCode, Me.AdultSpecial, Me.ReturneeStudent, Me.Id, Me.Rownum})
         Me.dtgv.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.dtgv.Font = New System.Drawing.Font("MS Gothic", 9.0!)
@@ -324,7 +335,8 @@ Partial Class frmBaiTap2
     Friend WithEvents btnlastrecord As Button
     Friend WithEvents btnfirstrecord As Button
     Friend WithEvents lblrecord As Label
-    Friend WithEvents SchoolCode As ICCControl.CC_DataGridViewColumnNumber
+    Friend WithEvents Button1 As Button
+    Friend WithEvents SchoolCode As DataGridViewTextBoxColumn
     Friend WithEvents SchoolName As DataGridViewTextBoxColumn
     Friend WithEvents RegionName As DataGridViewTextBoxColumn
     Friend WithEvents RegionCode As ICCControl.CC_DataGridViewColumnNumber

@@ -491,6 +491,9 @@ DefaultValue(False)>
                     End If
                 End If
             End If
+            If keyData = Keys.Delete Then
+                Me.OnUserDeletingRow(Nothing)
+            End If
         Catch ex As Exception
         End Try
         Return MyBase.ProcessDialogKey(keyData)
@@ -885,12 +888,12 @@ DefaultValue(False)>
             If Not IsNothing(CurrentCell) AndAlso Not IsDBNull(CurrentCell.Value) Then
                 'If Not String.IsNullOrEmpty(CurrentCell.Value) Then
                 If ListColumnComboboxInfo.Any(Function(x) x.ColumnCoboboxIndex = CurrentCell.ColumnIndex) Then
-                        Dim colIndex = ListColumnComboboxInfo.FirstOrDefault(Function(x) x.ColumnCoboboxIndex = CurrentCell.ColumnIndex).ColumnGetValueCombobox
-                        Me.SetCellValue(CurrentCell.RowIndex, colIndex, CurrentCell.Value)
-                    ElseIf ListColumnComboboxInfo.Any(Function(x) x.ColumnGetValueCombobox = CurrentCell.ColumnIndex) Then
-                        Dim colIndex = ListColumnComboboxInfo.FirstOrDefault(Function(x) x.ColumnGetValueCombobox = CurrentCell.ColumnIndex).ColumnCoboboxIndex
-                        Me.SetCellValue(CurrentCell.RowIndex, colIndex, CurrentCell.FormattedValue)
-                    End If
+                    Dim colIndex = ListColumnComboboxInfo.FirstOrDefault(Function(x) x.ColumnCoboboxIndex = CurrentCell.ColumnIndex).ColumnGetValueCombobox
+                    Me.SetCellValue(CurrentCell.RowIndex, colIndex, CurrentCell.Value)
+                ElseIf ListColumnComboboxInfo.Any(Function(x) x.ColumnGetValueCombobox = CurrentCell.ColumnIndex) Then
+                    Dim colIndex = ListColumnComboboxInfo.FirstOrDefault(Function(x) x.ColumnGetValueCombobox = CurrentCell.ColumnIndex).ColumnCoboboxIndex
+                    Me.SetCellValue(CurrentCell.RowIndex, colIndex, CurrentCell.FormattedValue)
+                End If
                 'End If
 
                 If ListInfoColumn.Any(Function(x) x.ColIndex = Me.CurrentCell.ColumnIndex And x.IsOnlyHatWidthEng = True) Then
